@@ -1,6 +1,4 @@
-[![](img/datayterritorio_web.jpg)](https://www.flacso.org.ar/formacion-academica/big-data-e-inteligencia-territorial/)
-
-# [Germán Rosati](gefero.github.io)
+# []()
 
 # TP Final (consignas y datos)
 - [Consignas](/tp_final/consignas.pdf)
