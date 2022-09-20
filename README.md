@@ -7,6 +7,7 @@
 ## Docentes
 
 - [Tomás Bustos]()
+- [José Sanchez]()
 - [Tomás Maguire]()
 
 # Presentación
