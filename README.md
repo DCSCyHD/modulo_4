@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="img/logo-factor-data-solo.jpg"/>
+</p>
+
 # Introducción al aprendizaje automático
 
 ## Docentes
