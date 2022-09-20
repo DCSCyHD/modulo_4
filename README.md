@@ -1,7 +1,5 @@
 
----
-title: Introducción al aprendizaje automático
----
+Introducción al aprendizaje automático
 
 # Presentación
 El objetivo de este curso es brindar una primera aproximación a algunos conceptos fundamentales de Machine Learning: hiperparámetros, sesgo-varianza, flujo de trabajo, error de generalización, serán algunos de los conceptos a trabajar.
