@@ -3,7 +3,7 @@
 El objetivo de este curso es brindar una primera aproximación a algunos conceptos fundamentales de Machine Learning: hiperparámetros, sesgo-varianza, flujo de trabajo, error de generalización, serán algunos de los conceptos a trabajar.
 
 
-# Clase 1. 
+# Clase 1 
 
 - [![](img/Download.png)](clase_1.zip)
 
