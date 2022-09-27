@@ -18,6 +18,9 @@ El objetivo de este curso es brindar una primera aproximación a algunos concept
 
 - [![](img/Download.png)](clase_1.zip)
 
+# Clase 2 
+
+- [![](img/Download.png)](clase_2_new.zip)
 
 # Librerías a utilizar
 El taller se desarrollará en R y se hará un uso extensivo de las siguientes librerías:
