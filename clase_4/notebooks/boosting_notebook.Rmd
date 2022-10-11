@@ -1,0 +1,206 @@
+---
+title: "Ensamble Learning - Bagging, Random Forest y AdaBoost"
+author: "Diplomatura en Ciencias Sociales Computacionales y Humanidades Digitales"
+output: html_notebook
+---
+
+## Objetivos
+
+- Mostrar la implementación en `caret` de diferentes algoritmos de Ensamble Learning para problemas de clasificación
+- Mostrar los problemas de los datasets desbalanceados y algunos métodos posibles para lidiar con el problema
+
+## Carga de librerías y datos
+```{r, message=FALSE}
+library(caret)
+library(tidyverse)
+library(rpart)
+```
+
+Luego, cargamos los datos y formateamos un poco algunas etiquetas:
+```{r}
+load('../data/EPH_2015_II.RData')
+
+data$pp03i<-factor(data$pp03i, labels=c('1-SI', '2-No', '9-NS'))
+
+
+
+data$intensi<-factor(data$intensi, labels=c('1-Sub_dem', '2-SO_no_dem', 
+                                            '3-Ocup.pleno', '4-Sobreoc',
+                                            '5-No trabajo', '9-NS'))
+
+data$pp07a<-factor(data$pp07a, labels=c('0-NC',
+                                        '1-Menos de un mes',
+                                        '2-1 a 3 meses',
+                                        '3-3 a 6 meses',
+                                        '4-6 a 12 meses',
+                                        '5-12 a 60 meses',
+                                        '6-Más de 60 meses',
+                                        '9-NS'))
+
+
+
+data <- data %>%
+        mutate(imp_inglab1=factor(imp_inglab1, labels=c('non_miss','miss')))
+```
+
+Ahora, nuestra variable a predecir es el indicador `imp_inglab`. Por ende, eliminamos la $p21$.
+```{r}
+df_train <- data %>%
+        select(-p21)
+```
+
+Lo primero que vamos a hacer es crear una partición de datos:
+```{r}
+set.seed(1234)
+tr_index <- createDataPartition(y=df_train$imp_inglab1,
+                                p=0.8,
+                                list=FALSE)
+```
+
+Y generamos dos datasets:
+```{r}
+train <- df_train[tr_index,]
+test <- df_train[-tr_index,]
+```
+
+## Random Forest
+La idea ahora es poder entrenar un modelo random forest. Pero... lo van a hacer ustedes. Para ello, deberán consultar [la documentación de caret](http://topepo.github.io/caret/available-models.html) y buscar cuál es la mejor función para entrenar el modelo y sus hiperparámetros.
+
+Pista: buscar el método `ranger`.
+
+Usaremos la partición original entre Train-Test. Recordemos los pasos a seguir
+
+1. Generar el esquema de validación cruzada
+2. Generar el grid de hiperparámetros
+3. Tunear el modelo
+4. Seleccionar y estimar el modelo final
+5. Validar y evaluar contra test-set
+
+```{r}
+set.seed(5699)
+cv_index_rf <- createFolds(y=train$imp_inglab1,
+                        k=5,
+                        list=TRUE,
+                        returnTrain=TRUE)
+
+fitControlrf <- trainControl(
+        index=cv_index_rf,
+        method="cv",
+        number=5,
+        summaryFunction = twoClassSummary,
+        classProbs=TRUE,
+        allowParallel = FALSE
+        )
+
+
+
+```
+
+
+## AdaBoost
+
+Vamos a cargar el modelo original de random forest para poder extraer las semillas que se usaron en el y poder tener las mismas particiones.
+
+```{r}
+rf_fit_orig <- readRDS('../models/rf_fit_orig.RDS')
+```
+
+Por último, vamos a entrenar un modelo de Adaboost.
+
+```{r}
+fitControlrf$seeds <- rf_fit_orig$control$seeds
+#grid_ada <- expand.grid(mfinal=c(100,150), maxdepth=c(10,20), coeflearn='Breiman')
+grid_ada <- expand.grid(nIter=c(100,150), method='Adaboost.M1')
+```
+
+```{r include=TRUE}
+t0 <- proc.time()
+adaboost_fit_orig <-  train(imp_inglab1 ~ . , 
+                 data = train, 
+                 method = "adaboost", 
+                 trControl = fitControlrf,
+                 tuneGrid = grid_ada,
+                 metric='ROC'
+)
+proc.time() -  t0
+
+
+#saveRDS(adaboost_fit_orig, '../models/adaboost_fit_orig.RDS')
+
+```
+
+```{r, include=FALSE}
+adaboost_fit_orig <- readRDS('../models/adaboost_fit_orig.RDS')
+```
+
+```{r}
+adaboost_fit_orig
+```
+
+## Comparando los modelos generados
+Vamos, para cerrar esta parte, a comparar los diferentes modelos generados entre la clase pasada y hoy. Para ello, vamos a cargar archivos persistidos. Dado que, como habrán visto en las prácticas, los modelos de ensamble pueden tardar bastante en entrenarse, suele ser útil entrenarlos una vez y luego "persistirlos" en el disco rígido para reutilizarlos.
+
+Esto puede hacerse con el comando `saveRDS()`. En el caso del modelo de adaboost podríamos persistirlo haciendo:
+
+```
+saveRDS(adaboost_fit_orig, '../models/adaboost_fit_orig.RDS')
+```
+
+En la carpeta `./models` van a ver guardados todos los modelos que entrebamos la clase pasada. Vamos a cargarlos:
+
+```{r}
+rf_fit_orig <- readRDS('../models/rf_fit_orig.RDS')
+rf_fit_wei <- readRDS('../models/rf_fit_wei.RDS')
+rf_fit_up <- readRDS('../models/rf_fit_up.RDS')
+rf_fit_down <- readRDS('../models/rf_fit_down.RDS')
+```
+
+Ah, y entrenemos de nuevo el cart...
+
+```{r}
+cart_final <- train(imp_inglab1 ~ . , 
+                 data = train, 
+                 method = "rpart2", 
+                 tuneGrid = data.frame(maxdepth=6),
+                 control = rpart.control(cp=0.000001)
+)
+```
+
+Y vamos a repetir el proceso de la clase pasada.
+Generamos una función que extrae algunas métricas resumen de las matrices de confusión:
+
+```{r}
+extract_conf_metrics <- function(model, data, obs){
+        preds <- predict(model, data)        
+        c<-confusionMatrix(preds, obs)
+        results <- c(c$overall[1], c$byClass)
+        return(results)
+}
+
+```
+
+
+Volvamos a armar la lista de modelos:
+```{r}
+model_list <- list(cart = cart_final,
+                   rf_original = rf_fit_orig,
+                   rf_weighted = rf_fit_wei,
+                   rf_down = rf_fit_down,
+                   rf_up = rf_fit_up,
+                   adaboost = adaboost_fit_orig
+                   )
+```
+
+Y, finalmente, generemos una tabla que contenga todo:
+
+```{r}
+model_metrics <- model_list %>%
+        map(extract_conf_metrics, data=test, obs = test$imp_inglab1) %>%
+        do.call(rbind,.) %>%
+        as.data.frame() %>%
+        t()
+
+model_metrics
+```
+
+Puede verse que cart, rf_original y adaboost presentan valores similares en accuracy. A su vez, al observar la relación entre precision y recall puede verse que el modelo que mejor balancea los dos es rf_up. Cuál elegir dependerá del objetivo del análisis.
