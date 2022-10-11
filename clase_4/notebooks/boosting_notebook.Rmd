@@ -16,6 +16,8 @@ library(tidyverse)
 library(rpart)
 ```
 
+Antes de empezar, les pedimos que el archivo `adaboost.RDS` descarguen de [aca](https://drive.google.com/file/d/1bLwUliZSJLw8H8KqTlCDwo4THIgSP8Ar/view?usp=sharing) y lo guarden en la carpeta `./models` de esta clase. Esto se debe a que hemos pre-entrenado el modelo de este notebook porque el proceso de estimación tarda demasiado.
+
 Luego, cargamos los datos y formateamos un poco algunas etiquetas:
 ```{r}
 load('../data/EPH_2015_II.RData')
