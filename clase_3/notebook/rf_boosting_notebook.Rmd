@@ -112,7 +112,7 @@ rf_fit_orig <-  train(imp_inglab1 ~ . ,
 )
 proc.time() -  t0
 
-saveRDS(rf_fit_orig, '../models/rf_fit_orig.RDS')
+#saveRDS(rf_fit_orig, '../models/rf_fit_orig.RDS')
 ```
 
 ```{r eval=FALSE, include=FALSE}
@@ -337,14 +337,14 @@ Por último, vamos a entrenar un modelo de Adaboost.
 ```{r}
 fitControlrf$seeds <- rf_fit_orig$control$seeds
 #grid_ada <- expand.grid(mfinal=c(100,150), maxdepth=c(10,20), coeflearn='Breiman')
-grid_ada <- expand.grid(nIter=c(100,150), method='Adaboost.M1')
+grid_ada <- expand.grid(nIter=c(100,150))
 ```
 
 ```{r include=TRUE}
 t0 <- proc.time()
 adaboost_fit_orig <-  train(imp_inglab1 ~ . , 
                  data = train, 
-                 method = "adaboost", 
+                 method = "AdaBoost.M1", 
                  trControl = fitControlrf,
                  tuneGrid = grid_ada,
                  metric='ROC'
@@ -352,7 +352,7 @@ adaboost_fit_orig <-  train(imp_inglab1 ~ . ,
 proc.time() -  t0
 
 
-saveRDS(adaboost_fit_orig, '../models/adaboost_fit_orig.RDS')
+#saveRDS(adaboost_fit_orig, '../models/adaboost_fit_orig.RDS')
 
 ```
 
