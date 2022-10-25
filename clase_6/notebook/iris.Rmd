@@ -1,0 +1,138 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Librerias
+
+```{r}
+library(tidyverse)
+library(caret)
+library(rpart)
+library(GGally)
+library(MLmetrics)
+library(pdp)
+```
+
+# Dataset
+
+```{r}
+data(iris)
+df = iris %>% mutate(Species=factor(Species))
+head(df)
+```
+
+# Exploración
+
+```{r}
+ggpairs(df, aes(colour = Species, alpha = 0.4), progress = FALSE)
+```
+
+# Train/Test split
+
+```{r}
+set.seed(282)
+tr_index <- createDataPartition(y=df$Species,
+                                p=0.8,
+                                list=FALSE)
+
+train <- df[tr_index,]
+test <- df[-tr_index,]
+```
+
+# Random Forest con CV
+
+```{r}
+set.seed(655)
+
+rf_trControl <- trainControl(
+        method="cv",
+        number=5,
+        # summaryFunction y ClassProbs son necesarios para calcular AUC
+        summaryFunction=multiClassSummary, # twoClassSummary par dos clases
+        classProbs=TRUE
+        )
+
+rf_grid <- expand.grid(mtry=1:length(df) - 1,
+                       min.node.size=c(5,10,15,20),
+                       splitrule='gini'
+                       )
+
+t0 <- proc.time()
+rf_fit <-  caret::train(Species ~ . , 
+                 data = train, 
+                 method = "ranger",
+                 metric="AUC",
+                 trControl = rf_trControl,
+                 tuneGrid = rf_grid,
+                 importance='impurity' # Necesario para el feature importance
+                 )
+proc.time() -  t0
+```
+
+```{r}
+rf_fit
+```
+
+# Evaluación
+
+```{r}
+# Probabilidades de cada clase
+probabilities = predict(rf_fit, test,  type="prob")
+
+multiClassSummary(
+        data.frame(
+                obs=test$Species,
+                pred=y_pred,
+                setosa=probabilities[,1],
+                versicolor=probabilities[,2],
+                virginica=probabilities[,3]
+                ),
+        lev = levels(test$Species))
+```
+
+```{r}
+caret::confusionMatrix(test$Species, predict(rf_fit, test), mode="everything")
+```
+
+# Interpretación
+
+```{r}
+ggplot(varImp(rf_fit)) +
+        theme_minimal()
+```
+
+```{r}
+varimp <- function(data, y, model, loss='mse'){
+        bool <- !(names(data) %in% y)
+        X <- data[,bool]
+        predic <- iml::Predictor$new(model, data=X, y=data[y])
+        vi <- iml::FeatureImp$new(predic, loss=loss)
+        return(vi)
+}
+```
+
+```{r}
+ggpubr::ggarrange(
+        plot(varimp(data=train, y='Species', model=rf_fit, loss="ce")),
+        plot(varimp(data=test, y='Species', model=rf_fit, loss="ce"))
+        )
+```
+
+```{r}
+which_class = 1
+ggpubr::ggarrange(
+        partial(rf_fit, pred.var='Petal.Width', which.class=which_class, prob=TRUE,
+                plot=TRUE, ice=TRUE, rug=TRUE,
+                plot.engine = 'ggplot', alpha=0.1) + theme_minimal(),
+        partial(rf_fit, pred.var='Petal.Length', which.class=which_class, prob=TRUE,
+                plot=TRUE, ice=TRUE, rug=TRUE, 
+                plot.engine = 'ggplot', alpha=0.1) + theme_minimal(),
+        partial(rf_fit, pred.var='Sepal.Width', which.class=which_class, prob=TRUE,
+                plot=TRUE, ice=TRUE, rug=TRUE, 
+                plot.engine = 'ggplot', alpha=0.1) + theme_minimal(),
+        partial(rf_fit, pred.var='Sepal.Length', which.class=which_class, prob=TRUE,
+                plot=TRUE, ice=TRUE, rug=TRUE,
+                plot.engine = 'ggplot', alpha=0.1) + theme_minimal()
+)
+```
