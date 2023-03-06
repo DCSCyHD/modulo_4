@@ -106,22 +106,85 @@ tree_rs <- tune_grid(
   imp_inglab1 ~ .,
   resamples = eph_cv,
   grid = tree_grid,
-  metrics = metric_set(accuracy, kap)
+  metrics = metric_set(accuracy, precision,
+                       recall, f_meas)
 )
 
 tree_rs
 
 ```
 
+Podemos ver cómo fue la performance del modelo con cada uno de los parámetros:
+
 ```{r}
 collect_metrics(tree_rs)
 ```
 
-```{r}
-autoplot(tree_rs) + theme_light(base_family = "IBMPlexSans")
-```
+Y también podemos graficarlo de manera sencilla con la función `autoplot`.
 
 ```{r}
-show_best(tree_rs, "accuracy")
-select_best(tree_rs, "accuracy")
+autoplot(tree_rs) 
+```
+
+Parecería que este modelo funciona mejor cuando no tiene tanta profundidad. Podemos ver, y seleccionar, el modelo que mejor funciona de acuerdo a la métrica de evaluación que elijamos usando las funciones `show_best()` y `select_best()`.
+
+```{r}
+show_best(tree_rs, "f_meas")
+select_best(tree_rs, "f_meas")
+```
+
+Estas funciones de arriba nos devolvían un dataset con la evaluación de los modelos según distintos parámetros. Pero a nosotres nos interesa tomar los mejores hiperparámetros del grid y pasarlos como modelo final a tidymodels. Esto lo vamos a hacer con la función `finalize_model()`.
+
+```{r}
+best_model <- select_best(tree_rs, "f_meas")
+final_tree <- finalize_model(tree_spec, best_model)
+
+final_tree
+
+```
+
+Hasta acá seleccionamos el mejor modelo del grid de parámetros para nuestro árbol de decisión con la base que vamos a trabajar. Sin embargo, todavía no está *fiteado*. Hacer el fit de un modelo quiere decir que lo hacemos que aprenda de un set de datos específico, con determinadas variables y cierto output. Es decir, lo hacemos "encajar". En este caso, lo queremos fitear a nuestro set de entrenamiento. Esto lo vamos a hacer con la función `fit()`.
+
+```{r}
+final_fit <- fit(final_tree, imp_inglab1 ~ ., eph_train)
+
+final_fit
+```
+
+Imprimir el modelo fiteado nos devuelve un bloque de texto que nos muestra cómo está construido el árbol. Al estar trabajando con tantas variables, resulta bastante difícil de leer. Podemos ver cuáles son las variables más importantes en este árbol de decisión para predecir si el caso fue imputado o no utilizando el paquete adicional `vip`, que calcula el Variable Importance score de los features de input.
+
+```{r}
+library(vip)
+
+final_fit %>%
+  vip(geom = "col", aesthetics = list(fill = "dodgerblue3", alpha = 0.7)) 
+
+```
+
+Acá podemos ver que las variables más importantes son el aglomerado y la región. También podemos graficar el árbol en un dendograma usando la función `rpart.plot`.
+
+```{r}
+library(rpart.plot)
+rpart.plot(final_fit$fit, type = 0)
+
+```
+
+Hasta acá, tenemos información sobre cómo funciona nuestro modelo y su performance en el set de entrenamiento. Sin embargo, lo que nos interesa es ver cómo funciona sobre un grupo de observaciones en las cuales no fue entrenado. Queremos hacer la prueba de cómo funcionaría con datos "reales", y por eso tenemos que evaluar las métricas del modelo en el test set.
+
+Para eso, vamos a usar la función `predict()` sobre `eph_set`, lo agregamos como columna y vamos a evaluar sus métricas.
+
+```{r}
+eph_test <- final_fit %>%
+  predict(eph_test) %>%
+  bind_cols(eph_test, .)
+
+eph_test
+```
+
+Para evaluar el modelo usamos distintas funciones del paquete `yardstick` que está en tidymodels. \
+
+```{r}
+class_metrics <- metric_set(accuracy, f_meas, precision, recall)
+class_metrics(eph_test, truth = imp_inglab1, estimate = .pred_class)
+
 ```
