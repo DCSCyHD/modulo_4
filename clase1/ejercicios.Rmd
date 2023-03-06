@@ -1,27 +1,7 @@
 ---
-title: "Clase 1 - Árboles de decisión"
-author: "Diplomatura en Ciencias Sociales Computacionales"
-date: '2023-03-03'
-output: html_document
+title: "R Notebook"
+output: html_notebook
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Árboles de decisión
-
-## El problema
-
-Segumos con nuestro problema central: predecir los ingresos de la ocupación principal (`p21`) en la EPH del segundo trimestre del 2015. Pero en esta oportunidad queremos evaluar si podemos predecir la no respuesta. Es decir, entrenar un modelo que nos permita predecir qué tan probable es que una persona NO responda ingresos.
-
-Ya hemos preprocesado los datos y estamos listos
-
-Lo primero que tenemos que hacer es importar las librerías con las que vamos a trabajar:
-
-```{r message=FALSE, warning=FALSE}
-library(tidymodels)
-```
 
 ```{r}
 load('../2022/clase_2/data/EPH_2015_II.RData')
@@ -157,8 +137,6 @@ final_fit %>%
   vip(geom = "col")
 ```
 
-\
-\
 Podemos ver que las variables más importantes para explicar si un caso está imputado o no son `aglomerado` y `region`.
 
 Ahora bien, el último paso sería probar esto en el set de validación o test set.

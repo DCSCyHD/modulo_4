@@ -117,6 +117,7 @@ tree_spec <- decision_tree(
 
 tree_spec %>% translate()
 ```
+
 Hasta acá el modelo está "vacío", porque simplemente lo instanciamos pero no lo fiteamos. Lo vamos a hacer ahora, introduciéndolo en el workflow.
 
 ```{r}
