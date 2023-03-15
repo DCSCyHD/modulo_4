@@ -19,18 +19,17 @@ relevadas.
 
 Primero, leemos la base:
 
-```{r}
-data <- read_delim("/home/laia/Escritorio/EF/ENUT/fuentes/enut2021_base.txt", delim = "|")
-```
-Luego, seleccionamos las variables de interés:
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
 
-```{r}
-data <- data %>% select(ID,SEXO_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA, REGION,  
+data <- read_delim("../data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
                         NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
-                        BHDC_SEL,  TCS_GRUPO_TRABAJOOCUPACION) %>% 
-  mutate(realiza_domest = case_when(
-    TCS_GRUPO_DOMESTICO > 0 ~ "Realiza",
-    TRUE ~ "No realiza"))
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
  
 data <- data %>% mutate_at(
                    vars(SEXO_SEL), 
@@ -39,15 +38,40 @@ data <- data %>% mutate_at(
                       . == 2 ~ "Varón"
                     )))
                    
-                   
  
- data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+
+data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
                    ~as.factor(case_when(
                      . == 1 ~ "Ocupado",
                      . == 2 ~ "No ocupado"
                    )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
 
-data <- data %>% select(-TCS_GRUPO_DOMESTICO)
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+
+data<- data %>% select(-TCS_GRUPO_DOMESTICO)
 ```
 
 ```{r}
@@ -59,8 +83,12 @@ test <- testing(split)
 ```
 
 ```{r}
-recipe <- recipe(realiza_domest ~ ., data = train) %>%
-  update_role(ID, new_role = "id")
+library(themis)
+
+recipe <- recipe(realiza_domest ~ ., data = train)%>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1)
 ```
 
 ```{r}
@@ -70,23 +98,6 @@ wf <- workflow() %>%
 wf
 ```
 pruebo con arbol tranqui
-
-```{r}
-tree_spec <- decision_tree() %>%
-  set_engine("rpart") %>%
-  set_mode("classification")
-
-tree_spec
-
-decision_tree <- wf %>%
-  add_model(tree_spec) %>%
-  fit(train)
- 
-decision_tree %>%
-  last_fit(split) %>% 
-  collect_metrics()
-```
-
 
 Para RF
 
@@ -113,12 +124,13 @@ model_perfo
 ```
 
 ```{r}
-preds <- tree_rf %>%
-  last_fit(split) %>% 
-  collect_predictions()
+test_val <- tree_rf %>%
+  predict(test) %>%
+  bind_cols(., test)
 
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
 
-preds %>%
-  metrics(realiza_domest, .pred_class)
+class_metrics(test_val, truth = realiza_domest, estimate = .pred_class)
 ```
 

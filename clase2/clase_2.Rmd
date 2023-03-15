@@ -1,0 +1,248 @@
+---
+title: "Ensambles - Clase 1"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      toc_collapsed: false
+    number_sections: false
+    theme: readable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+tree_rs <- readRDS('./models/tree_resamples.RDS')
+final_fit <- readRDS('./models/final_bagging_model.rds')
+
+library(tidyverse)
+library(tidymodels)
+library(baguette)
+library(rpart.plot)
+```
+
+# Ensambles
+
+## El problema
+
+La clase pasada, cerramos viendo que los árboles de decisión presentan algunos pros y varios contras. Si bien son modelos muy interpretables y sencillos de explicar, no tienen mucha potencia en capacidad predictiva. Esto se debe a que:
+
+-   son bastante simples, y pueden tender al overfit.
+
+-   Su enfoque greedy y top to bottom hace que se concentren siempre en buscar óptimos locales, no globales.
+
+Sin embargo, existen formas de **ensamblar** varios árboles para superar estas limitaciones y hacer modelos más potentes. La clase de hoy vamos a ver cómo implementamos un modelo de **bagging** en `tidymodels`.
+
+## Modelado
+
+Estábamos trabajando con los resultados de la ENUT 2021, y buscamos predecir si las personas encuestadas realizan trabajo doméstico o no. Creamos una variable ad-hoc llamada `realiza_domest`, y definimos que si las personas dedican menos de 60 minutos al día en hacer TD, entran en la categoría de "No realiza". Más de eso, entran en la categoría "Realiza".
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+data <- read_delim("../data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varón"
+                    )))
+                   
+ 
+
+data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+
+data<- data %>% select(-TCS_GRUPO_DOMESTICO)
+```
+
+### Partición train/test
+
+Siempre que empezamos el flujo de trabajo de un modelo, lo primero es hacer la partición del dataset de entrenamiento y validación.
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+```
+
+Ahora, refresquemos el modelo de clase previa. Lo podemos importar como RDS.
+
+```{r message=FALSE, warning=FALSE}
+decision_tree_simple <- readRDS('./models/model_decision_tree.RDS')
+
+decision_tree_simple
+```
+
+¿Cómo funcionaba?
+
+```{r}
+test_dt_simple <- decision_tree_simple %>%
+  predict(test) %>%
+  bind_cols(test, .)
+
+class_metrics_dt <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+class_metrics_dt(test_dt_simple, truth = realiza_domest, estimate = .pred_class)
+```
+
+-   Predice correctamente un 70% de los casos.
+
+-   De los casos clasificados como positivos (No realiza), captura correctamente el 53%.
+
+-   Captura un 71% de los casos positivos.
+
+Veamos si podemos mejorar nuestro modelo con bagging.
+
+### Feature engineering
+
+Procesamos las variable haciendo la "receta" del modelo. Con `recipe()` especificamos un set de transformaciones que queremos hacer sobre el modelo. Su principal argumento es la fórmula del modelo, que en nuestro caso es `realiza_domest ~ .`
+
+```{r}
+library(themis)
+
+recipe <- recipe(realiza_domest ~ ., data = train)%>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1)
+```
+
+A continuación, vamos a construir el `workflow()`de trabajo. Repasemos que en un workflow puedo juntar en preprocesamiento, modelado y funciones de post-modelado. Le agrego la receta que hicimos con `add_recipe`.
+
+```{r}
+wf <- workflow() %>%
+  add_recipe(recipe)
+```
+
+### Hiperparámetros
+
+Recordemos que podemos modificar algunos parámetros del modelo que van a modificar su performance. Vamos a poner la opción de tunear los distintos elementos del árbol. Pero además, vamos a definir un número para la cantidad de remuestreos bootstrap que queremos para nuestro modelo.
+
+```{r}
+tree_spec <- bag_tree(
+  #cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+  ) %>%
+  set_engine("rpart", times = 15) %>%
+  set_mode("classification")
+
+tree_spec %>% translate()
+```
+
+Lo agregamos en el workflow.
+
+```{r}
+tree_bag <- wf %>%
+  add_model(tree_spec)
+
+tree_bag
+```
+
+Con la función `grid_regular()` armamos una serie de combinaciones aleatorias posibles para los parámetros del modelo. Le decimos que nos de 4 niveles de valores posibles para cada uno de los parámetros, y que los combine. Con `vfold_cv` hacemos las muestras de cross-validation, y tuneamos con `tune_grid`. En el árbol de decisión simple probamos distintos hiperparámetros, pero hicimos 4 combinaciones de niveles posibles para que no se overfitee el modelo. Como estamos usando bagging, ahora no nos preocupa tanto que el modelo overfitee para cada ábrol, ya que después vamos a promediar nuestras muestras de árboles. Por eso, le vamos a pasar que juegue con parámetros de 10 niveles, haciendo árboles más profundos y complejos.
+
+```{r eval=FALSE, include=TRUE}
+set.seed(1912)
+
+tree_grid <- grid_regular(cost_complexity(), 
+                          tree_depth(), 
+                          min_n(), 
+                          levels = 10)
+
+folds <- vfold_cv(train, v = 3)
+
+tree_rs <- tree_bag %>% 
+  tune_grid(
+  resamples = folds,
+  grid = tree_grid,
+  metrics = metric_set(precision, recall,
+                       accuracy, f_meas))
+
+```
+
+¿Cómo funcionó el modelo?
+
+```{r}
+autoplot(tree_rs)
+```
+
+Seleccionamos el mejor modelo en función de la métrica f1, y finalizamos el pipeline.
+
+```{r eval=FALSE, include=TRUE}
+best_model <- select_best(tree_rs, "f_meas")
+
+final_model <- finalize_model(tree_spec, best_model)
+```
+
+Fiteamos el modelo a nuestra muestra de entrenamiento.
+
+```{r eval=FALSE, include=TRUE}
+final_fit <- wf %>%
+  update_model(final_model) %>%
+  fit(train)
+```
+
+¿Qué variables aparecen en este modelo?
+
+```{r}
+final_fit
+```
+
+¿Cómo fue la performance final del set de validación?
+
+```{r}
+test_val <- final_fit %>%
+  predict(test) %>%
+  bind_cols(., test)
+
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+class_metrics(test_val, truth = realiza_domest, estimate = .pred_class)
+```
+
+-   Captura un 5% de los casos positivos.
+-   Aumenta el f1 en 1 punto porcentual.

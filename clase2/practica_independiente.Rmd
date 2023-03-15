@@ -1,0 +1,21 @@
+---
+title: "Ensambles - Clase 1"
+subtitle: "Práctica  guiada"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      toc_collapsed: false
+    number_sections: false
+    theme: readable
+---
+
+La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un modelo de **bagging** en R con `tidymodels`.
+
+```{r}
+plot(cars)
+```
