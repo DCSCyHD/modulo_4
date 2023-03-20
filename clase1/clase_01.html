@@ -1702,20 +1702,37 @@ tree_spec %&gt;% translate()</code></pre>
 <p>Con la función <code>grid_regular()</code> armamos una serie de
 combinaciones aleatorias posibles para los parámetros del modelo. Le
 decimos que nos de 4 niveles de valores posibles para cada uno de los
-parámetros, y que los combine.</p>
+parámetros, y que los combine. Acá es donde introducimos hiperparámetros
+para la prepoda y post-poda del árbol:</p>
+<ul>
+<li><code>cost_complexity():</code> es un número que recorta los nodos
+del árbol, empezando por aquellos que tengan la mayor pureza.
+Postpoda.</li>
+<li><code>tree_depth():</code> es un número que define la máxima
+cantidad de particiones que puede llegar a tener el modelo.
+Prepoda.</li>
+<li><code>min_n():</code> mínimo número de puntos que debe haber en un
+nodo para que el árbol se siga partiendo hacia abajo. Prepoda.</li>
+</ul>
 <pre class="r"><code>set.seed(1912)
 
 tree_grid &lt;- grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4)
 
-tree_grid%&gt;% 
-  count(tree_depth)</code></pre>
-<pre><code>## # A tibble: 4 × 2
-##   tree_depth     n
-##        &lt;int&gt; &lt;int&gt;
-## 1          1    16
-## 2          5    16
-## 3         10    16
-## 4         15    16</code></pre>
+tree_grid</code></pre>
+<pre><code>## # A tibble: 64 × 3
+##    cost_complexity tree_depth min_n
+##              &lt;dbl&gt;      &lt;int&gt; &lt;int&gt;
+##  1    0.0000000001          1     2
+##  2    0.0000001             1     2
+##  3    0.0001                1     2
+##  4    0.1                   1     2
+##  5    0.0000000001          5     2
+##  6    0.0000001             5     2
+##  7    0.0001                5     2
+##  8    0.1                   5     2
+##  9    0.0000000001         10     2
+## 10    0.0000001            10     2
+## # … with 54 more rows</code></pre>
 <p>Hacemos las muestras de cross-validation…</p>
 <pre class="r"><code>set.seed(111)
 

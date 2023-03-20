@@ -16,6 +16,52 @@ output:
 
 La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un modelo de **bagging** en R con `tidymodels`.
 
+Vamos a trabajar con un [dataset de Kaggle](https://www.kaggle.com/datasets/ahsan81/job-placement-dataset) que toma datos de contratación de personas en empresas y tiene información acerca de , con datos acerca de sus notas en los exámenes de finalización del secundario (SSC y HSC), y especialización. Las variables que contiene son:
+
+-   gender: Sexo de le candidate
+
+-   ssc_percentage: Promedio en examen **Secondary School Certificate** (10th Grade)
+
+-   ssc_board: Junta educativa para los exámenes de SSC
+
+-   hsc_percentage: Promedio en examen **Higher School Certificate** (12th Grade)
+
+-   hsc_borad: Junta educativa para los exámenes de HSC
+
+-   hsc_subject: Área de estudio de exámenes HSC
+
+-   degree_percentage: Promedio en título de grado
+
+-   undergrad_degree: Área del título de grado
+
+-   work_experience: Experiencia laboral previa
+
+-   emp_test_percentage: Promedio en test de aptitudes
+
+-   specialization: Especialización
+
+-   mba_percent: Promedio en especialización
+
+-   status: Contratado en empresa o no (target)
+
+Primero, importen la base. Se llama `Job_Placement_Data.csv` y está en la carpeta `data`.
+
 ```{r}
-plot(cars)
+
 ```
+
+Ahora, entramos a la parte de construcción del workflow de modelado. Recordemos que hay que:
+
+-   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
+    -   ¿Qué pasa con las variables de texto?
+    -   ¿Está balanceada la muestra?
+-   Partir el train/test
+-   Instanciar el modelo, definiendo hiperparámetros
+-   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
+-   Fitearlo a la base de entrenamiento
+
+```{r}
+
+```
+
+¿Cómo funcionó este modelo en el set de validación?

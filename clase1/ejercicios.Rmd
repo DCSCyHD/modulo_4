@@ -1,42 +1,41 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Árboles de decisión"
+subtitle: "Práctica  guiada"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      toc_collapsed: false
+    number_sections: false
+    theme: readable
 ---
 
+La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un **árbold de decisión** en R con `tidymodels`.
+
+Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guardada en la carpeta `data` con el nombre `eph15.RDS`.
+
 ```{r}
-load('../2022/clase_2/data/EPH_2015_II.RData')
-
-data$pp03i<-factor(data$pp03i, labels=c('1-SI', '2-No', '9-NS'))
-
-data$intensi<-factor(data$intensi, labels=c('1-Sub_dem', '2-SO_no_dem', 
-                                            '3-Ocup.pleno', '4-Sobreoc',
-                                            '5-No trabajo', '9-NS'))
-
-data$pp07a<-factor(data$pp07a, labels=c('0-NC',
-                                        '1-Menos de un mes',
-                                        '2-1 a 3 meses',
-                                        '3-3 a 6 meses',
-                                        '4-6 a 12 meses',
-                                        '5-12 a 60 meses',
-                                        '6-Más de 60 meses',
-                                        '9-NS'))
-
-
-data <- data %>%
-        mutate(imp_inglab1=factor(imp_inglab1, labels=c('non_miss','miss')))
-
-summary(data$imp_inglab1)
 
 ```
 
-Ahora, nuestra variable a predecir es el indicador `imp_inglab`. Por ende, eliminamos la $p21$.
+Ahora, entramos a la parte de construcción del workflow de modelado. Recordemos que hay que:
+
+-   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
+    -   ¿Qué pasa con las variables de texto?
+    -   ¿Está balanceada la muestra?
+-   Partir el train/test
+-   Instanciar el modelo, definiendo hiperparámetros
+-   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
+-   Fitearlo a la base de entrenamiento
 
 ```{r}
-data <- data %>%
-        select(-p21)
 ```
 
-Lo primero que vamos a hacer es crear una partición de datos:
+¿Cómo funcionó este modelo en el test set? 
 
 ```{r}
 set.seed(123)

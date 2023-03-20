@@ -16,8 +16,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-tree_rs <- readRDS('./models/tree_resamples.RDS')
-final_fit <- readRDS('./models/final_bagging_model.rds')
+tree_rs <- readRDS('./models/tree_resamples_2.RDS')
+final_fit <- readRDS('./models/final_fit.RDS')
 
 library(tidyverse)
 library(tidymodels)
@@ -163,11 +163,11 @@ Recordemos que podemos modificar algunos parámetros del modelo que van a modifi
 
 ```{r}
 tree_spec <- bag_tree(
-  #cost_complexity = tune(),
+  cost_complexity = NULL,
   tree_depth = tune(),
   min_n = tune()
   ) %>%
-  set_engine("rpart", times = 15) %>%
+  set_engine("rpart", times = 25) %>%
   set_mode("classification")
 
 tree_spec %>% translate()
@@ -187,10 +187,9 @@ Con la función `grid_regular()` armamos una serie de combinaciones aleatorias p
 ```{r eval=FALSE, include=TRUE}
 set.seed(1912)
 
-tree_grid <- grid_regular(cost_complexity(), 
-                          tree_depth(), 
+tree_grid <- grid_regular(tree_depth(), 
                           min_n(), 
-                          levels = 10)
+                          levels = 20)
 
 folds <- vfold_cv(train, v = 3)
 
@@ -244,5 +243,5 @@ class_metrics <- metric_set(precision, recall,
 class_metrics(test_val, truth = realiza_domest, estimate = .pred_class)
 ```
 
--   Captura un 5% de los casos positivos.
+-   Captura un 6% más de los casos positivos.
 -   Aumenta el f1 en 1 punto porcentual.

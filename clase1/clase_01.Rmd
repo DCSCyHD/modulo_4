@@ -158,15 +158,18 @@ tree_wf <- wf %>%
   add_model(tree_spec)
 ```
 
-Con la función `grid_regular()` armamos una serie de combinaciones aleatorias posibles para los parámetros del modelo. Le decimos que nos de 4 niveles de valores posibles para cada uno de los parámetros, y que los combine.
+Con la función `grid_regular()` armamos una serie de combinaciones aleatorias posibles para los parámetros del modelo. Le decimos que nos de 4 niveles de valores posibles para cada uno de los parámetros, y que los combine. Acá es donde introducimos hiperparámetros para la prepoda y post-poda del árbol:
+
+-   `cost_complexity():` es un número que recorta los nodos del árbol, empezando por aquellos que tengan la mayor pureza. Postpoda.
+-   `tree_depth():` es un número que define la máxima cantidad de particiones que puede llegar a tener el modelo. Prepoda.
+-   `min_n():` mínimo número de puntos que debe haber en un nodo para que el árbol se siga partiendo hacia abajo. Prepoda.
 
 ```{r}
 set.seed(1912)
 
 tree_grid <- grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4)
 
-tree_grid%>% 
-  count(tree_depth)
+tree_grid
 ```
 
 Hacemos las muestras de cross-validation...
@@ -193,9 +196,6 @@ tree_rs <- tree_wf %>%
   metrics = metric_set(precision, recall,
                        accuracy, f_meas)
 )
-
-write_rds(tree_rs, '/home/laia/Escritorio/Cursos/Diplo CSC/modulo_4/clase1/data/tree_resamples.RDS')
-
 ```
 
 Podemos ver los resultados de este objeto con `collect_metrics()`.
@@ -247,7 +247,7 @@ extract_fit_parsnip(final_fit) %>%
 
 Podemos ver que las variables más importantes para explicar si se realiza trabajo doméstico o no son `SEXO_SEL`, `EDAD_SEL` `BHCH04_SEL`, la relación con el jefe de hogar.
 
-También podemos graficarlo con la librería `rpart.plot`. El código acá se hace un poco más choclo, porque tenemos que llamar la misma función para extraer el modelo pero además llamar al objeto `fit` dentro de eso. 
+También podemos graficarlo con la librería `rpart.plot`. El código acá se hace un poco más choclo, porque tenemos que llamar la misma función para extraer el modelo pero además llamar al objeto `fit` dentro de eso.
 
 ```{r}
 library(rpart.plot)
