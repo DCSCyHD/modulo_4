@@ -5,29 +5,23 @@ author:
   - Martín Schuster y Laia Domenech Burin
 date: '2023'
 output: 
-  html_document:
-    toc: TRUE
-    toc_float:
-      toc_collapsed: false
-    number_sections: false
-    theme: readable
+  rmdformats::readthedown
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-tree_rs <- readRDS('./models/tree_resamples_2.RDS')
+tree_rs <- readRDS('./models/tree_resamples.RDS')
 final_fit <- readRDS('./models/final_fit.RDS')
 
 library(tidyverse)
 library(tidymodels)
+library(themis)
 library(baguette)
 library(rpart.plot)
 ```
 
-# Ensambles
-
-## El problema
+# El problema
 
 La clase pasada, cerramos viendo que los árboles de decisión presentan algunos pros y varios contras. Si bien son modelos muy interpretables y sencillos de explicar, no tienen mucha potencia en capacidad predictiva. Esto se debe a que:
 
@@ -36,8 +30,6 @@ La clase pasada, cerramos viendo que los árboles de decisión presentan algunos
 -   Su enfoque greedy y top to bottom hace que se concentren siempre en buscar óptimos locales, no globales.
 
 Sin embargo, existen formas de **ensamblar** varios árboles para superar estas limitaciones y hacer modelos más potentes. La clase de hoy vamos a ver cómo implementamos un modelo de **bagging** en `tidymodels`.
-
-## Modelado
 
 Estábamos trabajando con los resultados de la ENUT 2021, y buscamos predecir si las personas encuestadas realizan trabajo doméstico o no. Creamos una variable ad-hoc llamada `realiza_domest`, y definimos que si las personas dedican menos de 60 minutos al día en hacer TD, entran en la categoría de "No realiza". Más de eso, entran en la categoría "Realiza".
 
@@ -96,33 +88,17 @@ data <- data %>% mutate_at(vars(BHCH04_SEL),
 data<- data %>% select(-TCS_GRUPO_DOMESTICO)
 ```
 
-### Partición train/test
+# Árbol simple
 
-Siempre que empezamos el flujo de trabajo de un modelo, lo primero es hacer la partición del dataset de entrenamiento y validación.
-
-```{r}
-set.seed(123)
-
-split <- initial_split(data)
-train <- training(split)
-test <- testing(split)
-```
-
-Ahora, refresquemos el modelo de clase previa. Lo podemos importar como RDS.
+Refresquemos el modelo de clase previa. Lo podemos importar como RDS.
 
 ```{r message=FALSE, warning=FALSE}
-decision_tree_simple <- readRDS('./models/model_decision_tree.RDS')
-
-decision_tree_simple
+test_dt_simple <- readRDS('../data/validation_test_dt.RDS')
 ```
 
 ¿Cómo funcionaba?
 
 ```{r}
-test_dt_simple <- decision_tree_simple %>%
-  predict(test) %>%
-  bind_cols(test, .)
-
 class_metrics_dt <- metric_set(precision, recall,
                        accuracy, f_meas)
 
@@ -137,13 +113,25 @@ class_metrics_dt(test_dt_simple, truth = realiza_domest, estimate = .pred_class)
 
 Veamos si podemos mejorar nuestro modelo con bagging.
 
-### Feature engineering
+# Ensamble: Bagging
+
+## Partición train/test
+
+Siempre que empezamos el flujo de trabajo de un modelo, lo primero es hacer la partición del dataset de entrenamiento y validación.
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+```
+
+## Feature engineering
 
 Procesamos las variable haciendo la "receta" del modelo. Con `recipe()` especificamos un set de transformaciones que queremos hacer sobre el modelo. Su principal argumento es la fórmula del modelo, que en nuestro caso es `realiza_domest ~ .`
 
 ```{r}
-library(themis)
-
 recipe <- recipe(realiza_domest ~ ., data = train)%>%
   update_role(ID, new_role = "id") %>%
   step_other(BHCH04_SEL, threshold = 0.2)%>%
@@ -157,7 +145,7 @@ wf <- workflow() %>%
   add_recipe(recipe)
 ```
 
-### Hiperparámetros
+## Hiperparámetros
 
 Recordemos que podemos modificar algunos parámetros del modelo que van a modificar su performance. Vamos a poner la opción de tunear los distintos elementos del árbol. Pero además, vamos a definir un número para la cantidad de remuestreos bootstrap que queremos para nuestro modelo.
 
@@ -216,6 +204,8 @@ best_model <- select_best(tree_rs, "f_meas")
 final_model <- finalize_model(tree_spec, best_model)
 ```
 
+## Fit y exploración
+
 Fiteamos el modelo a nuestra muestra de entrenamiento.
 
 ```{r eval=FALSE, include=TRUE}
@@ -229,6 +219,8 @@ final_fit <- wf %>%
 ```{r}
 final_fit
 ```
+
+## Evaluación
 
 ¿Cómo fue la performance final del set de validación?
 

@@ -5,12 +5,7 @@ author:
   - Martín Schuster y Laia Domenech Burin
 date: '2023'
 output: 
-  html_document:
-    toc: TRUE
-    toc_float:
-      toc_collapsed: false
-    number_sections: false
-    theme: readable
+  rmdformats::readthedown
 ---
 
 ```{r setup, include=FALSE}
@@ -19,9 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 tree_rs <- readRDS('./data/tree_resamples.RDS')
 ```
 
-# Árboles de decisión
-
-## El problema
+# El problema
 
 El eje de estas clases va a ser predecir si la participación de las personas en el trabajo doméstico del hogar, en base a los resultados de la Encuesta de Uso del Tiempo (2021). Vamos a tomar como insumo la variable `TCS_GRUPO_DOMESTICO` para construir una variable dicotómique define si las personas realizan trabajo doméstico en el hogar o no. `TCS_GRUPO_DOMESTICO` son los minutos totales dedicados a las actividades de trabajo doméstico en un día, independientemente de si se realizó otra actividad en simultáneo.
 
@@ -97,7 +90,9 @@ library(tidymodels)
 summary(data$realiza_domest)
 ```
 
-## Modelado
+# Modelado
+
+## Partición train/test
 
 Lo próximo a hacer para empezar el modelo es crear una partición de datos en train y test. Recuerden que esto es muy importante, ya que queremos entrenar el modelo con nuestro conjunto de datos pero también queremos ver cómo funcionaría con datos nuevos.
 
@@ -111,9 +106,9 @@ test <- testing(split)
 table(train$realiza_domest)
 ```
 
-### Feature engineering
+## Feature engineering
 
-Nuestra muestra está bastante desbalanceada, pero nos vamos a encargar de ello ahora en el workflow.
+Nuestra muestra está bastante *desbalanceada*, pero nos vamos a encargar de ello ahora en el workflow.
 
 A continuación, procesamos las variable haciendo la "receta" del modelo. Con `recipe()` especificamos un set de transformaciones que queremos hacer sobre el modelo. Su principal argumento es la fórmula del modelo, que en nuestro caso es `realiza_domest ~ .`. También vamos a usar `step_other()` para agrupar las categorías de relación con jefe de hogar minoritarias. Por último, para controlar el desbalanceo de clases vamos a usar la función `step_downsample()` del paquete [themis](https://github.com/tidymodels/themis). Lo que hace step_downsample es eliminar las filas del dataset de la clase que está sobrerepresentada (en este caso, realiza), para que nos quede una proporción similar de casos de cada clase.
 
@@ -133,7 +128,7 @@ wf <- workflow() %>%
   add_recipe(recipe)
 ```
 
-### Tuneando los hiperparámetros
+## Tuneando los hiperparámetros
 
 Ahora, vamos a armar nuestro modelo para el workflow. En este punto es importante tener en cuenta que no hay una única manera de hacer un árbol de decisión. Existen distintos hiperparámetros que podemos modificar que van a cambiar la complejidad y performance del árbol. Desde tidymodels puedo modificar tres: el umbral de la métrica de pureza para definir la complejidad del árbol, la profundidad del árbol y el mínimo de variables que tiene que tener cada partición del nodo.
 
@@ -249,14 +244,14 @@ Podemos ver que las variables más importantes para explicar si se realiza traba
 
 También podemos graficarlo con la librería `rpart.plot`. El código acá se hace un poco más choclo, porque tenemos que llamar la misma función para extraer el modelo pero además llamar al objeto `fit` dentro de eso.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(rpart.plot)
 
 
 rpart.plot(extract_fit_parsnip(final_fit)$fit)
 ```
 
-### Validación
+# Evaluación 
 
 Ahora bien, el último paso sería probar esto en el set de validación o test set. Usamos `predict()` para predecir con el modelo los valores de el dataset de testeo, y con `bind_cols()` lo agregamos como una columna.
 

@@ -1,21 +1,26 @@
 ---
 title: "Ensambles - Clase 2"
-author: "Diplomatura en Ciencias Sociales Computacionales"
-date: '2023-02-06'
-output: html_document
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  rmdformats::readthedown
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
+tune_params <- readRDS('./models/tuned_params.RDS')
+
 library(tidyverse)
 library(tidymodels)
-library(baguette)
-
+library(themis)
 ```
 
-Para la parte práctica de hoy, vamos a hacer el ejercicio de predecir minutos por día dedicados al trabajo remunerado en base a los minutos dedicados a otras actividades, en base a la ENUT. Vamos a usar las variables de "TCS_GRUPO", el cual significa el tiempo con simultaneidad dedicado a distintos grupos de actividades. El concepto de "tiempo con simultaneidad" suma la misma cantidad de tiempo a todas las actividades, independientemente de si se realizaron de forma simultánea. Por este motivo, puede sumar más de 24 horas en un día. Desde el punto de vista analítico, el tiempo con simultaneidad nos permite valorizar de igual manera el conjunto de actividades
-relevadas. 
+# Introducción
+
+Para la parte práctica de hoy, vamos a hacer el ejercicio de predecir minutos por día dedicados al trabajo remunerado en base a los minutos dedicados a otras actividades, en base a la ENUT. Vamos a usar las variables de "TCS_GRUPO", el cual significa el tiempo con simultaneidad dedicado a distintos grupos de actividades. El concepto de "tiempo con simultaneidad" suma la misma cantidad de tiempo a todas las actividades, independientemente de si se realizaron de forma simultánea. Por este motivo, puede sumar más de 24 horas en un día. Desde el punto de vista analítico, el tiempo con simultaneidad nos permite valorizar de igual manera el conjunto de actividades relevadas.
 
 Primero, leemos la base:
 
@@ -74,63 +79,143 @@ data <- data %>% mutate_at(vars(BHCH04_SEL),
 data<- data %>% select(-TCS_GRUPO_DOMESTICO)
 ```
 
+## Pruebas anteriores
+
+Primero, retomemos los resultados que obtuvimos haciendo modelos con un árbol simple y con bagging.
+
+```{r}
+decision_tree <- readRDS('../data/validation_test_dt.RDS')
+bagging <- readRDS('../data/validation_test_bag.RDS')
+
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+metrics_dt <- class_metrics(decision_tree, truth = realiza_domest, estimate = .pred_class) %>% 
+  mutate(modelo = "decision_tree")
+
+metrics_bagging <- class_metrics(bagging, truth = realiza_domest, estimate = .pred_class) %>% 
+  mutate(modelo = "bagged_tree")
+
+rbind(metrics_dt, metrics_bagging) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+```
+
+## Inicio del workflow
+
+La primera parte va a ser igual a lo que veníamos haciendo. Train y test, receta e instanciar el workflow.
+
 ```{r}
 set.seed(123)
 
 split <- initial_split(data)
 train <- training(split)
 test <- testing(split)
-```
-
-```{r}
-library(themis)
 
 recipe <- recipe(realiza_domest ~ ., data = train)%>%
   update_role(ID, new_role = "id") %>%
   step_other(BHCH04_SEL, threshold = 0.2)%>%
   step_downsample(realiza_domest, under_ratio = 1)
-```
 
-```{r}
 wf <- workflow() %>%
   add_recipe(recipe)
 
 wf
 ```
-pruebo con arbol tranqui
 
-Para RF
+## Hiperparámetros
+
+Ahora, hay que generar el modelo de random forest. Esto lo hacemos con la función `rand_forest()`. Los hiperparámetros con los que vamos a jugar acá son:
+
+-   `trees`: define el número de árboles que se van a probar,
+-   `mtry`: la cantidad de variables que se van a probar en cada iteración
+-   `min_n`: mínima cantidad de observaciones que tiene que haber en cada nodo
 
 ```{r}
-ranger_spec <-
-  rand_forest(trees = 25) %>%
+rf_spec <- rand_forest(
+  trees = 1000,
+  mtry = tune(),
+  min_n = tune()
+  ) %>%
   set_mode("classification") %>%
   set_engine("ranger")
 
 ```
 
+Hasta ahora, veníamos tuneando los hiperparámetros en base a combinaciones de grids random. Sin embargo, para este tipo de modelo tenemos un hiperparámetro que no puede adoptar valores random: `mtry`. Este valor depende de la cantidad de variables que tengamos en el modelo. Por lo tanto, vamos a usar la función tune_grid() directamente sobre el modelo y le vamos a pasar grid = 30 en lugar de un dataframe con posibles combinaciones, para indicarle que pruebe 30 parámetros distintos basados en el dataframe.
+
+```{r, eval = FALSE}
+tune_wf <- wf %>%
+  add_model(rf_spec)
+
+set.seed(1912)
+
+folds <- vfold_cv(train)
+
+tune_params <- tune_grid(tune_wf,
+                         resamples = folds,
+                         grid = 30,
+                         metrics = metric_set(precision, recall,
+                                              accuracy, f_meas))
+```
+
+Grafiquemos los resultados.
+
+```{r}
+autoplot(tune_params)+
+  theme_minimal()
+```
+
+Podemos ver que los valores más altos están asociados con un número de variables bajo y un número de muestras mínimas por partición más grande. ¿Cuál es el modelo que tiene mejor f1?
+
+```{r}
+show_best(tune_params, "f_meas")
+```
+
+Parece que para nuestro caso, el modelo satura con un f1 del 60% en el training set.
+
+## Finalización
+
+Terminemos el modelo. Elegimos la mejor combinación de hiperparámetros, y lo incorporamos a el objeto con el Random Forest para tunear.
+
+```{r}
+best_f1 <- select_best(tune_params, "f_meas")
+
+final_rf <- finalize_model(
+  rf_spec,
+  best_f1
+)
+
+final_rf
+```
+
+Lo incorporamos al workflow.
+
 ```{r}
 tree_rf <- wf %>%
-  add_model(ranger_spec) %>%
+  add_model(final_rf) %>% 
   fit(train)
 ```
 
-```{r}
-model_perfo <- tree_rf %>%
-  last_fit(split) %>% 
-  collect_metrics()
-
-model_perfo
-```
+¿Cómo es la performance?
 
 ```{r}
 test_val <- tree_rf %>%
   predict(test) %>%
   bind_cols(., test)
 
-class_metrics <- metric_set(precision, recall,
-                       accuracy, f_meas)
-
-class_metrics(test_val, truth = realiza_domest, estimate = .pred_class)
+metrics_random <- class_metrics(test_val, truth = realiza_domest, estimate = .pred_class) %>% 
+  mutate(modelo = "random_forest")
 ```
 
+¿Cómo son los resultados en comparación con los otros 2 modelos?
+
+```{r}
+rbind(metrics_dt, metrics_bagging, metrics_random) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+```
