@@ -186,7 +186,7 @@ tree_rs <- tree_bag %>%
   resamples = folds,
   grid = tree_grid,
   metrics = metric_set(precision, recall,
-                       accuracy, f_meas))
+                       roc_auc, f_meas))
 
 ```
 
@@ -196,10 +196,10 @@ tree_rs <- tree_bag %>%
 autoplot(tree_rs)
 ```
 
-Seleccionamos el mejor modelo en función de la métrica f1, y finalizamos el pipeline.
+Seleccionamos el mejor modelo en función del área bajo la curva ROC, y finalizamos el pipeline.
 
 ```{r eval=FALSE, include=TRUE}
-best_model <- select_best(tree_rs, "f_meas")
+best_model <- select_best(tree_rs, "roc_auc")
 
 final_model <- finalize_model(tree_spec, best_model)
 ```
@@ -229,11 +229,16 @@ test_val <- final_fit %>%
   predict(test) %>%
   bind_cols(., test)
 
+test_val <- predict(final_fit, test, type = "prob") %>%
+  bind_cols(test_val, .)
+
 class_metrics <- metric_set(precision, recall,
                        accuracy, f_meas)
 
-class_metrics(test_val, truth = realiza_domest, estimate = .pred_class)
+roc_auc(test_val, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(class_metrics(test_val, truth = realiza_domest, estimate = .pred_class))
 ```
 
 -   Captura un 6% más de los casos positivos.
 -   Aumenta el f1 en 1 punto porcentual.
+-   Aumenta el área bajo la curva ROC 1,3%. 

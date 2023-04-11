@@ -188,8 +188,8 @@ tree_rs <- tree_wf %>%
   tune_grid(
   resamples = folds,
   grid = tree_grid,
-  metrics = metric_set(precision, recall,
-                       accuracy, f_meas)
+  metrics = metric_set(roc_auc, precision, 
+                       recall, f_meas)
 )
 ```
 
@@ -210,13 +210,13 @@ autoplot(tree_rs)
 Parecería que este dataset funciona mejor con un árbol no tan complejo. Podemos seguir examinando el mejor set de parámetros según la métrica que queramos.
 
 ```{r}
-show_best(tree_rs, "f_meas")
+show_best(tree_rs, "roc_auc")
 ```
 
 E incluso podemos elegir el mejor modelo de esas pruebas cross-validation para implementar en el modelo final.
 
 ```{r}
-best_model <- select_best(tree_rs, "f_meas")
+best_model <- select_best(tree_rs, "roc_auc")
 
 final_tree <- finalize_model(tree_spec, best_model)
 
@@ -259,13 +259,14 @@ Ahora bien, el último paso sería probar esto en el set de validación o test s
 test <- final_fit %>%
   predict(test) %>%
   bind_cols(test, .)
+
 ```
 
 ¿Cómo vemos las metricas de evaluación? Usamos la funcion `metric_set()`, donde podemos pasar las métricas que queremos ver y lo creamos en un objeto. Luego, a ese objeto le pasamos el dataset, los valores reales y los valores predichos.
 
 ```{r}
-class_metrics <- metric_set(precision, recall,
-                       accuracy, f_meas)
+class_metrics <- metric_set(precision, accuracy,
+                            recall, f_meas)
 
 class_metrics(test, truth = realiza_domest, estimate = .pred_class)
 ```
@@ -277,3 +278,29 @@ matriz_confusion <- conf_mat(test,truth = realiza_domest, estimate = .pred_class
 
 matriz_confusion
 ```
+
+También podemos graficar la curva ROC. Primero hay que obtener las probabilidades de predicción para cada clase: 
+
+```{r}
+test <- final_fit %>%
+  predict(test, type = "prob") %>%
+  bind_cols(test, .)
+
+test %>% select(realiza_domest:.pred_Realiza)
+```
+
+Graficamos la curva ROC pasando el valor real y la probabilidad de predicción. 
+
+```{r message=FALSE, warning=FALSE}
+test %>% 
+  roc_curve(truth = realiza_domest, ".pred_No realiza") %>% 
+  autoplot()
+```
+
+Para obtener una métrica normalizada, usamos roc_auc para obtener el valor del área debajo de la curva. 
+
+```{r}
+test %>% 
+  roc_auc(truth = realiza_domest, ".pred_No realiza")
+```
+

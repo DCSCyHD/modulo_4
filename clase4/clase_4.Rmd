@@ -1,0 +1,234 @@
+---
+title: "Ensambles - Clase 3"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  rmdformats::readthedown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidymodels)
+library(themis)
+library(rules)
+```
+
+# Cierre de ensambles
+
+Vamos a terminar de ver ensambles con modelos de boosting. Como vimos en la parte teórica, estos modelos tienen la característica de realizar un aprendizaje iterativo sobre estimadores que se construyen secuencialmente. Vamos a trabajar sobre la base de la ENUT para predecir si se realiza TD o no, y comparar con los resultados de los modelos anteriores.
+
+Primero, hacemos el preprocesamiento:
+
+```{r}
+library(tidyverse)
+
+data <- read_delim("../data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varon"
+                    )))
+                   
+ 
+
+data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Conyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuniado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+
+data<- data %>% select(-TCS_GRUPO_DOMESTICO)
+
+```
+
+## Árboles simples y modelos de bagging
+
+Recordemos los modelos previos.
+
+```{r}
+decision_tree <- readRDS('../data/validation_test_dt.RDS')
+bagging <- readRDS('../data/validation_test_bag.RDS')
+random_forest <- readRDS('../data/validation_rf.RDS')
+
+datasets <- list(decision_tree, bagging, random_forest)
+
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+#Hago una función para mapear y no repetir lo mismo 3 veces
+
+metricas <- function(dataset, model_name){
+  
+  metrics <-  roc_auc(dataset, truth = realiza_domest, estimate = ".pred_No realiza") %>%
+    bind_rows(class_metrics(dataset, truth = realiza_domest, estimate = .pred_class))
+  
+  return(metrics)
+}
+
+metrics_eval <- datasets %>% 
+  map_dfr(metricas, .id = "model")
+
+metrics_eval <- metrics_eval %>% 
+  mutate_at(vars(model),
+            ~as.factor(
+              case_when(
+              . %in% "1" ~ "Árbol de decisión",
+              . %in% "2" ~ "Bagging",
+              . %in% "3" ~ "Random Forest")
+            ))
+
+ggplot(metrics_eval, aes(x = .metric, y = .estimate, fill = model))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+
+```
+
+-   ¿Qué modelo funciona mejor? ¿Por qué?
+
+## Boosting
+
+Vamos a realizar un modelo de boosting con `tidymodels`. Primero, importamos la librería:
+
+```{r, eval = F}
+library(tidymodels)
+```
+
+Hacemos la partición de datos y preprocesamiento del workflow:
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+
+recipe <- recipe(realiza_domest ~ ., data = train)%>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1)
+
+wf <- workflow() %>%
+  add_recipe(recipe)
+```
+
+Ahora, viene la parte de especificar la información del modelo. Como estamos trabajando con boosting, empezamos pasando el parámetro `boost_tree()`. Para elegir entre los tipos de modelos de boosting posibles, hay que modificar el parámetro de `set_engine()`. Por default, tidymodels usa el parámetro `xgboost`para modelos de boosting. Lo vamos a cambiar por C5.0, que sigue un procedimiento similar a AdaBoosting: el modelo final es un ensamble de árboles que hacen un voto ponderado para asignar a la clase final.
+
+```{r}
+bt_spec <- boost_tree(trees = tune(), 
+                    min_n = tune ()) %>% 
+  set_engine("C5.0") %>%
+  set_mode("classification")
+
+bt_spec %>% translate()
+```
+
+Ahora, vamos a hacer las muestras de cross-validation para tunear los hiperparámetros. Haremos un grid de 50 cruces para distintas combinaciones de la cantidad de árboles y la mínima cantidad de particiones.
+
+```{r}
+tune_wf <- wf %>%
+  add_model(bt_spec)
+ 
+set.seed(1912)
+
+folds <- vfold_cv(train)
+ 
+tune_params <- tune_wf %>%
+   tune_grid(folds,
+             metrics = metric_set(precision, recall,
+                               roc_auc, f_meas),
+             grid = 50)
+ 
+```
+
+Ahora, seleccionamos el mejor modelo en base a f1 y lo finalizamos.
+
+```{r}
+best_model <- select_best(tune_params, metric = "roc_auc")
+
+final_model <- finalize_model(bt_spec, best_model)
+```
+
+Para finalizar, actualizamos el modelo tuneado en el workflow y lo fiteamos.
+
+```{r}
+tree_boost <- wf %>%
+   update_model(final_model)
+
+fit_tree <- tree_boost %>% fit(train)
+
+fit_tree 
+```
+
+Ahora, vamos a predecir sobre el test set, obtener las métricas de evaluación y compararlas con los otros modelos.
+
+```{r}
+boost_valid <- fit_tree %>%
+  predict(test) %>%
+  bind_cols(., test)
+
+boost_valid <- predict(fit_tree, test, type = "prob") %>%
+  bind_cols(boost_valid, .)
+
+
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+boost_metrics <- roc_auc(boost_valid, truth = realiza_domest, estimate = ".pred_No realiza") %>%
+  bind_rows(class_metrics(boost_valid, truth = realiza_domest, estimate = .pred_class)) %>%
+  mutate(model = "Boosting")
+
+metrics_eval <- bind_rows(metrics_eval, boost_metrics)
+
+ggplot(metrics_eval, aes(x = .metric, y = .estimate, fill = model))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+
+```
+
+Teniendo en cuenta qué significa cada métrica de evaluación, ¿qué pueden decir de los 4 modelos que probaron?
+
+-   ¿Cuál captura mayor cantidad de casos positivos?
+
+-   ¿Cuál captura con mayor exactitud los casos positivos?
+
+-   ¿Cuál funciona mejor en base a esos dos criterios? ¿Y peor?
