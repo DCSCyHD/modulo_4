@@ -14,7 +14,7 @@ output:
     theme: readable
 ---
 
-La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un **árbold de decisión** en R con `tidymodels`.
+La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un **árbol de decisión** en R con `tidymodels`.
 
 Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guardada en la carpeta `data` con el nombre `eph15.RDS`.
 
