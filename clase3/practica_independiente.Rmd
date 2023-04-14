@@ -1,0 +1,70 @@
+---
+title: "Ejercicio"
+author: "Diplomatura en Ciencias Sociales Computacionales"
+date: '2023-04-14'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidymodels)
+```
+
+```{r}
+data <- read_csv("./data/watson_healthcare_modified.csv")
+
+data %>% group_by(Attrition) %>% count()
+```
+```{r}
+library(themis)
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+
+recipe <- recipe(Attrition ~ ., data = train)%>%
+  update_role(EmployeeID, new_role = "id") %>%
+  #step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(Attrition, under_ratio = 1)
+
+wf <- workflow() %>%
+  add_recipe(recipe)
+```
+
+```{r}
+rf_spec <- rand_forest(
+  trees = 1000,
+  mtry = tune(),
+  min_n = tune()
+  ) %>%
+  set_mode("classification") %>%
+  set_engine("ranger")
+```
+
+```{r}
+tune_wf <- wf %>%
+  add_model(rf_spec)
+
+set.seed(1912)
+
+folds <- vfold_cv(train)
+
+tune_params <- tune_grid(tune_wf,
+                         resamples = folds,
+                         grid = 30,
+                         metrics = metric_set(precision, recall,
+                                              roc_auc, f_meas))
+```
+
+```{r}
+autoplot(tune_params)+
+  theme_minimal()
+```
+
+```{r}
+show_best(tune_params, "roc_auc")
+```
+
