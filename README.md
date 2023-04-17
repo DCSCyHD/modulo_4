@@ -33,27 +33,27 @@ El objetivo de este curso es brindar una primera aproximación a algunos concept
 
 # Clase 1
 
--   [![](img/Download.png)](clase_1.zip)
+-   [![](img/Download.png)](clase1.zip)
 
 # Clase 2
 
--   [![](img/Download.png)](clase_2_new.zip)
+#-   [![](img/Download.png)](clase_2_new.zip)
 
 # Clase 3
 
--   [![](img/Download.png)](clase_3_new.zip)
+#-   [![](img/Download.png)](clase_3_new.zip)
 
 # Clase 4
 
--   [![](img/Download.png)](clase_4.zip)
+#-   [![](img/Download.png)](clase_4.zip)
 
 # Clase 5
 
--   [![](img/Download.png)](clase_5.zip)
+#-   [![](img/Download.png)](clase_5.zip)
 
 # Clase 6
 
--   [![](img/Download.png)](clase_6.zip)
+#-   [![](img/Download.png)](clase_6.zip)
 
 # Librerías a utilizar
 
