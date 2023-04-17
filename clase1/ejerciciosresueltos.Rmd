@@ -1,0 +1,156 @@
+---
+title: "Árboles de decisión"
+subtitle: "Práctica  guiada"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      toc_collapsed: false
+    number_sections: false
+    theme: readable
+---
+
+La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un **árbol de decisión** en R con `tidymodels`.
+
+Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guardada en la carpeta `data` con el nombre `eph15.RDS`.
+
+```{r}
+
+```
+
+Ahora, entramos a la parte de construcción del workflow de modelado. Recordemos que hay que:
+
+-   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
+    -   ¿Qué pasa con las variables de texto?
+    -   ¿Está balanceada la muestra?
+-   Partir el train/test
+-   Instanciar el modelo, definiendo hiperparámetros
+-   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
+-   Fitearlo a la base de entrenamiento
+
+```{r}
+```
+
+¿Cómo funcionó este modelo en el test set? 
+
+```{r}
+set.seed(123)
+eph_split <- initial_split(data)
+eph_train <- training(eph_split)
+eph_test <- testing(eph_split)
+```
+
+Y hacemos las muestras cross-validation:
+
+```{r}
+set.seed(234)
+eph_cv <- vfold_cv(eph_train)
+eph_cv
+```
+
+Ahora, armarmos la estructura del modelo pero con parámetros que queremos tunear. Por eso ponemos la función `tune()` en la definición de los distintos parámetros: el umbral de la métrica de pureza para definir la complejidad del árbol, la profundidad del árbol y el mínimo de variables que tiene que tener cada partición del nodo.
+
+```{r}
+tree_spec <- decision_tree(
+  cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+) %>%
+  set_engine("rpart") %>%
+  set_mode("classification")
+
+tree_spec
+```
+
+Con la función `grid_regular()` armamos una serie de combinaciones aleatorias posibles para los parámetros del modelo. Le decimos que nos de 4 niveles de valores posibles para cada uno de los parámetros, y que los combine.
+
+```{r}
+tree_grid <- grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4)
+
+tree_grid
+```
+
+Ahora vamos a probar los posibles valores que puede adoptar el modelo con los distintos parámetros en las muestras con cross-validation.
+
+```{r}
+doParallel::registerDoParallel()
+
+set.seed(345)
+tree_rs <- tune_grid(
+  tree_spec,
+  imp_inglab1 ~ .,
+  resamples = eph_cv,
+  grid = tree_grid,
+  metrics = metric_set(precision, recall,
+                       accuracy, f_meas)
+)
+
+tree_rs
+
+```
+
+```{r}
+collect_metrics(tree_rs)
+```
+
+Con la función `autoplot()` podemos hacer de manera sencilla un gráfico que nos visualice las métricas de cada una de las variantes del modelo.
+
+```{r}
+autoplot(tree_rs) + theme_light(base_family = "IBMPlexSans")
+```
+
+Parecería que este dataset funciona mejor con un árbol no tan complejo. Podemos seguir examinando el mejor set de parámetros según la métrica que queramos.
+
+```{r}
+show_best(tree_rs, "f_meas")
+```
+
+E incluso podemos elegir el mejor modelo de esas pruebas cross-validation para implementar en el modelo final.
+
+```{r}
+best_model <- select_best(tree_rs, "f_meas")
+
+final_tree <- finalize_model(tree_spec, best_model)
+
+final_tree
+```
+
+Hasta acá, el modelo está actualizado y finalizado (no lo podemos seguir tuneando con distintos parámetros). Pero nos resta *fitearlo* al dataset de entrenamiento, lo que vamos a hacer con la función `fit()`.
+
+```{r}
+final_fit <- fit(final_tree, imp_inglab1 ~ ., eph_train)
+
+final_fit
+```
+
+Este print nos muestra un bloque de texto con los nodos y distintas ramas. Sin embargo, también podemos visualizar las variables más importantes del modelo con el paquete `vip`. Con su función podemos mostrar de forma sencilla la importancia de las variables del modelo en un gráfico de columnas, puntos, boxplot o violin plot.
+
+```{r}
+library(vip)
+
+final_fit %>%
+  vip(geom = "col")
+```
+
+Podemos ver que las variables más importantes para explicar si un caso está imputado o no son `aglomerado` y `region`.
+
+Ahora bien, el último paso sería probar esto en el set de validación o test set.
+
+```{r}
+eph_test <- final_fit %>%
+  predict(eph_test) %>%
+  bind_cols(eph_test, .)
+```
+
+```{r}
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+# The returned function has arguments:
+# fn(data, truth, estimate, na_rm = TRUE, ...)
+class_metrics(eph_test, truth = imp_inglab1, estimate = .pred_class)
+```
