@@ -1332,7 +1332,7 @@ cuidado y si ese miembro del hogar es demandante o no de cuidado.</p>
 generar nuestra variable dicotómica <strong>Y</strong>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;../data/enut2021_base.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;|&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;./data/enut2021_base.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;|&quot;</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   </span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,</span>
@@ -1512,7 +1512,7 @@ nodo para que el árbol se siga partiendo hacia abajo. Prepoda.</li>
 ##  8    0.1                   5     2
 ##  9    0.0000000001         10     2
 ## 10    0.0000001            10     2
-## # … with 54 more rows</code></pre>
+## # ℹ 54 more rows</code></pre>
 <p>Hacemos las muestras de cross-validation…</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1532,7 +1532,7 @@ nodo para que el árbol se siga partiendo hacia abajo. Prepoda.</li>
 ##  8     1 Analysis Fold09
 ##  9     1 Analysis Fold10
 ## 10     2 Analysis Fold01
-## # … with 107,610 more rows</code></pre>
+## # ℹ 107,610 more rows</code></pre>
 <p>Ahora vamos a probar los posibles valores que puede adoptar el modelo
 con los distintos parámetros en las muestras con cross-validation.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>doParallel<span class="sc">::</span><span class="fu">registerDoParallel</span>()</span>
@@ -1550,19 +1550,20 @@ con los distintos parámetros en las muestras con cross-validation.</p>
 <code>collect_metrics()</code>.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(tree_rs)</span></code></pre></div>
 <pre><code>## # A tibble: 256 × 9
-##    cost_complexity tree_depth min_n .metric  .esti…¹  mean     n std_err .config
-##              &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
-##  1    0.0000000001          1     2 f_meas   binary  0.541    10 0.00472 Prepro…
-##  2    0.0000000001          1     2 precisi… binary  0.469    10 0.00451 Prepro…
-##  3    0.0000000001          1     2 recall   binary  0.639    10 0.00795 Prepro…
-##  4    0.0000000001          1     2 roc_auc  binary  0.645    10 0.00512 Prepro…
-##  5    0.0000001             1     2 f_meas   binary  0.541    10 0.00472 Prepro…
-##  6    0.0000001             1     2 precisi… binary  0.469    10 0.00451 Prepro…
-##  7    0.0000001             1     2 recall   binary  0.639    10 0.00795 Prepro…
-##  8    0.0000001             1     2 roc_auc  binary  0.645    10 0.00512 Prepro…
-##  9    0.0001                1     2 f_meas   binary  0.541    10 0.00472 Prepro…
-## 10    0.0001                1     2 precisi… binary  0.469    10 0.00451 Prepro…
-## # … with 246 more rows, and abbreviated variable name ¹​.estimator</code></pre>
+##    cost_complexity tree_depth min_n .metric   .estimator  mean     n std_err
+##              &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+##  1    0.0000000001          1     2 f_meas    binary     0.541    10 0.00472
+##  2    0.0000000001          1     2 precision binary     0.469    10 0.00451
+##  3    0.0000000001          1     2 recall    binary     0.639    10 0.00795
+##  4    0.0000000001          1     2 roc_auc   binary     0.645    10 0.00512
+##  5    0.0000001             1     2 f_meas    binary     0.541    10 0.00472
+##  6    0.0000001             1     2 precision binary     0.469    10 0.00451
+##  7    0.0000001             1     2 recall    binary     0.639    10 0.00795
+##  8    0.0000001             1     2 roc_auc   binary     0.645    10 0.00512
+##  9    0.0001                1     2 f_meas    binary     0.541    10 0.00472
+## 10    0.0001                1     2 precision binary     0.469    10 0.00451
+## # ℹ 246 more rows
+## # ℹ 1 more variable: .config &lt;chr&gt;</code></pre>
 <div id="evaluación-del-training-set" class="section level3">
 <h3>Evaluación del training set</h3>
 <p>Con la función <code>autoplot()</code> podemos hacer de manera
@@ -1575,14 +1576,14 @@ complejo. Podemos seguir examinando el mejor set de parámetros según la
 métrica que queramos.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_best</span>(tree_rs, <span class="st">&quot;roc_auc&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 9
-##   cost_complexity tree_depth min_n .metric .estima…¹  mean     n std_err .config
-##             &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
-## 1    0.0000000001         10    40 roc_auc binary    0.742    10 0.00515 Prepro…
-## 2    0.0000001            10    40 roc_auc binary    0.742    10 0.00515 Prepro…
-## 3    0.0001               10    40 roc_auc binary    0.741    10 0.00494 Prepro…
-## 4    0.0000000001         15    40 roc_auc binary    0.739    10 0.00529 Prepro…
-## 5    0.0000001            15    40 roc_auc binary    0.739    10 0.00529 Prepro…
-## # … with abbreviated variable name ¹​.estimator</code></pre>
+##   cost_complexity tree_depth min_n .metric .estimator  mean     n std_err
+##             &lt;dbl&gt;      &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+## 1    0.0000000001         10    40 roc_auc binary     0.742    10 0.00515
+## 2    0.0000001            10    40 roc_auc binary     0.742    10 0.00515
+## 3    0.0001               10    40 roc_auc binary     0.741    10 0.00494
+## 4    0.0000000001         15    40 roc_auc binary     0.739    10 0.00529
+## 5    0.0000001            15    40 roc_auc binary     0.739    10 0.00529
+## # ℹ 1 more variable: .config &lt;chr&gt;</code></pre>
 <p>E incluso podemos elegir el mejor modelo de esas pruebas
 cross-validation para implementar en el modelo final.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>best_model <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tree_rs, <span class="st">&quot;roc_auc&quot;</span>)</span>
@@ -1756,7 +1757,7 @@ probabilidades de predicción para cada clase:</p>
 ##  8 Realiza        Realiza                  0.133         0.867
 ##  9 Realiza        Realiza                  0.490         0.510
 ## 10 Realiza        Realiza                  0.358         0.642
-## # … with 3,578 more rows</code></pre>
+## # ℹ 3,578 more rows</code></pre>
 <p>Graficamos la curva ROC pasando el valor real y la probabilidad de
 predicción.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>test <span class="sc">%&gt;%</span> </span>

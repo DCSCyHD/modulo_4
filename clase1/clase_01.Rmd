@@ -27,7 +27,7 @@ Primero, vamos vamos a leer la base, recodificar algunas variables y generar nue
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 
-data <- read_delim("../data/enut2021_base.txt", delim = "|")
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
 
 data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
                         NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
