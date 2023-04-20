@@ -1,0 +1,445 @@
+---
+title: "Aprendizaje No Supervisado - E3"
+subtitle: "Clustering: K-medias y jerárquico"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+author: "Germán Rosati"
+
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE, highlight=TRUE, paged.print=FALSE, prompt=TRUE, strip.white=FALSE, tidy = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE, highlight=TRUE, paged.print=FALSE, prompt=TRUE, strip.white=FALSE, tidy = TRUE)
+
+```
+
+```{r}
+library(patchwork)
+library(tidyverse)
+library(tidymodels)
+library(GDAtools)
+```
+
+## Bibliografía de esta clase
+- James, G.; Witten, D.; Hastie, T. y Tibshirani, R. (2021). _An Introduction to Statistical Learning_, Berlin: Springer. Cap. 12.1, 12.2, 12.4. [Descarga del libro completo](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf).
+- Kuhn, M. y Silge, J. (2022), _Tidy Modeling with R_. New York, O’Reilly, Cap. 16. [Descarga del libro completo](https://www.tmwr.org/dimensionality.html).
+- Donaire, R.; Rosati, G. y Mattera, P. (2021). "obreza y desarrollo capitalista en el mundo, 2005-2015" en XV Congreso ASET. [Descarga artículo](https://aset.org.ar/wp-content/uploads/2022/08/4_DONAIRE_ponencia.pdf).
+
+## Introducción
+En esta notebook vamos a explorar dos métodos de clusterización vistos en la clase teórica. Los métodos de clusterización que veremos corresponden al rama de ML de aprendizaje no supervisado. Recordemos: la idea principal es encontrar grupos en los datos que sean similares a otros datos del mismo grupo y lo menos similar posible a datos en otros.
+
+Hoy vamos a trabajar con K-medias. Vamos a implementarlo con un set de datos ya conocido: un dataset (`.wb_bank_data_2019.csv`) con información construida por el Banco Mundial acerca de la distribución de la población ocupada según grandes sectores de actividad y categoría ocupacional:
+
+- `SL.AGR.EMPL.ZS`: % total el empleo en agricultura: consistente en las actividades de agricultura, silvicultura, caza y pesca  
+- `SL.IND.EMPL.ZS`: % total de empleo en industria:  en actividades de minas y canteras, manufacturas, construcción y energía, gas y agua.
+- `SL.SERV.EMPL.ZS` % total de empleo el servicios comprende comercio al por mayor y menor y restaurantes y hoteles, transporte, almacenamiento y comunicaciones, finanzas, seguros, servicios inmobiliarios y a las empresas y servicios personales, sociales y comunales.
+- `SL.FAM.WORK.ZS`: % total de trabajadores familiares
+- `SL.EMP.MPYR.ZS`: % total de empleadores  
+- `SL.EMP.SELF.ZS`: % total de independientes (suma de empleadores y cuenta propia y familiares)
+- `SL.EMP.WORK.ZS`: % total de trabajadores asalariados
+
+Lo que vamos a tratar de hacer es construir una tipología de países en función de su estructura ocupacional. La idea va a ser poder agrupar países que tengan perfiles parecidos en la distribución de la población según rama y según cateogría ocupacional.
+
+De alguna forma (imperfecta porque los datos no tienen toda la información que querríamos utilizar) vamos a estar tratando de agrupar a los países en función de dos grandes dimensiones clásicas para el análisis sociologico.
+
+- El grado de desarrollo de la división del trabajo social^[Hasta donde se han desarrollado las fuerzas productivas de una nación lo indica del modo más palpable el grado hasta el cual se ha desarrollado en ella la división del trabajo. Toda nueva fuerza productiva, cuando no se trata de una simple extensión cuantitativa de fuerzas productivas ya conocidas con anterioridad (...) trae como consecuencia un nuevo desarrollo de la división del trabajo. La división del trabajo dentro de una nación se traduce, ante todo, en la separación de la ciudad y el campo y en la contradicción de los intereses entre una y otro. Su desarrollo ulterior conduce a la separación del trabajo comercial del industrial (Marx, Karl y Federico Engels; “La Ideología Alemana” en Karl Marx, _La cuestión judía (y otros escritos)_, Planeta - Agostini, España, 1992, pp: 150-151)] 
+- El grado de extensión de las relaciones salariales: lo cual constituye un indicador (imperfecto) del grado de extensión del capitalsimo en un territorio.   
+
+---
+
+**Importante:** ¿qué variables relevantes no estamos considerando?
+
+----
+
+## Conceptos principales de K-Medias
+El método de clusterización "K-Means" busca encontrar $k$ clusters de modo tal que se minimice la varianza intra-cluster medida, usualmente, como el cuadrado de la distancia euclídea. 
+
+$$W(C_{k})=\frac{1}{|C_{k}|} \sum_{i,i^{'} \in C_{k}} \sum_{j=1}^p (x_{ij} - x_{i^{'}j})^2$$
+
+En otra palabras, la variación dentro del grupo para el k-ésimo grupo es la suma de todos los las distancias euclidianas al cuadrado por pares entre las observaciones en el k-ésimo conglomerado, dividido por el número total de observaciones en el k-ésimo conglomerado. Así, se obtiene el problema de optimización que define a K-medias,
+
+$$\min_{C_{1},...,C_{k}} \left\{W(C_{k})=\frac{1}{|C_{k}|} \sum_{i,i^{'} \in C_{k}} \sum_{j=1}^p (x_{ij} - x_{i^{'}j})^2\right\}$$
+Necesitamos, entonces, un algoritmo que nos permita ejecutar esta minimización:
+
+---
+
+**Algoritmo K-medias**
+1. Asignar aleatoriamente un número, del 1 al K, a cada una de las observaciones. Estos sirven como asignaciones de grupos iniciales para las observaciones.
+
+2. Iterar hasta que las asignaciones de clústeres dejen de cambiar:
+  
+    2.1 Para cada uno de los K conglomerados, calcular el centroide del conglomerado. El k-ésimo centroide del conglomerado es el vector de la función p media para el observaciones en el grupo k-ésimo.
+    
+    2.2 Asignar cada observación al conglomerado cuyo centroide esté más cerca (donde más cercano se define usando la distancia euclidiana).
+
+---
+
+Para ello el algoritmo empieza encontrando $k$ centroides y le asigna a cada sample la etiqueta correspondiente a la del centroid más cercano. Una vez actualizadas las etiquetas de todas las samples, calcula la posición de los $k$ centroids (como el promedio de las features de las samples de cada cluster) y vuelve a asignar etiquetas a cada sample de acuerdo a la distancia al centroid más cercano. Hace estos dos pasos hasta que no haya más cambios de etiqueta.
+
+Debido a esta inicialización aleatoria de los $k$ centroids el output del modelo puede variar al aplicarlo otra vez a la misma data. Por ello se repite este procedimiento n_init=10 veces y el output final es el que mejor resultado tuvo al minimizar la función objetivo (varianza intra-cluster).
+
+## Preprocesamiento
+Vamos a cargar los datos y a preprocesarlos.
+```{r}
+df <- read_csv('./data/wb_bank_data_2019.csv')
+
+head(df)
+```
+
+Como vemos la tabla está apilada en formato "long". Vamos a pasarla a formato "wide" de forma tal que cada variable quede como una columna.
+
+```{r}
+df <- df %>%
+     pivot_wider(id_cols = c(iso3c, iso2c, country), names_from = indicatorID, values_from = value)
+```
+
+Como se puede apreciar de las definiciones anteriores, la fuente no presenta información para los trabajadores por cuenta propia, los cuales deben deducirse como resultado de la sustracción de trabajadores independientes menos empleadores y familiares.
+
+```{r}
+df <- df %>%
+  mutate(prop_tcp = SL.EMP.SELF.ZS - SL.FAM.WORK.ZS - SL.EMP.MPYR.ZS) %>%
+  rename(prop_emp = SL.EMP.MPYR.ZS,
+         prop_familiar = SL.FAM.WORK.ZS,
+         prop_asal = SL.EMP.WORK.ZS)
+```
+
+Luego, vamos a dicotomizar las categorías ocupacionales. En líneas generales, vamos a dividir dos situaciones:
+
+- población inserta en relaciones salariales: la suma de patrones y asalariados
+- no inserta en relaciones salariales: la suma de trabajadores por cuenta propia y familiares.
+
+```{r}
+df <- df %>%
+  mutate(prop_pob_rel_sal = prop_asal + prop_emp ,
+         prop_pob_rel_no_sal = prop_familiar + prop_tcp)
+```
+
+Se tomó esta decisión debido a que la categoría de patrones concentraba, en general, poca cantidad de casos. Como señalamos, a partir de estos datos construimos una clasificación de países según el grado de desarrollo de la división del trabajo y la extensión de las relaciones salariales.
+
+## Análisis descriptivo
+Veamos qué relación existe entre la población inserta en relaciones salariales y la población según gran rama de actividad.
+
+**Gráfico 1. % de población inserta en relación salariales (eje x) según % de población inserta en agricultura**
+```{r}
+df %>%
+  ggplot(aes(x=prop_pob_rel_sal, y=SL.AGR.EMPL.ZS)) +
+    geom_point(color="red") + 
+    xlim(0,100) +
+    ylim(0,100) +
+    labs(x="% pob. rel. sal.",
+         y="% pop. agric. ") + 
+    theme_minimal()
+```
+
+**Gráfico 2. % de población inserta en relación salariales (eje x) según % de población inserta en industria**
+```{r}
+df %>%
+  ggplot(aes(x=prop_pob_rel_sal, y=SL.IND.EMPL.ZS)) +
+    geom_point(color="red") + 
+    xlim(0,100) +
+    ylim(0,100) +
+    labs(x="% pob. rel. sal.",
+         y="% pop. industrial ") + 
+    theme_minimal()
+```
+
+**Gráfico 3. % de población inserta en relación salariales (eje x) según % de población inserta en servicios**
+```{r}
+df %>%
+  ggplot(aes(x=prop_pob_rel_sal, y=SL.SRV.EMPL.ZS)) +
+    geom_point(color="red") + 
+    xlim(0,100) +
+    ylim(0,100) +
+    labs(x="% pob. rel. sal.",
+         y="% pop. servicios ") + 
+    theme_minimal()
+```
+
+## Entrenando un modelo de clustering basado en K-Medias
+Vamos a usar 3 variables para construir nuestro clustering:
+- % de población inserta en relaciones salariales
+- % de población ocupada en agricultura
+- % de población ocupada en servicios
+
+Supongamos que no tenemos demasiada idea de cómo armar esta tipología y nos imaginamos que debería haber solo dos clusters: uno con alto peso del campo y bajo peso de relaciones salariales y otro con las características opuestas. Antes de esto, vamos a normalizar las variables.
+
+```{r}
+recipe_km <-df %>% 
+            recipe(~.) %>%
+            step_normalize(c(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS)) 
+
+set.seed(123)
+km_2clst <- recipe_km %>%
+            prep() %>%
+            bake(df) %>%
+            select(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS) %>%
+            kmeans(x=.,
+                   centers=2)
+```
+
+¿Qué pasó acá?
+
+1. `recipe_km <-df %>% 
+            recipe(~.) %>%
+            step_normalize(c(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS))` 
+
+Generamos una receta que va a normaalizar las tres variables a utilizar en el clustering
+
+2. `km_2clst <- recipe_km %>%
+            prep() %>%
+            bake(df) %>%
+            select(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS) %>%
+            kmeans(x=.,
+                   centers=2)`
+                   
+Preparamos y cocinamos la receta, seleccionamos las variables y estimamos el k-medias. Usamos la función `kmeans` de r-base. La misma tiene dos argumentos centrales:
+
+- `x`: el dataset a clusterizar
+- `centers`: cantidad de centroides (o sea de clústers), es decir, lo que hace un rato llamamos $k$.
+
+```{r}
+km_2clst
+```
+
+```{r}
+summary(km_2clst)
+```
+
+La salida es una lista de vectores, donde cada componente tiene una longitud diferente. 
+
+- `cluster` de longitud 187, el mismo que nuestro conjunto de datos original; contiene información sobre cada punto
+- dos elementos de longitud 3 (`withinss` y `tot.withinss`) y `centers` son una matriz con 3 filas; presentan información sobre cada grupo
+- luego están los elementos de longitud 1: `totss`, `tot.withinss`, `betweenss` e `iter`; presentan información sobre el agrupamiento completo.
+
+¿Cuál de estos queremos extraer? No hay respuesta correcta; cada uno de ellos puede ser interesante para un analista. Debido a que comunican información completamente diferente (sin mencionar que no hay una forma sencilla de combinarlos), se extraen mediante funciones separadas. `augment` agrega las clasificaciones de puntos al conjunto de datos original:
+```{r}
+df <- augment(km_2clst, df)
+```
+
+Es lo mismo que hacer lo siguiente:
+```{r}
+df %>% bind_cols(as_tibble(km_2clst$cluster))
+```
+
+Es decir, entrar al objeto `km_2clst`, extraer el vector de `cluster`, transformarlo en `tibble` y agregarlo como columna a `df`
+
+**Grafico 4. % de población inserta en relación salariales (eje x) según % de población inserta en servicios por pertenencia a cada clúster**
+```{r}
+df %>%
+  ggplot(aes(x=prop_pob_rel_sal, y=SL.AGR.EMPL.ZS, color=.cluster)) +
+    geom_point() +
+    xlim(0,100) +
+    ylim(0,100) +
+    labs(x="% pob. rel. sal.",
+         y="% pop. agr. ") + 
+    theme_minimal()
+```
+
+### Caracterizando los clusters
+`tidy` nos ayuda a resumir la información por cluster. Es decir, calcula estadísticos de todas las variables del dataset original por cada cluster. En este caso, la media pero de las variables estandarizadas:
+```{r}
+tidy(km_2clst)
+```
+Como puede verse, pareciera que el cluster 2 se caracteriza por una menor participación de población inserta en relaciones salariales, una menor proporción de empleo en servicios y una mayor proporción de ocupades en la agricultura.
+
+El problema aquí es que las variables están normalizadas, lo cual hace más difícil su interpretación. Vamos a tratar de generar algún insight sobre qué son los clústers que generamos.
+
+Como vimos más arriba, con `augment` pegamos la pertenencia de cada país a cada cluster en la tabla original. A partir de allí podemos pasar a tratar de interpretar qué nos dice cada clúster. Generemos un boxplot de la distirbución de cada variable para cada clúster. Para eso vamos a llevar las tres variables con las que generamos el cluster y la variable de pertenencia al cluster a un formato long. 
+
+**Gráfico 5. Boxplot de variables vinculadas a la división del trabajo y a la cateogría ocupacional según cluster**
+```{r fig.height=6, fig.width=6}
+df %>%
+  pivot_longer(cols = SL.AGR.EMPL.ZS:prop_pob_rel_sal,
+               ) %>%
+  ggplot(aes(y=value, fill=.cluster)) + 
+    geom_boxplot() +
+    theme_minimal() +
+    theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+    facet_wrap(~name)
+```
+
+El cluster 1 presenta
+
+- mayor tasa de asalarización
+- menor participación de cuenta propias y familiares.
+- menor peso del agro como rama 
+- mayor peso de servicios
+
+Es así que cada cluster constituye una aproximación dicotómica al grado de desarrollo de la división del trabajo y de la asalarización.
+
+### Eligiendo la cantidad de clusters
+Ahora, ¿qué pasa si queremos probar otra $k$? ¿Estamos seguros de que $k=2$ es un valor razonable? ¿No existen situaciones intermedias entre un polo de alto desarrollo capitalista y otro de bajo?
+
+Vamos, entonces, a probar diferentes $k$ y tratar de evaluarlos.
+
+```{r}
+#Generamos un vector con la secuencia de clústers
+centers <- 1:10 
+
+#Incializamos dos tibbles vacías para llenar con las asignaciones de clusters y con algunas métricas
+assignments <- tibble()
+clusterings <- tibble()
+
+#Iteramos sobre cada uno de los elementos de centers
+for (i in centers){
+  
+  #Corremos la receta, seleccionamos las variables para clusterizar y corremos el k-medias con el  
+  km <- recipe_km %>%
+            prep() %>%
+            bake(df) %>%
+            select(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS) %>%
+            kmeans(x=.,
+                   centers=i)
+  
+  #Ejecutamos glance sobre km para extraer las métricas de variabilidad intra y extracluster y las agregamos a una de las tibbles
+  clusterings <- clusterings %>% 
+    bind_rows(
+      glance(km) %>% 
+        mutate(k=i) %>% 
+        select(k, everything())
+      )
+  
+    #Ejecutamos augment sobre km y df para agregar las pertenencias a los clusters a la tabla original; luego, apilamos todas las tablas en una sola
+  assignments <- assignments %>%
+                    bind_rows(
+                      augment(km, df) %>%
+                        mutate(k = i) %>%
+                        select(k, everything())
+                    )
+}
+```
+
+Al terminar este proceso, obtenemos lo siguiente:
+
+- una tibble `clusterings` con las métricas de los 10 modelos entrenados
+```{r}
+clusterings
+```
+
+- una tibble `assignments` con las diferentes asignaciones de clusterings pegadas a la tabla `df` original.
+```{r}
+assignments
+```
+
+---
+
+**Atención** ¿Cuántas filas tiene `assignments`? ¿Por qué?
+
+---
+
+Ambas nos van a servir para evaluar nuestros clustering.
+
+## Evaluando un modelo de clustering... ¿cuántos clusters?
+A partir de la primera tibble que genearmos podemos generar un gráfico que nos cuantifique la variabilidad intra-cluster para cada $k$. Particularmente, vamos a tomar la columna `tot.withinss` es decir, la suma total de los cuadrados en todos los clusters. La lógica es que a menor `tot.withinss` más homogéneos son los clústeres: 
+
+**Gráfico 6. Suma total de los cuadrados de las distancias para diferentes k**
+```{r}
+ggplot(clusterings, aes(x=as.factor(k), y=tot.withinss, group=1)) +
+  geom_line() +
+  geom_point() +
+  geom_vline(xintercept = 4, linetype="dashed") +
+  theme_minimal() +
+  labs(x="Cantidad clústers (k)",
+       y="Variabilidad intra-cluster")
+```
+
+Podemos utilizar el llamado "método del codo": podemos ver que en $k=4$ parece darse la mayor caída de la suma de los cuadrados de todos los clústers. En ese sentido, $k=4$ parece un buen candidato para empezar una exploración.
+
+Existen otros métodos para evaluar una determinada clusterización:
+
+- silhouette score
+- gap statistic 
+- etc...
+
+De hecho, estos métodos podrían usarse también para evaluar clusters con otros métodos como el jerárquico que vamos a trabajar en breve.
+
+## Entendiendo los clusters
+Intentemos entender qué es lo que pasa en cada clusterización.
+Vamos a generar diferentes boxplots, para los diferentes $k$. Lo mismo que hicimos más arriba.
+
+**Gráfico 7. Boxplot de variables vinculadas a la división del trabajo y a la cateogría ocupacional según cluster y según especificación**
+```{r fig.height=10, fig.width=10}
+assignments %>%
+  filter(k >= 2 & k <= 5) %>%
+  select(k, country, .cluster, SL.AGR.EMPL.ZS:SL.SRV.EMPL.ZS, prop_pob_rel_sal) %>%
+  pivot_longer(cols = SL.AGR.EMPL.ZS:prop_pob_rel_sal) %>%
+  ggplot(aes(x=value, y=name, fill=.cluster)) + 
+    geom_boxplot() +
+    theme_minimal() +
+    facet_wrap(~k)
+```
+En general, se observa que las diferentes especificaciones se van ordenando en un gradiente que va desde el bajo peso de relaciones salariales y alto peso de población ocupada en el campo hasta el otro extremo.
+
+Veamos específicamente el $k=5$
+
+**Gráfico 8. Boxplot de variables vinculadas a la división del trabajo y a la cateogría ocupacional según cluster (k=5)**
+```{r}
+assignments %>%
+  filter(k == 5) %>%
+  select(k, country, .cluster, SL.AGR.EMPL.ZS:SL.SRV.EMPL.ZS, prop_pob_rel_sal) %>%
+  pivot_longer(cols = SL.AGR.EMPL.ZS:prop_pob_rel_sal) %>%
+  ggplot(aes(y=value, fill=.cluster)) + 
+    geom_boxplot() +
+    theme_minimal() +
+        theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+    facet_wrap(~name)
+```
+Puede verse que el cluster 1 es el que mayor desarrollo muestra. En efecto, las relaciones salariales y el peso de los servicios son las de mayor importancia, el campo muestra su menor peso. 
+
+En el otro extremo, nos encontramos con el cluster 2 que muestras las características opuestas. Podemos clasificar estos países como de **pequeña propiedad en el campo**.
+
+Luego nos encontramos con un degradé de situaciones que se van acercando desde el cluster 2 al 1. Así en el grupo 5 (al que podríamos caracterizar como **Capitalismo de extensión reciente con rasgos de desarrollo en profundidad**) predominan relaciones salariales y servicios, pero en menor grado que en el anterior. Convive cierto peso remanente del campo con un muy alto peso relativo de la industria, lo que puede indicar persistencia de pequeña propiedad rural y urbana. 
+
+El grupo 4, a diferencia de los anteriores, la suma de agro e industria iguala o supera a la población en servicios. La población en el agro, además, suele ser mayor a la de la industria (a diferencia de lo que ocurre en los dos grupos anteriores). El asalariado está extendido, pero no llega la mitad de la población. Podemos etiquetarlo como **capitalismo en proceso de extensión con peso del campo**.
+
+Finalmente, en el grupo 3 (*capitalismo de escasa extensión con peso del campo*) la población agrícola supera a industria y servicios, considerados por
+separado. La población no asalariada es mayoritaria.
+
+Si quisiéramos ver cómo quedan agrupados los países podríamos repetir el scatter 4.
+
+** **
+```{r fig.height=10, fig.width=10}
+assignments %>%
+  filter(k >= 2 & k <= 7) %>%
+  select(k, country, .cluster, SL.AGR.EMPL.ZS:SL.SRV.EMPL.ZS, prop_pob_rel_sal) %>%
+  ggplot(aes(x=prop_pob_rel_sal, y=SL.AGR.EMPL.ZS, color=.cluster)) + 
+    geom_point() +
+    theme_minimal() +
+    facet_wrap(~k)
+```
+
+Pero mucho más interesante sería generar un mapa:
+
+```{r fig.height=8, fig.width=12}
+worldmap <- map_data("world")
+worldmap$iso3c <- maps::iso.alpha(x=worldmap$region,n=3)
+
+worldmap <- worldmap %>%
+    left_join(assignments %>% filter(k==5) %>% select(country, iso3c, .cluster))
+
+worldmap %>%
+  drop_na(.cluster) %>%
+    ggplot() + 
+    geom_polygon(aes(x=long, y=lat, group=group, fill=as.factor(.cluster)), color='black') +
+  labs(fill='') +
+    theme_minimal() +
+    theme(legend.position='bottom',
+          legend.text = element_text(size=23))
+
+```
+

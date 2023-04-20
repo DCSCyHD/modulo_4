@@ -1,0 +1,61 @@
+---
+title: "Aprendizaje No Supervisado"
+subtitle: "Práctica integradora"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+author: "Germán Rosati"
+
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE, highlight=TRUE, paged.print=FALSE, prompt=TRUE, strip.white=FALSE, tidy = TRUE)
+```
+
+## Planteo del problema
+Forman parte del equipo de factor~data. Actualmente, estamos trabajando en la realización de un análisis de las condiciones de vida del municipio de San Martín. Una de las etapas es la construcción de un análisis a nivel radio censal del municipio con dos objetivos:
+
+- generar un insumo de planificación para la política pública
+- generar un marco muestral para una posible encuesta a realizar en la población
+
+Para ello, van a trabajar con información sobre las condiciones de vida a nivel radio censal proveniente del Censo Nacional de Población y Vivienda 2010. Los datos corresonden a los 52.406 radios de _todo el país_.
+
+## Objetivos y variables
+El objetivo general es generar grupos de radios parecidos en función de las variables en cuestión. Esa es la tarea que les toca. Los datos están en el archivo `./data/radios_hogar.csv`. El mismo tiene las siguientes variables:
+
+- radio 
+- provincia 
+- depto 
+- hogares_sin_nbi 
+- banio_uso_exclusivo 
+- cocina_gas_red 
+- desague_red_cloaca 
+- techo_membrana piso_ceramica_baldosa
+- agua_de_red 
+- revestimiento_techo
+- agua_canieria_dentro 
+- tiene_bano_o_letrina_si 
+- inodoro_con_cadena 
+- regimen_tenencia_propietario
+
+Cada una contiene la proporción de hogares dentro de cada radio que son clasificados en cada categoría. Fueron construidas sobre las preguntas del [cuestionario de hogar del Censo](https://www.indec.gob.ar/ftp/cuadros/poblacion/cuestionario_basico_2010.pdf). Pueden encontrar [información sobre las definiciones de las variables aquí](https://www.indec.gob.ar/ftp/cuadros/poblacion/glosario_censo2010.pdf).
+
+---
+
+**Algunas pistas**
+
+- Piensen qué técnica (o qué combinación de técnicas) es la más apropiada para abordar el problema.
+- Tienen que generar grupos homogéneos en TODAS las variables
+- Piensen en las diferentes dimensiones que cada variable operacionaliza
+- Filtren los datos para llevarlos al departamento de General San Martín
+
+---
+
+## Entregables
+Deben redactar un informe breve (máximo 4 carillas) en el que exponen los criterios para construir los agrupamientos, los criterios de validación y los principales resultados. Además, el código para replicar el procesamiento.

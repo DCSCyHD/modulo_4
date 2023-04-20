@@ -1,0 +1,73 @@
+---
+title: "Aprendizaje No Supervisado - E1"
+subtitle: "Análisis de componentes principales (PCA) - Práctica"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+author: "Germán Rosati"
+
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE, highlight=TRUE, paged.print=FALSE, prompt=TRUE, strip.white=FALSE, tidy = TRUE)
+```
+
+
+## Presentación
+Son consultores en ciencia de datos contratados por el Banco Mundial. Uno de sus primeros trabajos tiene dos objetivos
+- resumir la información sobre las condiciones de vida de los países del mundo
+- evaluar la viabilidad de construir un índice único y general sobre las condiciones de vida a nivel mundial para cada país (que tenga información disponible):
+
+Para ello, el directorio les brinda el archivo `desarrollo_wb.csv` que contiene información para el período 2010-2022 de las siguientes variables:
+
+- `EG.ELC.ACCS.ZS`: Access to electricity (% of population)                              
+- `SP.DYN.LE00.IN`: Life expectancy at birth, total (years)                              
+- `SH.DYN.MORT`: Mortality rate, under-5 (per 1,000 live births)                      
+- `SH.STA.ODFC.ZS`: People practicing open defecation (% of population)                  
+- `SH.H2O.BASW.ZS`: People using at least basic drinking water services (% of population)
+- `SH.STA.BASS.ZS`: People using at least basic sanitation services (% of population)    
+- `SH.STA.SMSS.ZS`: People using safely managed sanitation services (% of population)    
+- `SP.POP.TOTL`: Population, total                                                    
+- `SP.URB.TOTL.IN.ZS`: Urban population (% of total population)
+
+Se tomaron los promedios de cada una de las variables para el período considerado. La información fue extraida del sitio del [Banco Mundial](https://databank.worldbank.org/source/world-development-indicators). 
+
+## Cargar las librerías a utilizar
+```{r}
+###
+```
+
+## Cargar los datos
+```{r}
+###
+```
+
+
+## Estimar un modelo de PCA con las variables 
+```{r}
+###
+```
+
+## ¿Cuántos componentes es conveniente conservar?
+```{r}
+###
+```
+
+# Evaluar el modelo
+```{r}
+###
+```
+
+## Interpretar los primeros dos componentes
+```{r}
+###
+```
+
+## Conclusiones
+¿Es posible pensar en construir un solo índice que resuman de forma confiable las condiciones de vida general? ¿Por qué? Justificar la respuesta en función de los resultados obtenidos. Generar las tablas y gráficos que considere necesario.

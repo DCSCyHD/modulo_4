@@ -1,0 +1,1497 @@
+iso3c,date,value,indicatorID,indicator,iso2c,country
+AFG,2019,42.8390007019043,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AF,Afghanistan
+AFG,2019,18.1620006561279,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AF,Afghanistan
+AFG,2019,38.9990005493164,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AF,Afghanistan
+AFG,2019,43.4560012817383,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AF,Afghanistan
+ALB,2019,36.6910018920898,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AL,Albania
+ALB,2019,20.0049991607666,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AL,Albania
+ALB,2019,43.3040008544922,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AL,Albania
+ALB,2019,48.8600006103516,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AL,Albania
+DZA,2019,9.85599994659424,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),DZ,Algeria
+DZA,2019,30.7339992523193,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),DZ,Algeria
+DZA,2019,59.4099998474121,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),DZ,Algeria
+DZA,2019,36.3330001831055,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",DZ,Algeria
+AGO,2019,50.3800010681152,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AO,Angola
+AGO,2019,8.12199974060059,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AO,Angola
+AGO,2019,41.4980010986328,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AO,Angola
+AGO,2019,72.1569976806641,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AO,Angola
+ARG,2019,0.0920000001788139,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AR,Argentina
+ARG,2019,21.4109992980957,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AR,Argentina
+ARG,2019,78.4970016479492,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AR,Argentina
+ARG,2019,55.3009986877441,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AR,Argentina
+ARM,2019,29.6380004882813,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AM,Armenia
+ARM,2019,17.1749992370605,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AM,Armenia
+ARM,2019,53.1870002746582,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AM,Armenia
+ARM,2019,46.1730003356934,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AM,Armenia
+AUS,2019,2.55999994277954,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AU,Australia
+AUS,2019,19.8059997558594,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AU,Australia
+AUS,2019,77.6350021362305,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AU,Australia
+AUS,2019,62.0670013427734,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AU,Australia
+AUT,2019,3.58100008964539,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AT,Austria
+AUT,2019,25.2569999694824,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AT,Austria
+AUT,2019,71.1630020141602,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AT,Austria
+AUT,2019,57.8479995727539,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AT,Austria
+AZE,2019,35.8699989318848,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AZ,Azerbaijan
+AZE,2019,14.8570003509521,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AZ,Azerbaijan
+AZE,2019,49.2729988098145,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AZ,Azerbaijan
+AZE,2019,62.8380012512207,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AZ,Azerbaijan
+BHS,2019,2.13800001144409,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BS,"Bahamas, The"
+BHS,2019,14.2170000076294,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BS,"Bahamas, The"
+BHS,2019,83.6460037231445,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BS,"Bahamas, The"
+BHS,2019,66.8349990844727,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BS,"Bahamas, The"
+BHR,2019,0.986000001430511,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BH,Bahrain
+BHR,2019,35.2169990539551,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BH,Bahrain
+BHR,2019,63.7970008850098,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BH,Bahrain
+BHR,2019,72.8379974365234,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BH,Bahrain
+BGD,2019,38.5769996643066,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BD,Bangladesh
+BGD,2019,21.2590007781982,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BD,Bangladesh
+BGD,2019,40.1640014648438,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BD,Bangladesh
+BGD,2019,56.5209999084473,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BD,Bangladesh
+BRB,2019,2.63000011444092,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BB,Barbados
+BRB,2019,19.0389995574951,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BB,Barbados
+BRB,2019,78.3310012817383,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BB,Barbados
+BRB,2019,58.4879989624023,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BB,Barbados
+BLR,2019,11.0179996490479,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BY,Belarus
+BLR,2019,30.451000213623,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BY,Belarus
+BLR,2019,58.5309982299805,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BY,Belarus
+BLR,2019,61.1839981079102,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BY,Belarus
+BEL,2019,0.961000025272369,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BE,Belgium
+BEL,2019,20.8439998626709,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BE,Belgium
+BEL,2019,78.1940002441406,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BE,Belgium
+BEL,2019,50.5690002441406,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BE,Belgium
+BLZ,2019,16.8460006713867,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BZ,Belize
+BLZ,2019,15.6999998092651,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BZ,Belize
+BLZ,2019,67.4540023803711,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BZ,Belize
+BLZ,2019,60.8839988708496,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BZ,Belize
+BEN,2019,38.5779991149902,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BJ,Benin
+BEN,2019,18.9930000305176,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BJ,Benin
+BEN,2019,42.4290008544922,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BJ,Benin
+BEN,2019,69.2850036621094,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BJ,Benin
+BTN,2019,55.314998626709,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BT,Bhutan
+BTN,2019,10.7679996490479,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BT,Bhutan
+BTN,2019,33.9169998168945,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BT,Bhutan
+BTN,2019,65.1520004272461,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BT,Bhutan
+BOL,2019,30.7089996337891,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BO,Bolivia
+BOL,2019,19.4090003967285,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BO,Bolivia
+BOL,2019,49.8819999694824,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BO,Bolivia
+BOL,2019,69.3010025024414,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BO,Bolivia
+BIH,2019,15.3830003738403,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BA,Bosnia and Herzegovina
+BIH,2019,32.2639999389648,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BA,Bosnia and Herzegovina
+BIH,2019,52.3530006408691,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BA,Bosnia and Herzegovina
+BIH,2019,37.8470001220703,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BA,Bosnia and Herzegovina
+BWA,2019,20.6870002746582,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BW,Botswana
+BWA,2019,18.1159992218018,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BW,Botswana
+BWA,2019,61.1969985961914,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BW,Botswana
+BWA,2019,57.935001373291,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BW,Botswana
+BRA,2019,9.2209997177124,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BR,Brazil
+BRA,2019,19.7830009460449,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BR,Brazil
+BRA,2019,70.9960021972656,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BR,Brazil
+BRA,2019,56.1650009155273,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BR,Brazil
+BRN,2019,1.36300003528595,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BN,Brunei Darussalam
+BRN,2019,15.8809995651245,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BN,Brunei Darussalam
+BRN,2019,82.7559967041016,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BN,Brunei Darussalam
+BRN,2019,58.7809982299805,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BN,Brunei Darussalam
+BGR,2019,6.39300012588501,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BG,Bulgaria
+BGR,2019,30.1429996490479,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BG,Bulgaria
+BGR,2019,63.4640007019043,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BG,Bulgaria
+BGR,2019,52.9640007019043,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BG,Bulgaria
+BFA,2019,25.2250003814697,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BF,Burkina Faso
+BFA,2019,33.7019996643066,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BF,Burkina Faso
+BFA,2019,41.0730018615723,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BF,Burkina Faso
+BFA,2019,62.2680015563965,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BF,Burkina Faso
+BDI,2019,92.0230026245117,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),BI,Burundi
+BDI,2019,1.4650000333786,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),BI,Burundi
+BDI,2019,6.51200008392334,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),BI,Burundi
+BDI,2019,78.0240020751953,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",BI,Burundi
+CPV,2019,11.460000038147,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CV,Cabo Verde
+CPV,2019,21.992000579834,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CV,Cabo Verde
+CPV,2019,66.5490036010742,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CV,Cabo Verde
+CPV,2019,53.048999786377,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CV,Cabo Verde
+KHM,2019,32.2970008850098,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KH,Cambodia
+KHM,2019,29.0009994506836,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KH,Cambodia
+KHM,2019,38.7019996643066,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KH,Cambodia
+KHM,2019,81.7559967041016,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KH,Cambodia
+CMR,2019,43.4370002746582,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CM,Cameroon
+CMR,2019,14.951000213623,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CM,Cameroon
+CMR,2019,41.6119995117188,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CM,Cameroon
+CMR,2019,73.5009994506836,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CM,Cameroon
+CAN,2019,1.45200002193451,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CA,Canada
+CAN,2019,19.4750003814697,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CA,Canada
+CAN,2019,79.072998046875,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CA,Canada
+CAN,2019,61.451000213623,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CA,Canada
+CAF,2019,77.322998046875,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CF,Central African Republic
+CAF,2019,5.40399980545044,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CF,Central African Republic
+CAF,2019,17.2730007171631,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CF,Central African Republic
+CAF,2019,69.306999206543,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CF,Central African Republic
+TCD,2019,76.5559997558594,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TD,Chad
+TCD,2019,2.09999990463257,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TD,Chad
+TCD,2019,21.3439998626709,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TD,Chad
+TCD,2019,69.3619995117188,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TD,Chad
+CHI,2019,3.58699989318848,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),JG,Channel Islands
+CHI,2019,23.242000579834,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),JG,Channel Islands
+CHI,2019,73.1719970703125,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),JG,Channel Islands
+CHI,2019,53.8409996032715,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",JG,Channel Islands
+CHL,2019,9.0019998550415,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CL,Chile
+CHL,2019,22.1529998779297,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CL,Chile
+CHL,2019,68.8450012207031,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CL,Chile
+CHL,2019,58.2019996643066,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CL,Chile
+CHN,2019,25.363000869751,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CN,China
+CHN,2019,28.201000213623,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CN,China
+CHN,2019,46.4360008239746,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CN,China
+CHN,2019,65.0500030517578,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CN,China
+COL,2019,16.613000869751,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CO,Colombia
+COL,2019,19.992000579834,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CO,Colombia
+COL,2019,63.3950004577637,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CO,Colombia
+COL,2019,62.0950012207031,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CO,Colombia
+COM,2019,50.375,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KM,Comoros
+COM,2019,13.0310001373291,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KM,Comoros
+COM,2019,36.5940017700195,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KM,Comoros
+COM,2019,41.4049987792969,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KM,Comoros
+COD,2019,65.4309997558594,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CD,"Congo, Dem. Rep."
+COD,2019,9.7480001449585,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CD,"Congo, Dem. Rep."
+COD,2019,24.8209991455078,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CD,"Congo, Dem. Rep."
+COD,2019,60.773998260498,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CD,"Congo, Dem. Rep."
+COG,2019,34.1300010681152,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CG,"Congo, Rep."
+COG,2019,21.8570003509521,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CG,"Congo, Rep."
+COG,2019,44.0139999389648,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CG,"Congo, Rep."
+COG,2019,62.8699989318848,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CG,"Congo, Rep."
+CRI,2019,12.1090002059937,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CR,Costa Rica
+CRI,2019,19.7560005187988,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CR,Costa Rica
+CRI,2019,68.1350021362305,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CR,Costa Rica
+CRI,2019,54.7369995117188,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CR,Costa Rica
+CIV,2019,40.048999786377,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CI,Cote d'Ivoire
+CIV,2019,13.1680002212524,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CI,Cote d'Ivoire
+CIV,2019,46.7830009460449,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CI,Cote d'Ivoire
+CIV,2019,55.0639991760254,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CI,Cote d'Ivoire
+HRV,2019,5.96299982070923,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),HR,Croatia
+HRV,2019,27.4909992218018,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),HR,Croatia
+HRV,2019,66.5459976196289,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),HR,Croatia
+HRV,2019,47.6319999694824,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",HR,Croatia
+CUB,2019,17.507999420166,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CU,Cuba
+CUB,2019,16.8780002593994,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CU,Cuba
+CUB,2019,65.6139984130859,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CU,Cuba
+CUB,2019,52.7029991149902,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CU,Cuba
+CYP,2019,2.07100009918213,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CY,Cyprus
+CYP,2019,16.42799949646,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CY,Cyprus
+CYP,2019,81.5009994506836,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CY,Cyprus
+CYP,2019,58.4720001220703,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CY,Cyprus
+CZE,2019,2.71799993515015,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CZ,Czech Republic
+CZE,2019,37.2879981994629,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CZ,Czech Republic
+CZE,2019,59.9939994812012,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CZ,Czech Republic
+CZE,2019,59.3880004882813,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CZ,Czech Republic
+DNK,2019,2.18600010871887,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),DK,Denmark
+DNK,2019,18.4680004119873,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),DK,Denmark
+DNK,2019,79.3460006713867,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),DK,Denmark
+DNK,2019,59.1619987487793,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",DK,Denmark
+DJI,2019,33.1220016479492,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),DJ,Djibouti
+DJI,2019,13.0699996948242,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),DJ,Djibouti
+DJI,2019,53.8079986572266,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),DJ,Djibouti
+DJI,2019,54.0410003662109,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",DJ,Djibouti
+DOM,2019,9.02099990844727,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),DO,Dominican Republic
+DOM,2019,19.8610000610352,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),DO,Dominican Republic
+DOM,2019,71.1179962158203,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),DO,Dominican Republic
+DOM,2019,60.5620002746582,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",DO,Dominican Republic
+ECU,2019,29.2019996643066,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),EC,Ecuador
+ECU,2019,18.3209991455078,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),EC,Ecuador
+ECU,2019,52.4770011901855,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),EC,Ecuador
+ECU,2019,65.3379974365234,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",EC,Ecuador
+EGY,2019,23.7919998168945,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),EG,"Egypt, Arab Rep."
+EGY,2019,27.6800003051758,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),EG,"Egypt, Arab Rep."
+EGY,2019,48.5279998779297,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),EG,"Egypt, Arab Rep."
+EGY,2019,41.4189987182617,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",EG,"Egypt, Arab Rep."
+SLV,2019,16.2810001373291,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SV,El Salvador
+SLV,2019,22.1319999694824,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SV,El Salvador
+SLV,2019,61.5859985351563,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SV,El Salvador
+SLV,2019,56.6679992675781,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SV,El Salvador
+GNQ,2019,42.3569984436035,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GQ,Equatorial Guinea
+GNQ,2019,19.0659999847412,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GQ,Equatorial Guinea
+GNQ,2019,38.5769996643066,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GQ,Equatorial Guinea
+GNQ,2019,57.9809989929199,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GQ,Equatorial Guinea
+ERI,2019,61.2130012512207,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ER,Eritrea
+ERI,2019,8.44699954986572,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ER,Eritrea
+ERI,2019,30.3390007019043,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ER,Eritrea
+ERI,2019,74.3550033569336,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ER,Eritrea
+EST,2019,3.18400001525879,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),EE,Estonia
+EST,2019,29.5359992980957,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),EE,Estonia
+EST,2019,67.2799987792969,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),EE,Estonia
+EST,2019,60.3079986572266,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",EE,Estonia
+SWZ,2019,12.4580001831055,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SZ,Eswatini
+SWZ,2019,23.7919998168945,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SZ,Eswatini
+SWZ,2019,63.75,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SZ,Eswatini
+SWZ,2019,40.9099998474121,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SZ,Eswatini
+ETH,2019,66.1289978027344,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ET,Ethiopia
+ETH,2019,10.1920003890991,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ET,Ethiopia
+ETH,2019,23.6790008544922,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ET,Ethiopia
+ETH,2019,77.8949966430664,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ET,Ethiopia
+FJI,2019,36.2599983215332,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),FJ,Fiji
+FJI,2019,13.326000213623,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),FJ,Fiji
+FJI,2019,50.4140014648438,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),FJ,Fiji
+FJI,2019,55.2789993286133,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",FJ,Fiji
+FIN,2019,3.60599994659424,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),FI,Finland
+FIN,2019,22.1879997253418,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),FI,Finland
+FIN,2019,74.2060012817383,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),FI,Finland
+FIN,2019,55.185001373291,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",FI,Finland
+FRA,2019,2.44300007820129,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),FR,France
+FRA,2019,20.0860004425049,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),FR,France
+FRA,2019,77.4710006713867,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),FR,France
+FRA,2019,50.4799995422363,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",FR,France
+PYF,2019,6.88399982452393,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PF,French Polynesia
+PYF,2019,14.6800003051758,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PF,French Polynesia
+PYF,2019,78.4359970092773,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PF,French Polynesia
+PYF,2019,47.6220016479492,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PF,French Polynesia
+GAB,2019,32.8310012817383,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GA,Gabon
+GAB,2019,10.753999710083,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GA,Gabon
+GAB,2019,56.4150009155273,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GA,Gabon
+GAB,2019,42.3139991760254,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GA,Gabon
+GMB,2019,27.121000289917,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GM,"Gambia, The"
+GMB,2019,15.6840000152588,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GM,"Gambia, The"
+GMB,2019,57.1940002441406,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GM,"Gambia, The"
+GMB,2019,54.0209999084473,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GM,"Gambia, The"
+GEO,2019,41.818000793457,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GE,Georgia
+GEO,2019,13.8760004043579,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GE,Georgia
+GEO,2019,44.3059997558594,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GE,Georgia
+GEO,2019,58.492000579834,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GE,Georgia
+DEU,2019,1.21000003814697,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),DE,Germany
+DEU,2019,27.0429992675781,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),DE,Germany
+DEU,2019,71.7470016479492,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),DE,Germany
+DEU,2019,58.9609985351563,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",DE,Germany
+GHA,2019,29.2649993896484,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GH,Ghana
+GHA,2019,21.7759990692139,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GH,Ghana
+GHA,2019,48.9589996337891,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GH,Ghana
+GHA,2019,64.8619995117188,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GH,Ghana
+GRC,2019,11.9820003509521,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GR,Greece
+GRC,2019,15.21399974823,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GR,Greece
+GRC,2019,72.8040008544922,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GR,Greece
+GRC,2019,42.8440017700195,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GR,Greece
+GUM,2019,0.237000003457069,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GU,Guam
+GUM,2019,14.3629999160767,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GU,Guam
+GUM,2019,85.4000015258789,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GU,Guam
+GUM,2019,60.9879989624023,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GU,Guam
+GTM,2019,31.4899997711182,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GT,Guatemala
+GTM,2019,18.5450000762939,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GT,Guatemala
+GTM,2019,49.9640007019043,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GT,Guatemala
+GTM,2019,60.8170013427734,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GT,Guatemala
+GIN,2019,61.742000579834,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GN,Guinea
+GIN,2019,6.15700006484985,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GN,Guinea
+GIN,2019,32.1020011901855,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GN,Guinea
+GIN,2019,58.8899993896484,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GN,Guinea
+GNB,2019,68.1380004882813,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GW,Guinea-Bissau
+GNB,2019,7.00299978256226,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GW,Guinea-Bissau
+GNB,2019,24.8589992523193,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GW,Guinea-Bissau
+GNB,2019,70.1900024414063,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GW,Guinea-Bissau
+GUY,2019,17.136999130249,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GY,Guyana
+GUY,2019,22.82200050354,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GY,Guyana
+GUY,2019,60.0410003662109,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GY,Guyana
+GUY,2019,49.523998260498,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GY,Guyana
+HTI,2019,28.6590003967285,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),HT,Haiti
+HTI,2019,6.68699979782104,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),HT,Haiti
+HTI,2019,64.6539993286133,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),HT,Haiti
+HTI,2019,57.9259986877441,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",HT,Haiti
+HND,2019,30.2600002288818,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),HN,Honduras
+HND,2019,19.9729995727539,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),HN,Honduras
+HND,2019,49.7669982910156,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),HN,Honduras
+HND,2019,65.0670013427734,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",HN,Honduras
+HKG,2019,0.171000003814697,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),HK,"Hong Kong SAR, China"
+HKG,2019,11.5979995727539,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),HK,"Hong Kong SAR, China"
+HKG,2019,88.2310028076172,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),HK,"Hong Kong SAR, China"
+HKG,2019,57.8930015563965,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",HK,"Hong Kong SAR, China"
+HUN,2019,4.69999980926514,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),HU,Hungary
+HUN,2019,32.6949996948242,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),HU,Hungary
+HUN,2019,62.6049995422363,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),HU,Hungary
+HUN,2019,54.5480003356934,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",HU,Hungary
+ISL,2019,3.93799996376038,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IS,Iceland
+ISL,2019,16.4330005645752,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IS,Iceland
+ISL,2019,79.6289978027344,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IS,Iceland
+ISL,2019,72.9000015258789,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IS,Iceland
+IND,2019,42.3849983215332,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IN,India
+IND,2019,25.5769996643066,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IN,India
+IND,2019,32.0379981994629,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IN,India
+IND,2019,46.6529998779297,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IN,India
+IDN,2019,28.6350002288818,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ID,Indonesia
+IDN,2019,22.4540004730225,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ID,Indonesia
+IDN,2019,48.9109992980957,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ID,Indonesia
+IDN,2019,64.3330001831055,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ID,Indonesia
+IRN,2019,17.9489994049072,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IR,"Iran, Islamic Rep."
+IRN,2019,30.5779991149902,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IR,"Iran, Islamic Rep."
+IRN,2019,51.4729995727539,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IR,"Iran, Islamic Rep."
+IRN,2019,39.5810012817383,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IR,"Iran, Islamic Rep."
+IRQ,2019,18.0990009307861,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IQ,Iraq
+IRQ,2019,22.3209991455078,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IQ,Iraq
+IRQ,2019,59.5800018310547,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IQ,Iraq
+IRQ,2019,37.484001159668,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IQ,Iraq
+IRL,2019,4.61899995803833,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IE,Ireland
+IRL,2019,18.7019996643066,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IE,Ireland
+IRL,2019,76.6790008544922,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IE,Ireland
+IRL,2019,59.007999420166,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IE,Ireland
+ISR,2019,0.924000024795532,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IL,Israel
+ISR,2019,16.992000579834,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IL,Israel
+ISR,2019,82.0839996337891,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IL,Israel
+ISR,2019,61.5690002441406,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IL,Israel
+ITA,2019,3.68400001525879,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),IT,Italy
+ITA,2019,25.8719997406006,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),IT,Italy
+ITA,2019,70.4440002441406,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),IT,Italy
+ITA,2019,44.6549987792969,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",IT,Italy
+JAM,2019,15.9300003051758,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),JM,Jamaica
+JAM,2019,16.1690006256104,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),JM,Jamaica
+JAM,2019,67.9010009765625,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),JM,Jamaica
+JAM,2019,60.7459983825684,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",JM,Jamaica
+JPN,2019,3.42300009727478,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),JP,Japan
+JPN,2019,24.2689990997314,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),JP,Japan
+JPN,2019,72.306999206543,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),JP,Japan
+JPN,2019,60.3120002746582,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",JP,Japan
+JOR,2019,3.08400011062622,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),JO,Jordan
+JOR,2019,24.5149993896484,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),JO,Jordan
+JOR,2019,72.4010009765625,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),JO,Jordan
+JOR,2019,33.5209999084473,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",JO,Jordan
+KAZ,2019,15.8020000457764,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KZ,Kazakhstan
+KAZ,2019,20.4559993743896,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KZ,Kazakhstan
+KAZ,2019,63.742000579834,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KZ,Kazakhstan
+KAZ,2019,65.6009979248047,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KZ,Kazakhstan
+KEN,2019,54.439998626709,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KE,Kenya
+KEN,2019,7.31099987030029,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KE,Kenya
+KEN,2019,38.2490005493164,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KE,Kenya
+KEN,2019,72.7220001220703,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KE,Kenya
+PRK,2019,51.3030014038086,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KP,"Korea, Dem. People’s Rep."
+PRK,2019,13.4309997558594,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KP,"Korea, Dem. People’s Rep."
+PRK,2019,35.265998840332,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KP,"Korea, Dem. People’s Rep."
+PRK,2019,78.1669998168945,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KP,"Korea, Dem. People’s Rep."
+KOR,2019,4.87900018692017,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KR,"Korea, Rep."
+KOR,2019,25.1280002593994,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KR,"Korea, Rep."
+KOR,2019,69.9940032958984,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KR,"Korea, Rep."
+KOR,2019,60.3580017089844,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KR,"Korea, Rep."
+KWT,2019,2.01099991798401,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KW,Kuwait
+KWT,2019,24.3840007781982,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KW,Kuwait
+KWT,2019,73.6050033569336,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KW,Kuwait
+KWT,2019,71.8889999389648,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KW,Kuwait
+KGZ,2019,21.1720008850098,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),KG,Kyrgyz Republic
+KGZ,2019,24.0690002441406,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),KG,Kyrgyz Republic
+KGZ,2019,54.7589988708496,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),KG,Kyrgyz Republic
+KGZ,2019,56.0439987182617,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",KG,Kyrgyz Republic
+LAO,2019,62.4220008850098,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LA,Lao PDR
+LAO,2019,11.8929996490479,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LA,Lao PDR
+LAO,2019,25.6849994659424,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LA,Lao PDR
+LAO,2019,77.9820022583008,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LA,Lao PDR
+LVA,2019,6.75,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LV,Latvia
+LVA,2019,23.7320003509521,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LV,Latvia
+LVA,2019,69.5179977416992,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LV,Latvia
+LVA,2019,57.4080009460449,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LV,Latvia
+LBN,2019,13.6090002059937,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LB,Lebanon
+LBN,2019,22.4580001831055,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LB,Lebanon
+LBN,2019,63.9339981079102,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LB,Lebanon
+LBN,2019,44.0849990844727,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LB,Lebanon
+LSO,2019,8.53600025177002,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LS,Lesotho
+LSO,2019,42.2229995727539,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LS,Lesotho
+LSO,2019,49.2410011291504,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LS,Lesotho
+LSO,2019,51.9959983825684,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LS,Lesotho
+LBR,2019,43.2729988098145,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LR,Liberia
+LBR,2019,10.2170000076294,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LR,Liberia
+LBR,2019,46.5099983215332,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LR,Liberia
+LBR,2019,74.1669998168945,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LR,Liberia
+LBY,2019,18.9050006866455,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LY,Libya
+LBY,2019,21.9230003356934,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LY,Libya
+LBY,2019,59.1730003356934,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LY,Libya
+LBY,2019,40.4630012512207,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LY,Libya
+LTU,2019,6.8730001449585,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LT,Lithuania
+LTU,2019,25.9160003662109,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LT,Lithuania
+LTU,2019,67.2109985351563,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LT,Lithuania
+LTU,2019,57.7039985656738,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LT,Lithuania
+LUX,2019,1.00699996948242,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LU,Luxembourg
+LUX,2019,11.6979999542236,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LU,Luxembourg
+LUX,2019,87.2949981689453,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LU,Luxembourg
+LUX,2019,56.1459999084473,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LU,Luxembourg
+MAC,2019,0.377000004053116,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MO,"Macao SAR, China"
+MAC,2019,9.67000007629395,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MO,"Macao SAR, China"
+MAC,2019,89.9520034790039,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MO,"Macao SAR, China"
+MAC,2019,68.9140014648438,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MO,"Macao SAR, China"
+MDG,2019,64.2220001220703,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MG,Madagascar
+MDG,2019,8.98700046539307,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MG,Madagascar
+MDG,2019,26.7910003662109,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MG,Madagascar
+MDG,2019,84.6129989624023,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MG,Madagascar
+MWI,2019,43.648998260498,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MW,Malawi
+MWI,2019,13.8050003051758,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MW,Malawi
+MWI,2019,42.5449981689453,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MW,Malawi
+MWI,2019,72.3809967041016,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MW,Malawi
+MYS,2019,10.3610000610352,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MY,Malaysia
+MYS,2019,26.9969997406006,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MY,Malaysia
+MYS,2019,62.6419982910156,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MY,Malaysia
+MYS,2019,62.1520004272461,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MY,Malaysia
+MDV,2019,8.47000026702881,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MV,Maldives
+MDV,2019,18.3840007781982,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MV,Maldives
+MDV,2019,73.1460037231445,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MV,Maldives
+MDV,2019,65.5070037841797,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MV,Maldives
+MLI,2019,62.5909996032715,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ML,Mali
+MLI,2019,7.5789999961853,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ML,Mali
+MLI,2019,29.8299999237061,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ML,Mali
+MLI,2019,65.6969985961914,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ML,Mali
+MLT,2019,0.989000022411346,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MT,Malta
+MLT,2019,18.3099994659424,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MT,Malta
+MLT,2019,80.7020034790039,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MT,Malta
+MLT,2019,54.5639991760254,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MT,Malta
+MRT,2019,51.273998260498,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MR,Mauritania
+MRT,2019,12.9409999847412,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MR,Mauritania
+MRT,2019,35.7849998474121,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MR,Mauritania
+MRT,2019,41.5029983520508,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MR,Mauritania
+MUS,2019,6.07200002670288,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MU,Mauritius
+MUS,2019,25.2859992980957,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MU,Mauritius
+MUS,2019,68.6419982910156,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MU,Mauritius
+MUS,2019,54.4210014343262,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MU,Mauritius
+MEX,2019,12.6090002059937,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MX,Mexico
+MEX,2019,26.1439990997314,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MX,Mexico
+MEX,2019,61.2470016479492,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MX,Mexico
+MEX,2019,58.6020011901855,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MX,Mexico
+MDA,2019,35.9309997558594,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MD,Moldova
+MDA,2019,16.8490009307861,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MD,Moldova
+MDA,2019,47.2200012207031,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MD,Moldova
+MDA,2019,40.7280006408691,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MD,Moldova
+MNG,2019,27.423999786377,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MN,Mongolia
+MNG,2019,19.3649997711182,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MN,Mongolia
+MNG,2019,53.2120018005371,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MN,Mongolia
+MNG,2019,56.0890007019043,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MN,Mongolia
+MNE,2019,7.93300008773804,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ME,Montenegro
+MNE,2019,19.1060009002686,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ME,Montenegro
+MNE,2019,72.9599990844727,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ME,Montenegro
+MNE,2019,46.3409996032715,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ME,Montenegro
+MAR,2019,34.689998626709,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MA,Morocco
+MAR,2019,21.7119998931885,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MA,Morocco
+MAR,2019,43.5979995727539,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MA,Morocco
+MAR,2019,41.2200012207031,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MA,Morocco
+MOZ,2019,70.3349990844727,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MZ,Mozambique
+MOZ,2019,8.44999980926514,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MZ,Mozambique
+MOZ,2019,21.2150001525879,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MZ,Mozambique
+MOZ,2019,75.5660018920898,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MZ,Mozambique
+MMR,2019,48.8889999389648,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MM,Myanmar
+MMR,2019,16.1469993591309,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MM,Myanmar
+MMR,2019,34.9640007019043,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MM,Myanmar
+MMR,2019,60.693000793457,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MM,Myanmar
+"NAM",2019,22.132999420166,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NA,Namibia
+"NAM",2019,16.2730007171631,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NA,Namibia
+"NAM",2019,61.5940017700195,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NA,Namibia
+"NAM",2019,47.4640007019043,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NA,Namibia
+NPL,2019,65.0039978027344,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NP,Nepal
+NPL,2019,15.1370000839233,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NP,Nepal
+NPL,2019,19.8589992523193,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NP,Nepal
+NPL,2019,82.6259994506836,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NP,Nepal
+NLD,2019,2.03500008583069,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NL,Netherlands
+NLD,2019,15.9980001449585,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NL,Netherlands
+NLD,2019,81.9670028686523,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NL,Netherlands
+NLD,2019,61.5870018005371,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NL,Netherlands
+NCL,2019,1.92499995231628,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NC,New Caledonia
+NCL,2019,20.82200050354,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NC,New Caledonia
+NCL,2019,77.2529983520508,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NC,New Caledonia
+NCL,2019,54.9869995117188,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NC,New Caledonia
+NZL,2019,5.66300010681152,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NZ,New Zealand
+NZL,2019,19.5799999237061,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NZ,New Zealand
+NZL,2019,74.7570037841797,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NZ,New Zealand
+NZL,2019,67.0630035400391,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NZ,New Zealand
+NIC,2019,30.6520004272461,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NI,Nicaragua
+NIC,2019,15.9329996109009,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NI,Nicaragua
+NIC,2019,53.4150009155273,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NI,Nicaragua
+NIC,2019,61.8639984130859,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NI,Nicaragua
+NER,2019,75.0630035400391,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NE,Niger
+NER,2019,7.19399976730347,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NE,Niger
+NER,2019,17.7430000305176,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NE,Niger
+NER,2019,71.6999969482422,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NE,Niger
+NGA,2019,35.0979995727539,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NG,Nigeria
+NGA,2019,12.2329998016357,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NG,Nigeria
+NGA,2019,52.6689987182617,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NG,Nigeria
+NGA,2019,48.6230010986328,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NG,Nigeria
+MKD,2019,15.3769998550415,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),MK,North Macedonia
+MKD,2019,31.4020004272461,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),MK,North Macedonia
+MKD,2019,53.2210006713867,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),MK,North Macedonia
+MKD,2019,45.3089981079102,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",MK,North Macedonia
+NOR,2019,2.0550000667572,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),NO,Norway
+NOR,2019,19.2749996185303,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),NO,Norway
+NOR,2019,78.6699981689453,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),NO,Norway
+NOR,2019,61.6689987182617,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",NO,Norway
+OMN,2019,4.55999994277954,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),OM,Oman
+OMN,2019,32.7519989013672,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),OM,Oman
+OMN,2019,62.6879997253418,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),OM,Oman
+OMN,2019,70.4359970092773,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",OM,Oman
+PAK,2019,36.6609992980957,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PK,Pakistan
+PAK,2019,25.326000213623,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PK,Pakistan
+PAK,2019,38.0130004882813,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PK,Pakistan
+PAK,2019,50.2319984436035,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PK,Pakistan
+PAN,2019,13.9519996643066,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PA,Panama
+PAN,2019,18.7469997406006,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PA,Panama
+PAN,2019,67.3000030517578,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PA,Panama
+PAN,2019,63.9910011291504,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PA,Panama
+PNG,2019,58.3160018920898,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PG,Papua New Guinea
+PNG,2019,6.63500022888184,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PG,Papua New Guinea
+PNG,2019,35.048999786377,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PG,Papua New Guinea
+PNG,2019,46.0320014953613,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PG,Papua New Guinea
+PRY,2019,20.1299991607666,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PY,Paraguay
+PRY,2019,18.1590003967285,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PY,Paraguay
+PRY,2019,61.7109985351563,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PY,Paraguay
+PRY,2019,68.6269989013672,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PY,Paraguay
+PER,2019,27.3859996795654,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PE,Peru
+PER,2019,15.3450002670288,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PE,Peru
+PER,2019,57.2680015563965,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PE,Peru
+PER,2019,75.0630035400391,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PE,Peru
+PHL,2019,23.4050006866455,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PH,Philippines
+PHL,2019,19.4379997253418,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PH,Philippines
+PHL,2019,57.1570014953613,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PH,Philippines
+PHL,2019,58.3390007019043,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PH,Philippines
+POL,2019,9.23499965667725,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PL,Poland
+POL,2019,31.9389991760254,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PL,Poland
+POL,2019,58.826000213623,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PL,Poland
+POL,2019,54.7309989929199,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PL,Poland
+PRT,2019,5.85099983215332,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PT,Portugal
+PRT,2019,24.7369995117188,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PT,Portugal
+PRT,2019,69.4120025634766,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PT,Portugal
+PRT,2019,55.0859985351563,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PT,Portugal
+PRI,2019,1.0440000295639,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PR,Puerto Rico
+PRI,2019,15.6169996261597,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PR,Puerto Rico
+PRI,2019,83.338996887207,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PR,Puerto Rico
+PRI,2019,36.0499992370605,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PR,Puerto Rico
+QAT,2019,1.19400000572205,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),QA,Qatar
+QAT,2019,54.4300003051758,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),QA,Qatar
+QAT,2019,44.3759994506836,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),QA,Qatar
+QAT,2019,86.7409973144531,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",QA,Qatar
+ROU,2019,21.7059993743896,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),RO,Romania
+ROU,2019,30.0949993133545,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),RO,Romania
+ROU,2019,48.1990013122559,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),RO,Romania
+ROU,2019,52.4889984130859,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",RO,Romania
+RUS,2019,5.75699996948242,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),RU,Russian Federation
+RUS,2019,26.6749992370605,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),RU,Russian Federation
+RUS,2019,67.568000793457,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),RU,Russian Federation
+RUS,2019,58.9679985046387,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",RU,Russian Federation
+RWA,2019,62.4059982299805,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),RW,Rwanda
+RWA,2019,8.89200019836426,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),RW,Rwanda
+RWA,2019,28.7019996643066,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),RW,Rwanda
+RWA,2019,82.7929992675781,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",RW,Rwanda
+WSM,2019,30.3939990997314,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),WS,Samoa
+WSM,2019,23.0639991760254,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),WS,Samoa
+WSM,2019,46.5419998168945,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),WS,Samoa
+WSM,2019,40.0330009460449,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",WS,Samoa
+STP,2019,19.0949993133545,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ST,Sao Tome and Principe
+STP,2019,18.4330005645752,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ST,Sao Tome and Principe
+STP,2019,62.4720001220703,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ST,Sao Tome and Principe
+STP,2019,50.0639991760254,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ST,Sao Tome and Principe
+SAU,2019,2.40300011634827,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SA,Saudi Arabia
+SAU,2019,24.67799949646,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SA,Saudi Arabia
+SAU,2019,72.9189987182617,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SA,Saudi Arabia
+SAU,2019,52.568000793457,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SA,Saudi Arabia
+SEN,2019,30.0459995269775,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SN,Senegal
+SEN,2019,13.503999710083,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SN,Senegal
+SEN,2019,56.4500007629395,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SN,Senegal
+SEN,2019,42.6669998168945,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SN,Senegal
+SRB,2019,15.4589996337891,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),RS,Serbia
+SRB,2019,27.1420001983643,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),RS,Serbia
+SRB,2019,57.398998260498,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),RS,Serbia
+SRB,2019,47.9150009155273,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",RS,Serbia
+SLE,2019,54.9309997558594,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SL,Sierra Leone
+SLE,2019,6.45699977874756,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SL,Sierra Leone
+SLE,2019,38.6119995117188,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SL,Sierra Leone
+SLE,2019,55.3330001831055,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SL,Sierra Leone
+SGP,2019,0.726000010967255,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SG,Singapore
+SGP,2019,15.4720001220703,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SG,Singapore
+SGP,2019,83.802001953125,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SG,Singapore
+SGP,2019,67.6399993896484,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SG,Singapore
+SVK,2019,2.18400001525879,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SK,Slovak Republic
+SVK,2019,36.2509994506836,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SK,Slovak Republic
+SVK,2019,61.564998626709,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SK,Slovak Republic
+SVK,2019,56.2299995422363,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SK,Slovak Republic
+SVN,2019,5.22599983215332,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SI,Slovenia
+SVN,2019,33.4500007629395,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SI,Slovenia
+SVN,2019,61.3250007629395,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SI,Slovenia
+SVN,2019,55.9129981994629,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SI,Slovenia
+SLB,2019,37.5929985046387,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SB,Solomon Islands
+SLB,2019,9.54599952697754,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SB,Solomon Islands
+SLB,2019,52.8610000610352,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SB,Solomon Islands
+SLB,2019,83.3529968261719,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SB,Solomon Islands
+SOM,2019,83.1119995117188,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SO,Somalia
+SOM,2019,3.57800006866455,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SO,Somalia
+SOM,2019,13.3100004196167,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SO,Somalia
+SOM,2019,42.0180015563965,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SO,Somalia
+ZAF,2019,5.08799982070923,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ZA,South Africa
+ZAF,2019,22.9060001373291,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ZA,South Africa
+ZAF,2019,72.0059967041016,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ZA,South Africa
+ZAF,2019,40.2309989929199,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ZA,South Africa
+SSD,2019,56.875,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SS,South Sudan
+SSD,2019,13.8900003433228,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SS,South Sudan
+SSD,2019,29.2350006103516,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SS,South Sudan
+SSD,2019,63.5229988098145,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SS,South Sudan
+ESP,2019,4.09100008010864,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ES,Spain
+ESP,2019,20.2830009460449,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ES,Spain
+ESP,2019,75.6259994506836,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ES,Spain
+ESP,2019,49.4669990539551,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ES,Spain
+LKA,2019,24.5170001983643,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LK,Sri Lanka
+LKA,2019,29.6560001373291,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LK,Sri Lanka
+LKA,2019,45.826000213623,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LK,Sri Lanka
+LKA,2019,51.6520004272461,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LK,Sri Lanka
+LCA,2019,17.2740001678467,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),LC,St. Lucia
+LCA,2019,18.2469997406006,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),LC,St. Lucia
+LCA,2019,64.4779968261719,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),LC,St. Lucia
+LCA,2019,53.2089996337891,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",LC,St. Lucia
+VCT,2019,10.7270002365112,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),VC,St. Vincent and the Grenadines
+VCT,2019,19.9340000152588,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),VC,St. Vincent and the Grenadines
+VCT,2019,69.338996887207,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),VC,St. Vincent and the Grenadines
+VCT,2019,53.431999206543,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",VC,St. Vincent and the Grenadines
+SDN,2019,39.9389991760254,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SD,Sudan
+SDN,2019,16.2189998626709,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SD,Sudan
+SDN,2019,43.8419990539551,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SD,Sudan
+SDN,2019,40.4300003051758,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SD,Sudan
+SUR,2019,7.51800012588501,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SR,Suriname
+SUR,2019,23.4689998626709,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SR,Suriname
+SUR,2019,69.0130004882813,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SR,Suriname
+SUR,2019,47.3849983215332,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SR,Suriname
+SWE,2019,1.64800000190735,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SE,Sweden
+SWE,2019,17.9080009460449,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SE,Sweden
+SWE,2019,80.4440002441406,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SE,Sweden
+SWE,2019,60.3810005187988,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SE,Sweden
+CHE,2019,2.94899988174438,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),CH,Switzerland
+CHE,2019,20.2059993743896,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),CH,Switzerland
+CHE,2019,76.8450012207031,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),CH,Switzerland
+CHE,2019,65.1259994506836,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",CH,Switzerland
+SYR,2019,10.7290000915527,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),SY,Syrian Arab Republic
+SYR,2019,26.5520000457764,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),SY,Syrian Arab Republic
+SYR,2019,62.7190017700195,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),SY,Syrian Arab Republic
+SYR,2019,40.4220008850098,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",SY,Syrian Arab Republic
+TJK,2019,44.9210014343262,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TJ,Tajikistan
+TJK,2019,15.7150001525879,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TJ,Tajikistan
+TJK,2019,39.3639984130859,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TJ,Tajikistan
+TJK,2019,37.390998840332,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TJ,Tajikistan
+TZA,2019,65.3059997558594,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TZ,Tanzania
+TZA,2019,6.75099992752075,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TZ,Tanzania
+TZA,2019,27.943000793457,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TZ,Tanzania
+TZA,2019,81.7610015869141,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TZ,Tanzania
+THA,2019,31.6149997711182,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TH,Thailand
+THA,2019,22.6340007781982,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TH,Thailand
+THA,2019,45.75,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TH,Thailand
+THA,2019,66.818000793457,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TH,Thailand
+TLS,2019,44.4819984436035,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TL,Timor-Leste
+TLS,2019,9.66600036621094,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TL,Timor-Leste
+TLS,2019,45.8520011901855,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TL,Timor-Leste
+TLS,2019,64.2750015258789,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TL,Timor-Leste
+TGO,2019,37.6990013122559,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TG,Togo
+TGO,2019,12.8819999694824,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TG,Togo
+TGO,2019,49.4189987182617,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TG,Togo
+TGO,2019,76.0110015869141,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TG,Togo
+TON,2019,24.1889991760254,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TO,Tonga
+TON,2019,29.1049995422363,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TO,Tonga
+TON,2019,46.7060012817383,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TO,Tonga
+TON,2019,59.0830001831055,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TO,Tonga
+TTO,2019,2.97499990463257,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TT,Trinidad and Tobago
+TTO,2019,26.7259998321533,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TT,Trinidad and Tobago
+TTO,2019,70.2990036010742,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TT,Trinidad and Tobago
+TTO,2019,58.3470001220703,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TT,Trinidad and Tobago
+TUN,2019,13.0310001373291,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TN,Tunisia
+TUN,2019,32.5499992370605,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TN,Tunisia
+TUN,2019,54.4189987182617,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TN,Tunisia
+TUN,2019,38.734001159668,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TN,Tunisia
+TUR,2019,18.3759994506836,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TR,Turkey
+TUR,2019,26.3080005645752,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TR,Turkey
+TUR,2019,55.3160018920898,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TR,Turkey
+TUR,2019,45.7019996643066,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TR,Turkey
+TKM,2019,19.882999420166,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),TM,Turkmenistan
+TKM,2019,42.398998260498,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),TM,Turkmenistan
+TKM,2019,37.7179985046387,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),TM,Turkmenistan
+TKM,2019,61.9589996337891,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",TM,Turkmenistan
+UGA,2019,72.6660003662109,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),UG,Uganda
+UGA,2019,6.60300016403198,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),UG,Uganda
+UGA,2019,20.7310009002686,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),UG,Uganda
+UGA,2019,69.0400009155273,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",UG,Uganda
+UKR,2019,14.4779996871948,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),UA,Ukraine
+UKR,2019,24.568000793457,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),UA,Ukraine
+UKR,2019,60.9550018310547,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),UA,Ukraine
+UKR,2019,49.3409996032715,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",UA,Ukraine
+ARE,2019,1.4099999666214,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),AE,United Arab Emirates
+ARE,2019,34.359001159668,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),AE,United Arab Emirates
+ARE,2019,64.2310028076172,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),AE,United Arab Emirates
+ARE,2019,80.1660003662109,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",AE,United Arab Emirates
+GBR,2019,1.03400003910065,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),GB,United Kingdom
+GBR,2019,17.8799991607666,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),GB,United Kingdom
+GBR,2019,81.0859985351563,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),GB,United Kingdom
+GBR,2019,60.3569984436035,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",GB,United Kingdom
+USA,2019,1.3400000333786,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),US,United States
+USA,2019,19.806999206543,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),US,United States
+USA,2019,78.8529968261719,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),US,United States
+USA,2019,59.7649993896484,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",US,United States
+URY,2019,8.11900043487549,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),UY,Uruguay
+URY,2019,18.9139995574951,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),UY,Uruguay
+URY,2019,72.9670028686523,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),UY,Uruguay
+URY,2019,58.4309997558594,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",UY,Uruguay
+UZB,2019,23.923999786377,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),UZ,Uzbekistan
+UZB,2019,29.4799995422363,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),UZ,Uzbekistan
+UZB,2019,46.5970001220703,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),UZ,Uzbekistan
+UZB,2019,61.2099990844727,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",UZ,Uzbekistan
+VUT,2019,55.8419990539551,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),VU,Vanuatu
+VUT,2019,6.31599998474121,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),VU,Vanuatu
+VUT,2019,37.8429985046387,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),VU,Vanuatu
+VUT,2019,66.8109970092773,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",VU,Vanuatu
+VEN,2019,8.30599975585938,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),VE,"Venezuela, RB"
+VEN,2019,16.6259994506836,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),VE,"Venezuela, RB"
+VEN,2019,75.0690002441406,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),VE,"Venezuela, RB"
+VEN,2019,54.4729995727539,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",VE,"Venezuela, RB"
+VNM,2019,37.3580017089844,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),VN,Vietnam
+VNM,2019,27.6420001983643,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),VN,Vietnam
+VNM,2019,35,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),VN,Vietnam
+VNM,2019,75.8880004882813,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",VN,Vietnam
+VIR,2019,3.29099988937378,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),VI,Virgin Islands (U.S.)
+VIR,2019,19.6389999389648,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),VI,Virgin Islands (U.S.)
+VIR,2019,77.0709991455078,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),VI,Virgin Islands (U.S.)
+VIR,2019,55.2080001831055,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",VI,Virgin Islands (U.S.)
+PSE,2019,6.08500003814697,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),PS,West Bank and Gaza
+PSE,2019,31.632999420166,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),PS,West Bank and Gaza
+PSE,2019,62.2820014953613,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),PS,West Bank and Gaza
+PSE,2019,32.3660011291504,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",PS,West Bank and Gaza
+YEM,2019,28.9759998321533,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),YE,"Yemen, Rep."
+YEM,2019,10.0480003356934,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),YE,"Yemen, Rep."
+YEM,2019,60.976001739502,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),YE,"Yemen, Rep."
+YEM,2019,33.0940017700195,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",YE,"Yemen, Rep."
+ZMB,2019,48.8390007019043,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ZM,Zambia
+ZMB,2019,10.8339996337891,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ZM,Zambia
+ZMB,2019,40.3269996643066,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ZM,Zambia
+ZMB,2019,66.0910034179688,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ZM,Zambia
+ZWE,2019,66.5439987182617,SL.AGR.EMPL.ZS,Employment in agriculture (% of total employment) (modeled ILO estimate),ZW,Zimbabwe
+ZWE,2019,6.58300018310547,SL.IND.EMPL.ZS,Employment in industry (% of total employment) (modeled ILO estimate),ZW,Zimbabwe
+ZWE,2019,26.8729991912842,SL.SRV.EMPL.ZS,Employment in services (% of total employment) (modeled ILO estimate),ZW,Zimbabwe
+ZWE,2019,78.9820022583008,SL.EMP.TOTL.SP.ZS,"Employment to population ratio, 15+, total (%) (modeled ILO estimate)",ZW,Zimbabwe
+AFG,2019,23.3959999084473,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AF,Afghanistan
+AFG,2019,2.60199999809265,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AF,Afghanistan
+AFG,2019,82.3280029296875,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AF,Afghanistan
+AFG,2019,17.6720008850098,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AF,Afghanistan
+ALB,2019,27.3649997711182,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AL,Albania
+ALB,2019,2.51699995994568,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AL,Albania
+ALB,2019,55.3689994812012,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AL,Albania
+ALB,2019,44.6310005187988,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AL,Albania
+DZA,2019,1.86300003528595,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",DZ,Algeria
+DZA,2019,4.61700010299683,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",DZ,Algeria
+DZA,2019,31.6110000610352,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",DZ,Algeria
+DZA,2019,68.3889999389648,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",DZ,Algeria
+AGO,2019,8.82900047302246,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AO,Angola
+AGO,2019,4.26100015640259,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AO,Angola
+AGO,2019,70.2570037841797,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AO,Angola
+AGO,2019,29.7430000305176,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AO,Angola
+ARG,2019,0.542999982833862,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AR,Argentina
+ARG,2019,3.90700006484985,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AR,Argentina
+ARG,2019,25.7129993438721,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AR,Argentina
+ARG,2019,74.2870025634766,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AR,Argentina
+ARM,2019,2.15199995040894,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AM,Armenia
+ARM,2019,1.22399997711182,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AM,Armenia
+ARM,2019,39.8919982910156,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AM,Armenia
+ARM,2019,60.1080017089844,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AM,Armenia
+AUS,2019,0.181999996304512,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AU,Australia
+AUS,2019,5.75299978256226,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AU,Australia
+AUS,2019,16.386999130249,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AU,Australia
+AUS,2019,83.6129989624023,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AU,Australia
+AUT,2019,1.19000005722046,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AT,Austria
+AUT,2019,4.54500007629395,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AT,Austria
+AUT,2019,11.9300003051758,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AT,Austria
+AUT,2019,88.0699996948242,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AT,Austria
+AZE,2019,33.5330009460449,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AZ,Azerbaijan
+AZE,2019,12.7650003433228,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AZ,Azerbaijan
+AZE,2019,67.9960021972656,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AZ,Azerbaijan
+AZE,2019,32.0040016174316,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AZ,Azerbaijan
+BHS,2019,0.312999993562698,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BS,"Bahamas, The"
+BHS,2019,0.0120000001043081,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BS,"Bahamas, The"
+BHS,2019,14.0780000686646,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BS,"Bahamas, The"
+BHS,2019,85.9219970703125,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BS,"Bahamas, The"
+BHR,2019,0.493000000715256,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BH,Bahrain
+BHR,2019,1.71399998664856,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BH,Bahrain
+BHR,2019,2.79500007629395,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BH,Bahrain
+BHR,2019,97.2050018310547,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BH,Bahrain
+BGD,2019,11.0600004196167,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BD,Bangladesh
+BGD,2019,4.38500022888184,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BD,Bangladesh
+BGD,2019,59.6360015869141,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BD,Bangladesh
+BGD,2019,40.3639984130859,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BD,Bangladesh
+BRB,2019,0.0780000016093254,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BB,Barbados
+BRB,2019,0.848999977111816,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BB,Barbados
+BRB,2019,16.6900005340576,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BB,Barbados
+BRB,2019,83.3099975585938,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BB,Barbados
+BLR,2019,0.0329999998211861,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BY,Belarus
+BLR,2019,0.884999990463257,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BY,Belarus
+BLR,2019,4.17199993133545,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BY,Belarus
+BLR,2019,95.8280029296875,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BY,Belarus
+BEL,2019,0.819000005722046,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BE,Belgium
+BEL,2019,3.77500009536743,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BE,Belgium
+BEL,2019,13.96399974823,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BE,Belgium
+BEL,2019,86.036003112793,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BE,Belgium
+BLZ,2019,3.23399996757507,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BZ,Belize
+BLZ,2019,3.41300010681152,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BZ,Belize
+BLZ,2019,33.0349998474121,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BZ,Belize
+BLZ,2019,66.9649963378906,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BZ,Belize
+BEN,2019,15.3489999771118,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BJ,Benin
+BEN,2019,1.30900001525879,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BJ,Benin
+BEN,2019,89.0410003662109,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BJ,Benin
+BEN,2019,10.9589996337891,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BJ,Benin
+BTN,2019,32.318000793457,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BT,Bhutan
+BTN,2019,0.0970000028610229,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BT,Bhutan
+BTN,2019,71.5770034790039,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BT,Bhutan
+BTN,2019,28.4230003356934,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BT,Bhutan
+BOL,2019,18.1439990997314,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BO,Bolivia
+BOL,2019,4.91499996185303,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BO,Bolivia
+BOL,2019,68.1389999389648,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BO,Bolivia
+BOL,2019,31.8610000610352,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BO,Bolivia
+BIH,2019,3.58899998664856,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BA,Bosnia and Herzegovina
+BIH,2019,4.93200016021729,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BA,Bosnia and Herzegovina
+BIH,2019,21.0860004425049,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BA,Bosnia and Herzegovina
+BIH,2019,78.9140014648438,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BA,Bosnia and Herzegovina
+BWA,2019,3.92000007629395,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BW,Botswana
+BWA,2019,2.59899997711182,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BW,Botswana
+BWA,2019,28.5109996795654,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BW,Botswana
+BWA,2019,71.4889984130859,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BW,Botswana
+BRA,2019,2.2960000038147,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BR,Brazil
+BRA,2019,4.80299997329712,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BR,Brazil
+BRA,2019,32.7109985351563,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BR,Brazil
+BRA,2019,67.2890014648438,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BR,Brazil
+BRN,2019,0.344999998807907,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BN,Brunei Darussalam
+BRN,2019,2.81100010871887,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BN,Brunei Darussalam
+BRN,2019,8.8459997177124,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BN,Brunei Darussalam
+BRN,2019,91.1539993286133,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BN,Brunei Darussalam
+BGR,2019,0.705999970436096,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BG,Bulgaria
+BGR,2019,3.7260000705719,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BG,Bulgaria
+BGR,2019,11.5200004577637,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BG,Bulgaria
+BGR,2019,88.4800033569336,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BG,Bulgaria
+BFA,2019,39.9039993286133,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BF,Burkina Faso
+BFA,2019,0.676999986171722,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BF,Burkina Faso
+BFA,2019,87.0970001220703,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BF,Burkina Faso
+BFA,2019,12.9029998779297,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BF,Burkina Faso
+BDI,2019,29.632999420166,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",BI,Burundi
+BDI,2019,0.0719999969005585,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",BI,Burundi
+BDI,2019,94.6539993286133,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",BI,Burundi
+BDI,2019,5.34600019454956,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",BI,Burundi
+CPV,2019,10.1230001449585,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CV,Cabo Verde
+CPV,2019,3.70799994468689,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CV,Cabo Verde
+CPV,2019,38.8759994506836,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CV,Cabo Verde
+CPV,2019,61.1240005493164,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CV,Cabo Verde
+KHM,2019,4.58099985122681,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KH,Cambodia
+KHM,2019,0.0780000016093254,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KH,Cambodia
+KHM,2019,50.3569984436035,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KH,Cambodia
+KHM,2019,49.6430015563965,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KH,Cambodia
+CMR,2019,13.7659997940063,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CM,Cameroon
+CMR,2019,3.09500002861023,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CM,Cameroon
+CMR,2019,76.6569976806641,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CM,Cameroon
+CMR,2019,23.3430004119873,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CM,Cameroon
+CAN,2019,0.123999997973442,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CA,Canada
+CAN,2019,4.58400011062622,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CA,Canada
+CAN,2019,15.2749996185303,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CA,Canada
+CAN,2019,84.7249984741211,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CA,Canada
+CAF,2019,37.0180015563965,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CF,Central African Republic
+CAF,2019,1.15799999237061,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CF,Central African Republic
+CAF,2019,92.5370025634766,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CF,Central African Republic
+CAF,2019,7.46299982070923,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CF,Central African Republic
+TCD,2019,27.4379997253418,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TD,Chad
+TCD,2019,0.23199999332428,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TD,Chad
+TCD,2019,93.2559967041016,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TD,Chad
+TCD,2019,6.74399995803833,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TD,Chad
+CHI,2019,0.953000009059906,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",JG,Channel Islands
+CHI,2019,4.58699989318848,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",JG,Channel Islands
+CHI,2019,14.6319999694824,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",JG,Channel Islands
+CHI,2019,85.3679962158203,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",JG,Channel Islands
+CHL,2019,1.08000004291534,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CL,Chile
+CHL,2019,4.25400018692017,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CL,Chile
+CHL,2019,26.9479999542236,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CL,Chile
+CHL,2019,73.052001953125,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CL,Chile
+CHN,2019,13.4049997329712,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CN,China
+CHN,2019,1.37000000476837,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CN,China
+CHN,2019,46.7480010986328,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CN,China
+CHN,2019,53.2519989013672,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CN,China
+COL,2019,3.41799998283386,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CO,Colombia
+COL,2019,4.14300012588501,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CO,Colombia
+COL,2019,51.2000007629395,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CO,Colombia
+COL,2019,48.7999992370605,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CO,Colombia
+COM,2019,12.8819999694824,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KM,Comoros
+COM,2019,4.97100019454956,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KM,Comoros
+COM,2019,68.6809997558594,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KM,Comoros
+COM,2019,31.3190002441406,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KM,Comoros
+COD,2019,18.8099994659424,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CD,"Congo, Dem. Rep."
+COD,2019,2.00300002098084,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CD,"Congo, Dem. Rep."
+COD,2019,81.677001953125,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CD,"Congo, Dem. Rep."
+COD,2019,18.3229999542236,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CD,"Congo, Dem. Rep."
+COG,2019,5.35500001907349,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CG,"Congo, Rep."
+COG,2019,1.07400000095367,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CG,"Congo, Rep."
+COG,2019,77.052001953125,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CG,"Congo, Rep."
+COG,2019,22.9479999542236,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CG,"Congo, Rep."
+CRI,2019,1.69200003147125,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CR,Costa Rica
+CRI,2019,4.07600021362305,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CR,Costa Rica
+CRI,2019,25.1319999694824,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CR,Costa Rica
+CRI,2019,74.8679962158203,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CR,Costa Rica
+CIV,2019,12.2250003814697,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CI,Cote d'Ivoire
+CIV,2019,1.56200003623962,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CI,Cote d'Ivoire
+CIV,2019,72.7480010986328,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CI,Cote d'Ivoire
+CIV,2019,27.2520008087158,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CI,Cote d'Ivoire
+HRV,2019,1.22800004482269,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",HR,Croatia
+HRV,2019,4.72499990463257,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",HR,Croatia
+HRV,2019,11.996000289917,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",HR,Croatia
+HRV,2019,88.0039978027344,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",HR,Croatia
+CUB,2019,2.02699995040894,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CU,Cuba
+CUB,2019,3.59400010108948,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CU,Cuba
+CUB,2019,26.6919994354248,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CU,Cuba
+CUB,2019,73.3079986572266,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CU,Cuba
+CYP,2019,0.651000022888184,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CY,Cyprus
+CYP,2019,2.17199993133545,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CY,Cyprus
+CYP,2019,13.2320003509521,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CY,Cyprus
+CYP,2019,86.7679977416992,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CY,Cyprus
+CZE,2019,0.465999990701675,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CZ,Czech Republic
+CZE,2019,3.11999988555908,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CZ,Czech Republic
+CZE,2019,16.8010005950928,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CZ,Czech Republic
+CZE,2019,83.1989974975586,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CZ,Czech Republic
+DNK,2019,0.382999986410141,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",DK,Denmark
+DNK,2019,3.14400005340576,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",DK,Denmark
+DNK,2019,8.03899955749512,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",DK,Denmark
+DNK,2019,91.9609985351563,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",DK,Denmark
+DJI,2019,8.14900016784668,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",DJ,Djibouti
+DJI,2019,2.36400008201599,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",DJ,Djibouti
+DJI,2019,47.1049995422363,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",DJ,Djibouti
+DJI,2019,52.8950004577637,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",DJ,Djibouti
+DOM,2019,1.76800000667572,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",DO,Dominican Republic
+DOM,2019,3.40799999237061,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",DO,Dominican Republic
+DOM,2019,43.8079986572266,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",DO,Dominican Republic
+DOM,2019,56.1920013427734,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",DO,Dominican Republic
+ECU,2019,12.3839998245239,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",EC,Ecuador
+ECU,2019,3.00399994850159,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",EC,Ecuador
+ECU,2019,49.7319984436035,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",EC,Ecuador
+ECU,2019,50.2680015563965,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",EC,Ecuador
+EGY,2019,7.93900012969971,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",EG,"Egypt, Arab Rep."
+EGY,2019,10.5329999923706,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",EG,"Egypt, Arab Rep."
+EGY,2019,31.253999710083,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",EG,"Egypt, Arab Rep."
+EGY,2019,68.7460021972656,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",EG,"Egypt, Arab Rep."
+SLV,2019,5.79300022125244,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SV,El Salvador
+SLV,2019,4.51399993896484,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SV,El Salvador
+SLV,2019,38.7060012817383,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SV,El Salvador
+SLV,2019,61.2939987182617,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SV,El Salvador
+GNQ,2019,8.01399993896484,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GQ,Equatorial Guinea
+GNQ,2019,8.67099952697754,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GQ,Equatorial Guinea
+GNQ,2019,85.9609985351563,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GQ,Equatorial Guinea
+GNQ,2019,14.0389995574951,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GQ,Equatorial Guinea
+ERI,2019,37.773998260498,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ER,Eritrea
+ERI,2019,0.497000008821487,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ER,Eritrea
+ERI,2019,86.879997253418,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ER,Eritrea
+ERI,2019,13.1199998855591,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ER,Eritrea
+EST,2019,0.187999993562698,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",EE,Estonia
+EST,2019,4.44899988174438,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",EE,Estonia
+EST,2019,10.5970001220703,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",EE,Estonia
+EST,2019,89.4029998779297,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",EE,Estonia
+SWZ,2019,2.55900001525879,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SZ,Eswatini
+SWZ,2019,2.18700003623962,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SZ,Eswatini
+SWZ,2019,34.8250007629395,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SZ,Eswatini
+SWZ,2019,65.1750030517578,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SZ,Eswatini
+ETH,2019,38.1959991455078,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ET,Ethiopia
+ETH,2019,0.564999997615814,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ET,Ethiopia
+ETH,2019,86.536003112793,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ET,Ethiopia
+ETH,2019,13.46399974823,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ET,Ethiopia
+FJI,2019,19.2870006561279,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",FJ,Fiji
+FJI,2019,1.16499996185303,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",FJ,Fiji
+FJI,2019,44.3059997558594,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",FJ,Fiji
+FJI,2019,55.6940002441406,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",FJ,Fiji
+FIN,2019,0.418999999761581,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",FI,Finland
+FIN,2019,3.56699991226196,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",FI,Finland
+FIN,2019,13.1520004272461,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",FI,Finland
+FIN,2019,86.8479995727539,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",FI,Finland
+FRA,2019,0.266000002622604,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",FR,France
+FRA,2019,4.21500015258789,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",FR,France
+FRA,2019,11.6420001983643,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",FR,France
+FRA,2019,88.3580017089844,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",FR,France
+PYF,2019,0.462000012397766,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PF,French Polynesia
+PYF,2019,3.98499989509583,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PF,French Polynesia
+PYF,2019,16.5839996337891,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PF,French Polynesia
+PYF,2019,83.4160003662109,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PF,French Polynesia
+GAB,2019,1.07099997997284,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GA,Gabon
+GAB,2019,2.37899994850159,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GA,Gabon
+GAB,2019,33.8429985046387,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GA,Gabon
+GAB,2019,66.1569976806641,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GA,Gabon
+GMB,2019,11.7030000686646,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GM,"Gambia, The"
+GMB,2019,1.49199998378754,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GM,"Gambia, The"
+GMB,2019,73.5439987182617,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GM,"Gambia, The"
+GMB,2019,26.4559993743896,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GM,"Gambia, The"
+GEO,2019,19.4160003662109,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GE,Georgia
+GEO,2019,1.98099994659424,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GE,Georgia
+GEO,2019,51.064998626709,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GE,Georgia
+GEO,2019,48.935001373291,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GE,Georgia
+DEU,2019,0.319000005722046,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",DE,Germany
+DEU,2019,4.22499990463257,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",DE,Germany
+DEU,2019,9.84500026702881,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",DE,Germany
+DEU,2019,90.1549987792969,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",DE,Germany
+GHA,2019,8.9069995880127,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GH,Ghana
+GHA,2019,5.65399980545044,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GH,Ghana
+GHA,2019,74.3550033569336,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GH,Ghana
+GHA,2019,25.6450004577637,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GH,Ghana
+GRC,2019,3.56800007820129,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GR,Greece
+GRC,2019,7.5770001411438,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GR,Greece
+GRC,2019,33.3740005493164,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GR,Greece
+GRC,2019,66.6259994506836,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GR,Greece
+GUM,2019,0.671999990940094,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GU,Guam
+GUM,2019,3.30200004577637,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GU,Guam
+GUM,2019,12.4750003814697,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GU,Guam
+GUM,2019,87.5250015258789,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GU,Guam
+GTM,2019,9.42300033569336,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GT,Guatemala
+GTM,2019,2.79900002479553,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GT,Guatemala
+GTM,2019,40.3419990539551,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GT,Guatemala
+GTM,2019,59.6580009460449,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GT,Guatemala
+GIN,2019,29.5090007781982,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GN,Guinea
+GIN,2019,2.13100004196167,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GN,Guinea
+GIN,2019,91.504997253418,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GN,Guinea
+GIN,2019,8.49499988555908,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GN,Guinea
+GNB,2019,23.5849990844727,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GW,Guinea-Bissau
+GNB,2019,1.39400005340576,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GW,Guinea-Bissau
+GNB,2019,77.1340026855469,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GW,Guinea-Bissau
+GNB,2019,22.8659992218018,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GW,Guinea-Bissau
+GUY,2019,3.85899996757507,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GY,Guyana
+GUY,2019,6.94299983978271,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GY,Guyana
+GUY,2019,32.4560012817383,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GY,Guyana
+GUY,2019,67.5439987182617,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GY,Guyana
+HTI,2019,21.3050003051758,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",HT,Haiti
+HTI,2019,0.666000008583069,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",HT,Haiti
+HTI,2019,72.9349975585938,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",HT,Haiti
+HTI,2019,27.0650005340576,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",HT,Haiti
+HND,2019,9.375,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",HN,Honduras
+HND,2019,9.93299961090088,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",HN,Honduras
+HND,2019,51.3230018615723,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",HN,Honduras
+HND,2019,48.6769981384277,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",HN,Honduras
+HKG,2019,0.263000011444092,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",HK,"Hong Kong SAR, China"
+HKG,2019,2.73000001907349,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",HK,"Hong Kong SAR, China"
+HKG,2019,8.44699954986572,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",HK,"Hong Kong SAR, China"
+HKG,2019,91.5530014038086,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",HK,"Hong Kong SAR, China"
+HUN,2019,0.216999992728233,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",HU,Hungary
+HUN,2019,4.30200004577637,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",HU,Hungary
+HUN,2019,10.326000213623,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",HU,Hungary
+HUN,2019,89.6740036010742,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",HU,Hungary
+ISL,2019,0.28999999165535,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IS,Iceland
+ISL,2019,3.99699997901917,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IS,Iceland
+ISL,2019,12.1049995422363,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IS,Iceland
+ISL,2019,87.8949966430664,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IS,Iceland
+IND,2019,12.1219997406006,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IN,India
+IND,2019,2.01500010490417,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IN,India
+IND,2019,76.2850036621094,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IN,India
+IND,2019,23.7150001525879,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IN,India
+IDN,2019,12.8529996871948,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ID,Indonesia
+IDN,2019,3.59400010108948,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ID,Indonesia
+IDN,2019,51.4879989624023,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ID,Indonesia
+IDN,2019,48.5120010375977,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ID,Indonesia
+IRN,2019,5.18800020217896,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IR,"Iran, Islamic Rep."
+IRN,2019,3.79999995231628,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IR,"Iran, Islamic Rep."
+IRN,2019,45.2249984741211,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IR,"Iran, Islamic Rep."
+IRN,2019,54.7750015258789,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IR,"Iran, Islamic Rep."
+IRQ,2019,4.28700017929077,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IQ,Iraq
+IRQ,2019,2.61199998855591,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IQ,Iraq
+IRQ,2019,22.4050006866455,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IQ,Iraq
+IRQ,2019,77.5950012207031,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IQ,Iraq
+IRL,2019,0.512000024318695,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IE,Ireland
+IRL,2019,4.28299999237061,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IE,Ireland
+IRL,2019,14.8929996490479,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IE,Ireland
+IRL,2019,85.1070022583008,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IE,Ireland
+ISR,2019,0.0370000004768372,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IL,Israel
+ISR,2019,4.08799982070923,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IL,Israel
+ISR,2019,12.3570003509521,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IL,Israel
+ISR,2019,87.6429977416992,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IL,Israel
+ITA,2019,1.17499995231628,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",IT,Italy
+ITA,2019,6.05299997329712,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",IT,Italy
+ITA,2019,22.9200000762939,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",IT,Italy
+ITA,2019,77.0800018310547,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",IT,Italy
+JAM,2019,0.925999999046326,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",JM,Jamaica
+JAM,2019,3.53399991989136,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",JM,Jamaica
+JAM,2019,39.306999206543,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",JM,Jamaica
+JAM,2019,60.693000793457,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",JM,Jamaica
+JPN,2019,2.20799994468689,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",JP,Japan
+JPN,2019,1.90299999713898,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",JP,Japan
+JPN,2019,10.210000038147,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",JP,Japan
+JPN,2019,89.7900009155273,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",JP,Japan
+JOR,2019,0.455000013113022,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",JO,Jordan
+JOR,2019,5.81300020217896,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",JO,Jordan
+JOR,2019,15.0150003433228,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",JO,Jordan
+JOR,2019,84.9850006103516,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",JO,Jordan
+KAZ,2019,0.114000000059605,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KZ,Kazakhstan
+KAZ,2019,1.46200001239777,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KZ,Kazakhstan
+KAZ,2019,24.6149997711182,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KZ,Kazakhstan
+KAZ,2019,75.3850021362305,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KZ,Kazakhstan
+KEN,2019,7.38399982452393,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KE,Kenya
+KEN,2019,0.256000012159348,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KE,Kenya
+KEN,2019,51.5559997558594,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KE,Kenya
+KEN,2019,48.4440002441406,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KE,Kenya
+PRK,2019,50.2089996337891,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KP,"Korea, Dem. People’s Rep."
+PRK,2019,1.79900002479553,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KP,"Korea, Dem. People’s Rep."
+PRK,2019,89.6129989624023,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KP,"Korea, Dem. People’s Rep."
+PRK,2019,10.3870000839233,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KP,"Korea, Dem. People’s Rep."
+KOR,2019,3.93600010871887,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KR,"Korea, Rep."
+KOR,2019,5.82800006866455,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KR,"Korea, Rep."
+KOR,2019,24.8689994812012,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KR,"Korea, Rep."
+KOR,2019,75.1309967041016,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KR,"Korea, Rep."
+KWT,2019,0.0140000004321337,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KW,Kuwait
+KWT,2019,0.691999971866608,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KW,Kuwait
+KWT,2019,1.77499997615814,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KW,Kuwait
+KWT,2019,98.2249984741211,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KW,Kuwait
+KGZ,2019,6.75299978256226,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",KG,Kyrgyz Republic
+KGZ,2019,1.59700000286102,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",KG,Kyrgyz Republic
+KGZ,2019,35.3860015869141,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",KG,Kyrgyz Republic
+KGZ,2019,64.6139984130859,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",KG,Kyrgyz Republic
+LAO,2019,26.9930000305176,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LA,Lao PDR
+LAO,2019,0.563000023365021,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LA,Lao PDR
+LAO,2019,80.6169967651367,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LA,Lao PDR
+LAO,2019,19.382999420166,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LA,Lao PDR
+LVA,2019,0.469999998807907,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LV,Latvia
+LVA,2019,4.26599979400635,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LV,Latvia
+LVA,2019,11.4090003967285,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LV,Latvia
+LVA,2019,88.5910034179688,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LV,Latvia
+LBN,2019,3.19300007820129,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LB,Lebanon
+LBN,2019,9.3439998626709,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LB,Lebanon
+LBN,2019,36.226001739502,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LB,Lebanon
+LBN,2019,63.773998260498,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LB,Lebanon
+LSO,2019,3.2720000743866,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LS,Lesotho
+LSO,2019,0.441000014543533,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LS,Lesotho
+LSO,2019,16.7509994506836,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LS,Lesotho
+LSO,2019,83.2490005493164,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LS,Lesotho
+LBR,2019,8.43400001525879,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LR,Liberia
+LBR,2019,1.51699995994568,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LR,Liberia
+LBR,2019,78.7149963378906,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LR,Liberia
+LBR,2019,21.2849998474121,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LR,Liberia
+LBY,2019,0.435000002384186,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LY,Libya
+LBY,2019,1.10699999332428,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LY,Libya
+LBY,2019,6.82999992370605,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LY,Libya
+LBY,2019,93.1699981689453,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LY,Libya
+LTU,2019,0.698000013828278,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LT,Lithuania
+LTU,2019,2.37899994850159,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LT,Lithuania
+LTU,2019,11.5310001373291,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LT,Lithuania
+LTU,2019,88.4690017700195,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LT,Lithuania
+LUX,2019,0.824000000953674,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LU,Luxembourg
+LUX,2019,2.92000007629395,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LU,Luxembourg
+LUX,2019,8.53499984741211,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LU,Luxembourg
+LUX,2019,91.4649963378906,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LU,Luxembourg
+MAC,2019,0.170000001788139,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MO,"Macao SAR, China"
+MAC,2019,3.09999990463257,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MO,"Macao SAR, China"
+MAC,2019,6.18599987030029,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MO,"Macao SAR, China"
+MAC,2019,93.8140029907227,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MO,"Macao SAR, China"
+MDG,2019,40.1370010375977,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MG,Madagascar
+MDG,2019,3.82200002670288,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MG,Madagascar
+MDG,2019,88.8980026245117,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MG,Madagascar
+MDG,2019,11.1020002365112,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MG,Madagascar
+MWI,2019,6.48699998855591,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MW,Malawi
+MWI,2019,1.13800001144409,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MW,Malawi
+MWI,2019,60.3279991149902,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MW,Malawi
+MWI,2019,39.6720008850098,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MW,Malawi
+MYS,2019,4.06500005722046,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MY,Malaysia
+MYS,2019,3.47199988365173,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MY,Malaysia
+MYS,2019,25.2609996795654,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MY,Malaysia
+MYS,2019,74.7389984130859,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MY,Malaysia
+MDV,2019,2.81900000572205,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MV,Maldives
+MDV,2019,4.125,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MV,Maldives
+MDV,2019,23.5919990539551,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MV,Maldives
+MDV,2019,76.4079971313477,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MV,Maldives
+MLI,2019,25.7609996795654,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ML,Mali
+MLI,2019,0.603999972343445,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ML,Mali
+MLI,2019,81.5899963378906,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ML,Mali
+MLI,2019,18.4099998474121,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ML,Mali
+MLT,2019,0.0419999994337559,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MT,Malta
+MLT,2019,4.2350001335144,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MT,Malta
+MLT,2019,14.043999671936,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MT,Malta
+MLT,2019,85.9560012817383,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MT,Malta
+MRT,2019,8.53299999237061,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MR,Mauritania
+MRT,2019,2.64400005340576,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MR,Mauritania
+MRT,2019,55.1459999084473,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MR,Mauritania
+MRT,2019,44.8540000915527,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MR,Mauritania
+MUS,2019,2.05999994277954,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MU,Mauritius
+MUS,2019,4.30499982833862,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MU,Mauritius
+MUS,2019,20.4759998321533,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MU,Mauritius
+MUS,2019,79.5240020751953,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MU,Mauritius
+MEX,2019,4.44999980926514,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MX,Mexico
+MEX,2019,4.78700017929077,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MX,Mexico
+MEX,2019,31.7189998626709,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MX,Mexico
+MEX,2019,68.2809982299805,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MX,Mexico
+MDA,2019,3.91899991035461,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MD,Moldova
+MDA,2019,0.312000006437302,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MD,Moldova
+MDA,2019,37.6590003967285,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MD,Moldova
+MDA,2019,62.3409996032715,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MD,Moldova
+MNG,2019,2.68499994277954,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MN,Mongolia
+MNG,2019,0.943000018596649,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MN,Mongolia
+MNG,2019,49.4290008544922,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MN,Mongolia
+MNG,2019,50.5709991455078,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MN,Mongolia
+MNE,2019,2.49499988555908,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ME,Montenegro
+MNE,2019,8.33600044250488,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ME,Montenegro
+MNE,2019,21.5930004119873,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ME,Montenegro
+MNE,2019,78.4069976806641,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ME,Montenegro
+MAR,2019,18.8519992828369,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MA,Morocco
+MAR,2019,2.6340000629425,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MA,Morocco
+MAR,2019,50.1720008850098,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MA,Morocco
+MAR,2019,49.8279991149902,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MA,Morocco
+MOZ,2019,20.9580001831055,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MZ,Mozambique
+MOZ,2019,2.46700000762939,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MZ,Mozambique
+MOZ,2019,85.6139984130859,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MZ,Mozambique
+MOZ,2019,14.3859996795654,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MZ,Mozambique
+MMR,2019,23.4080009460449,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MM,Myanmar
+MMR,2019,3.00600004196167,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MM,Myanmar
+MMR,2019,62.064998626709,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MM,Myanmar
+MMR,2019,37.935001373291,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MM,Myanmar
+"NAM",2019,4.44299983978271,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NA,Namibia
+"NAM",2019,6.30100011825562,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NA,Namibia
+"NAM",2019,37.3209991455078,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NA,Namibia
+"NAM",2019,62.6790008544922,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NA,Namibia
+NPL,2019,40.8050003051758,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NP,Nepal
+NPL,2019,1.04100000858307,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NP,Nepal
+NPL,2019,79.4560012817383,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NP,Nepal
+NPL,2019,20.5440006256104,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NP,Nepal
+NLD,2019,0.324999988079071,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NL,Netherlands
+NLD,2019,3.96499991416931,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NL,Netherlands
+NLD,2019,16.6180000305176,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NL,Netherlands
+NLD,2019,83.3820037841797,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NL,Netherlands
+NCL,2019,0.206000000238419,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NC,New Caledonia
+NCL,2019,5.09899997711182,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NC,New Caledonia
+NCL,2019,16.8379993438721,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NC,New Caledonia
+NCL,2019,83.1620025634766,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NC,New Caledonia
+NZL,2019,0.781000018119812,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NZ,New Zealand
+NZL,2019,5.96199989318848,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NZ,New Zealand
+NZL,2019,18.048999786377,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NZ,New Zealand
+NZL,2019,81.9509963989258,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NZ,New Zealand
+NIC,2019,9.54399967193604,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NI,Nicaragua
+NIC,2019,5.29300022125244,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NI,Nicaragua
+NIC,2019,46.1629981994629,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NI,Nicaragua
+NIC,2019,53.8370018005371,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NI,Nicaragua
+NER,2019,33.7680015563965,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NE,Niger
+NER,2019,0.674000024795532,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NE,Niger
+NER,2019,94.3489990234375,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NE,Niger
+NER,2019,5.65100002288818,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NE,Niger
+NGA,2019,13.5539999008179,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NG,Nigeria
+NGA,2019,3.83599996566772,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NG,Nigeria
+NGA,2019,81.447998046875,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NG,Nigeria
+NGA,2019,18.5520000457764,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NG,Nigeria
+MKD,2019,5.85900020599365,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",MK,North Macedonia
+MKD,2019,4.27799987792969,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",MK,North Macedonia
+MKD,2019,23.3059997558594,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",MK,North Macedonia
+MKD,2019,76.6940002441406,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",MK,North Macedonia
+NOR,2019,0.118000000715256,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",NO,Norway
+NOR,2019,1.55400002002716,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",NO,Norway
+NOR,2019,6.46099996566772,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",NO,Norway
+NOR,2019,93.5390014648438,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",NO,Norway
+OMN,2019,0.175999999046326,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",OM,Oman
+OMN,2019,1.22599995136261,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",OM,Oman
+OMN,2019,3.85800004005432,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",OM,Oman
+OMN,2019,96.1419982910156,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",OM,Oman
+PAK,2019,19.6730003356934,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PK,Pakistan
+PAK,2019,1.40600001811981,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PK,Pakistan
+PAK,2019,56.8889999389648,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PK,Pakistan
+PAK,2019,43.1110000610352,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PK,Pakistan
+PAN,2019,4.60599994659424,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PA,Panama
+PAN,2019,3.1489999294281,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PA,Panama
+PAN,2019,37.3680000305176,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PA,Panama
+PAN,2019,62.6319999694824,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PA,Panama
+PNG,2019,35.5060005187988,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PG,Papua New Guinea
+PNG,2019,1.55799996852875,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PG,Papua New Guinea
+PNG,2019,79.4789962768555,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PG,Papua New Guinea
+PNG,2019,20.5209999084473,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PG,Papua New Guinea
+PRY,2019,7.27299976348877,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PY,Paraguay
+PRY,2019,5.3730001449585,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PY,Paraguay
+PRY,2019,42.8569984436035,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PY,Paraguay
+PRY,2019,57.1430015563965,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PY,Paraguay
+PER,2019,13.2080001831055,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PE,Peru
+PER,2019,3.95900011062622,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PE,Peru
+PER,2019,54.3769989013672,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PE,Peru
+PER,2019,45.6230010986328,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PE,Peru
+PHL,2019,5.75299978256226,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PH,Philippines
+PHL,2019,3.64000010490417,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PH,Philippines
+PHL,2019,36.3390007019043,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PH,Philippines
+PHL,2019,63.6609992980957,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PH,Philippines
+POL,2019,2.27600002288818,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PL,Poland
+POL,2019,4.03000020980835,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PL,Poland
+POL,2019,20.0890007019043,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PL,Poland
+POL,2019,79.911003112793,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PL,Poland
+PRT,2019,0.40200001001358,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PT,Portugal
+PRT,2019,4.81400012969971,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PT,Portugal
+PRT,2019,16.6620006561279,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PT,Portugal
+PRT,2019,83.3379974365234,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PT,Portugal
+PRI,2019,0.172999992966652,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PR,Puerto Rico
+PRI,2019,4.27600002288818,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PR,Puerto Rico
+PRI,2019,16.6459999084473,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PR,Puerto Rico
+PRI,2019,83.3539962768555,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PR,Puerto Rico
+QAT,2019,0.00999999977648258,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",QA,Qatar
+QAT,2019,0.277999997138977,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",QA,Qatar
+QAT,2019,0.421999990940094,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",QA,Qatar
+QAT,2019,99.5780029296875,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",QA,Qatar
+ROU,2019,7.50500011444092,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",RO,Romania
+ROU,2019,1.06099998950958,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",RO,Romania
+ROU,2019,24.7819995880127,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",RO,Romania
+ROU,2019,75.2180023193359,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",RO,Romania
+RUS,2019,0.402999997138977,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",RU,Russian Federation
+RUS,2019,1.44099998474121,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",RU,Russian Federation
+RUS,2019,6.78999996185303,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",RU,Russian Federation
+RUS,2019,93.2099990844727,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",RU,Russian Federation
+RWA,2019,28.5149993896484,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",RW,Rwanda
+RWA,2019,0.0610000006854534,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",RW,Rwanda
+RWA,2019,68.056999206543,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",RW,Rwanda
+RWA,2019,31.943000793457,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",RW,Rwanda
+WSM,2019,4.7649998664856,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",WS,Samoa
+WSM,2019,3.03200006484985,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",WS,Samoa
+WSM,2019,33.015998840332,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",WS,Samoa
+WSM,2019,66.984001159668,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",WS,Samoa
+STP,2019,4.3439998626709,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ST,Sao Tome and Principe
+STP,2019,1.61199998855591,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ST,Sao Tome and Principe
+STP,2019,49.726001739502,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ST,Sao Tome and Principe
+STP,2019,50.273998260498,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ST,Sao Tome and Principe
+SAU,2019,0.0280000008642673,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SA,Saudi Arabia
+SAU,2019,1.86699998378754,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SA,Saudi Arabia
+SAU,2019,4.88299989700317,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SA,Saudi Arabia
+SAU,2019,95.1169967651367,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SA,Saudi Arabia
+SEN,2019,22.4050006866455,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SN,Senegal
+SEN,2019,0.857999980449677,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SN,Senegal
+SEN,2019,65.4860000610352,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SN,Senegal
+SEN,2019,34.5139999389648,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SN,Senegal
+SRB,2019,5.32999992370605,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",RS,Serbia
+SRB,2019,3.6010000705719,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",RS,Serbia
+SRB,2019,27.8969993591309,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",RS,Serbia
+SRB,2019,72.1029968261719,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",RS,Serbia
+SLE,2019,6.31199979782104,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SL,Sierra Leone
+SLE,2019,2.61100006103516,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SL,Sierra Leone
+SLE,2019,88.7360000610352,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SL,Sierra Leone
+SLE,2019,11.2639999389648,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SL,Sierra Leone
+SGP,2019,0.358000010251999,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SG,Singapore
+SGP,2019,4.35900020599365,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SG,Singapore
+SGP,2019,14.0240001678467,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SG,Singapore
+SGP,2019,85.9759979248047,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SG,Singapore
+SVK,2019,0.0930000022053719,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SK,Slovak Republic
+SVK,2019,2.90300011634827,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SK,Slovak Republic
+SVK,2019,14.701000213623,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SK,Slovak Republic
+SVK,2019,85.2990036010742,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SK,Slovak Republic
+SVN,2019,2.61199998855591,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SI,Slovenia
+SVN,2019,3.77999997138977,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SI,Slovenia
+SVN,2019,14.9759998321533,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SI,Slovenia
+SVN,2019,85.0240020751953,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SI,Slovenia
+SLB,2019,53.9109992980957,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SB,Solomon Islands
+SLB,2019,0.999000012874603,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SB,Solomon Islands
+SLB,2019,66.6760025024414,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SB,Solomon Islands
+SLB,2019,33.3240013122559,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SB,Solomon Islands
+SOM,2019,38.693000793457,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SO,Somalia
+SOM,2019,1.11099994182587,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SO,Somalia
+SOM,2019,88.3550033569336,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SO,Somalia
+SOM,2019,11.6450004577637,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SO,Somalia
+ZAF,2019,0.513000011444092,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ZA,South Africa
+ZAF,2019,5.25299978256226,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ZA,South Africa
+ZAF,2019,15.5520000457764,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ZA,South Africa
+ZAF,2019,84.447998046875,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ZA,South Africa
+SSD,2019,39.1520004272461,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SS,South Sudan
+SSD,2019,3.40000009536743,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SS,South Sudan
+SSD,2019,88.2539978027344,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SS,South Sudan
+SSD,2019,11.746000289917,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SS,South Sudan
+ESP,2019,0.363000005483627,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ES,Spain
+ESP,2019,4.93599987030029,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ES,Spain
+ESP,2019,15.9180002212524,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ES,Spain
+ESP,2019,84.0820007324219,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ES,Spain
+LKA,2019,7.75699996948242,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LK,Sri Lanka
+LKA,2019,3.02099990844727,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LK,Sri Lanka
+LKA,2019,42.0169982910156,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LK,Sri Lanka
+LKA,2019,57.9830017089844,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LK,Sri Lanka
+LCA,2019,1.10399997234344,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",LC,St. Lucia
+LCA,2019,6.875,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",LC,St. Lucia
+LCA,2019,36.4710006713867,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",LC,St. Lucia
+LCA,2019,63.5289993286133,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",LC,St. Lucia
+VCT,2019,1.39800000190735,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",VC,St. Vincent and the Grenadines
+VCT,2019,5.52500009536743,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",VC,St. Vincent and the Grenadines
+VCT,2019,25.3899993896484,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",VC,St. Vincent and the Grenadines
+VCT,2019,74.6100006103516,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",VC,St. Vincent and the Grenadines
+SDN,2019,16.6650009155273,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SD,Sudan
+SDN,2019,5.68200016021729,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SD,Sudan
+SDN,2019,56.0820007324219,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SD,Sudan
+SDN,2019,43.9179992675781,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SD,Sudan
+SUR,2019,1.44200003147125,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SR,Suriname
+SUR,2019,1.93099999427795,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SR,Suriname
+SUR,2019,14.1260004043579,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SR,Suriname
+SUR,2019,85.8740005493164,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SR,Suriname
+SWE,2019,0.202000007033348,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SE,Sweden
+SWE,2019,3.50500011444092,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SE,Sweden
+SWE,2019,9.56799983978271,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SE,Sweden
+SWE,2019,90.431999206543,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SE,Sweden
+CHE,2019,1.88999998569489,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",CH,Switzerland
+CHE,2019,5.71299982070923,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",CH,Switzerland
+CHE,2019,14.6540002822876,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",CH,Switzerland
+CHE,2019,85.3460006713867,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",CH,Switzerland
+SYR,2019,2.79200005531311,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",SY,Syrian Arab Republic
+SYR,2019,4.63199996948242,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",SY,Syrian Arab Republic
+SYR,2019,37.0620002746582,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",SY,Syrian Arab Republic
+SYR,2019,62.9379997253418,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",SY,Syrian Arab Republic
+TJK,2019,24.1149997711182,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TJ,Tajikistan
+TJK,2019,1.16400003433228,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TJ,Tajikistan
+TJK,2019,42.9160003662109,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TJ,Tajikistan
+TJK,2019,57.0839996337891,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TJ,Tajikistan
+TZA,2019,32.6129989624023,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TZ,Tanzania
+TZA,2019,2.77500009536743,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TZ,Tanzania
+TZA,2019,85.5029983520508,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TZ,Tanzania
+TZA,2019,14.4969997406006,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TZ,Tanzania
+THA,2019,16.568000793457,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TH,Thailand
+THA,2019,2.6949999332428,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TH,Thailand
+THA,2019,51.1669998168945,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TH,Thailand
+THA,2019,48.8330001831055,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TH,Thailand
+TLS,2019,24.7220001220703,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TL,Timor-Leste
+TLS,2019,1.05900001525879,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TL,Timor-Leste
+TLS,2019,68.713996887207,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TL,Timor-Leste
+TLS,2019,31.2859992980957,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TL,Timor-Leste
+TGO,2019,26.4699993133545,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TG,Togo
+TGO,2019,1.80900001525879,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TG,Togo
+TGO,2019,82.7200012207031,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TG,Togo
+TGO,2019,17.2800006866455,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TG,Togo
+TON,2019,16.3400001525879,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TO,Tonga
+TON,2019,1.10699999332428,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TO,Tonga
+TON,2019,53.3470001220703,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TO,Tonga
+TON,2019,46.6529998779297,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TO,Tonga
+TTO,2019,0.453999996185303,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TT,Trinidad and Tobago
+TTO,2019,5.35500001907349,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TT,Trinidad and Tobago
+TTO,2019,23.4950008392334,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TT,Trinidad and Tobago
+TTO,2019,76.504997253418,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TT,Trinidad and Tobago
+TUN,2019,2.98600006103516,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TN,Tunisia
+TUN,2019,7.08900022506714,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TN,Tunisia
+TUN,2019,27.0540008544922,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TN,Tunisia
+TUN,2019,72.9459991455078,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TN,Tunisia
+TUR,2019,9.85799980163574,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TR,Turkey
+TUR,2019,4.45900011062622,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TR,Turkey
+TUR,2019,31.5020008087158,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TR,Turkey
+TUR,2019,68.4980010986328,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TR,Turkey
+TKM,2019,3.84400010108948,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",TM,Turkmenistan
+TKM,2019,1.8400000333786,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",TM,Turkmenistan
+TKM,2019,27.0590000152588,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",TM,Turkmenistan
+TKM,2019,72.9410018920898,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",TM,Turkmenistan
+UGA,2019,15.3929996490479,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",UG,Uganda
+UGA,2019,3.1489999294281,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",UG,Uganda
+UGA,2019,78.3880004882813,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",UG,Uganda
+UGA,2019,21.6119995117188,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",UG,Uganda
+UKR,2019,0.239999994635582,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",UA,Ukraine
+UKR,2019,0.888999998569489,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",UA,Ukraine
+UKR,2019,15.7410001754761,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",UA,Ukraine
+UKR,2019,84.2590026855469,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",UA,Ukraine
+ARE,2019,0.444000005722046,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",AE,United Arab Emirates
+ARE,2019,3.01399993896484,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",AE,United Arab Emirates
+ARE,2019,3.94600009918213,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",AE,United Arab Emirates
+ARE,2019,96.0540008544922,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",AE,United Arab Emirates
+GBR,2019,0.340999990701675,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",GB,United Kingdom
+GBR,2019,2.05200004577637,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",GB,United Kingdom
+GBR,2019,15.0500001907349,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",GB,United Kingdom
+GBR,2019,84.9499969482422,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",GB,United Kingdom
+USA,2019,0.0599999986588955,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",US,United States
+USA,2019,2.38199996948242,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",US,United States
+USA,2019,6.21799993515015,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",US,United States
+USA,2019,93.7819976806641,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",US,United States
+URY,2019,0.760999977588654,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",UY,Uruguay
+URY,2019,3.74799990653992,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",UY,Uruguay
+URY,2019,28.068000793457,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",UY,Uruguay
+URY,2019,71.931999206543,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",UY,Uruguay
+UZB,2019,8.50599956512451,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",UZ,Uzbekistan
+UZB,2019,1.40499997138977,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",UZ,Uzbekistan
+UZB,2019,43.3819999694824,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",UZ,Uzbekistan
+UZB,2019,56.6180000305176,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",UZ,Uzbekistan
+VUT,2019,8.72900009155273,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",VU,Vanuatu
+VUT,2019,1.46399998664856,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",VU,Vanuatu
+VUT,2019,71.8809967041016,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",VU,Vanuatu
+VUT,2019,28.1189994812012,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",VU,Vanuatu
+VEN,2019,1.77300000190735,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",VE,"Venezuela, RB"
+VEN,2019,2.78699994087219,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",VE,"Venezuela, RB"
+VEN,2019,38.3969993591309,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",VE,"Venezuela, RB"
+VEN,2019,61.6030006408691,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",VE,"Venezuela, RB"
+VNM,2019,14.3030004501343,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",VN,Vietnam
+VNM,2019,2.04699993133545,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",VN,Vietnam
+VNM,2019,56.1209983825684,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",VN,Vietnam
+VNM,2019,43.8790016174316,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",VN,Vietnam
+VIR,2019,0.177000001072884,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",VI,Virgin Islands (U.S.)
+VIR,2019,5.23600006103516,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",VI,Virgin Islands (U.S.)
+VIR,2019,12.6630001068115,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",VI,Virgin Islands (U.S.)
+VIR,2019,87.3369979858398,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",VI,Virgin Islands (U.S.)
+PSE,2019,4.23000001907349,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",PS,West Bank and Gaza
+PSE,2019,7.08599996566772,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",PS,West Bank and Gaza
+PSE,2019,30.1560001373291,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",PS,West Bank and Gaza
+PSE,2019,69.8440017700195,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",PS,West Bank and Gaza
+YEM,2019,12.8070001602173,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",YE,"Yemen, Rep."
+YEM,2019,7.31400012969971,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",YE,"Yemen, Rep."
+YEM,2019,52.9410018920898,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",YE,"Yemen, Rep."
+YEM,2019,47.0589981079102,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",YE,"Yemen, Rep."
+ZMB,2019,33.4160003662109,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ZM,Zambia
+ZMB,2019,0.301999986171722,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ZM,Zambia
+ZMB,2019,78.4369964599609,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ZM,Zambia
+ZMB,2019,21.5629997253418,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ZM,Zambia
+ZWE,2019,9.49100017547607,SL.FAM.WORK.ZS,"Contributing family workers, total (% of total employment) (modeled ILO estimate)",ZW,Zimbabwe
+ZWE,2019,0.469999998807907,SL.EMP.MPYR.ZS,"Employers, total (% of total employment) (modeled ILO estimate)",ZW,Zimbabwe
+ZWE,2019,65.2089996337891,SL.EMP.SELF.ZS,"Self-employed, total (% of total employment) (modeled ILO estimate)",ZW,Zimbabwe
+ZWE,2019,34.7910003662109,SL.EMP.WORK.ZS,"Wage and salaried workers, total (% of total employment) (modeled ILO estimate)",ZW,Zimbabwe
