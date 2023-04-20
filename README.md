@@ -33,22 +33,19 @@ El objetivo de este curso es brindar una primera aproximación a algunos concept
 
 # Clase 1
 
--   [![](img/Download.png)](clase1.zip)
+[![](img/Download.png)](clase1.zip)
 
 # Clase 2
 
+[![](img/Download.png)](clase2.zip)
 
 # Clase 3
 
-
 # Clase 4
-
 
 # Clase 5
 
-
 # Clase 6
-
 
 # Librerías a utilizar
 
