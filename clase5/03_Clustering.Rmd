@@ -29,6 +29,7 @@ library(patchwork)
 library(tidyverse)
 library(tidymodels)
 library(GDAtools)
+library(ggdendro)
 ```
 
 ## Bibliografía de esta clase
@@ -39,7 +40,7 @@ library(GDAtools)
 ## Introducción
 En esta notebook vamos a explorar dos métodos de clusterización vistos en la clase teórica. Los métodos de clusterización que veremos corresponden al rama de ML de aprendizaje no supervisado. Recordemos: la idea principal es encontrar grupos en los datos que sean similares a otros datos del mismo grupo y lo menos similar posible a datos en otros.
 
-Hoy vamos a trabajar con K-medias. Vamos a implementarlo con un set de datos ya conocido: un dataset (`.wb_bank_data_2019.csv`) con información construida por el Banco Mundial acerca de la distribución de la población ocupada según grandes sectores de actividad y categoría ocupacional:
+Hoy vamos a trabajar con K-medias y clustering jerárquico. Vamos a implementarlo con un set de datos ya conocido: un dataset (`.wb_bank_data_2019.csv`) con información construida por el Banco Mundial acerca de la distribución de la población ocupada según grandes sectores de actividad y categoría ocupacional:
 
 - `SL.AGR.EMPL.ZS`: % total el empleo en agricultura: consistente en las actividades de agricultura, silvicultura, caza y pesca  
 - `SL.IND.EMPL.ZS`: % total de empleo en industria:  en actividades de minas y canteras, manufacturas, construcción y energía, gas y agua.
@@ -62,7 +63,8 @@ De alguna forma (imperfecta porque los datos no tienen toda la información que 
 
 ----
 
-## Conceptos principales de K-Medias
+## K-Medias
+### Conceptos principales
 El método de clusterización "K-Means" busca encontrar $k$ clusters de modo tal que se minimice la varianza intra-cluster medida, usualmente, como el cuadrado de la distancia euclídea. 
 
 $$W(C_{k})=\frac{1}{|C_{k}|} \sum_{i,i^{'} \in C_{k}} \sum_{j=1}^p (x_{ij} - x_{i^{'}j})^2$$
@@ -89,7 +91,7 @@ Para ello el algoritmo empieza encontrando $k$ centroides y le asigna a cada sam
 
 Debido a esta inicialización aleatoria de los $k$ centroids el output del modelo puede variar al aplicarlo otra vez a la misma data. Por ello se repite este procedimiento n_init=10 veces y el output final es el que mejor resultado tuvo al minimizar la función objetivo (varianza intra-cluster).
 
-## Preprocesamiento
+### Preprocesamiento
 Vamos a cargar los datos y a preprocesarlos.
 ```{r}
 df <- read_csv('./data/wb_bank_data_2019.csv')
@@ -127,7 +129,7 @@ df <- df %>%
 
 Se tomó esta decisión debido a que la categoría de patrones concentraba, en general, poca cantidad de casos. Como señalamos, a partir de estos datos construimos una clasificación de países según el grado de desarrollo de la división del trabajo y la extensión de las relaciones salariales.
 
-## Análisis descriptivo
+### Análisis descriptivo
 Veamos qué relación existe entre la población inserta en relaciones salariales y la población según gran rama de actividad.
 
 **Gráfico 1. % de población inserta en relación salariales (eje x) según % de población inserta en agricultura**
@@ -166,7 +168,7 @@ df %>%
     theme_minimal()
 ```
 
-## Entrenando un modelo de clustering basado en K-Medias
+### Entrenando un modelo de clustering basado en K-Medias
 Vamos a usar 3 variables para construir nuestro clustering:
 - % de población inserta en relaciones salariales
 - % de población ocupada en agricultura
@@ -246,7 +248,7 @@ df %>%
     theme_minimal()
 ```
 
-### Caracterizando los clusters
+#### Caracterizando los clusters
 `tidy` nos ayuda a resumir la información por cluster. Es decir, calcula estadísticos de todas las variables del dataset original por cada cluster. En este caso, la media pero de las variables estandarizadas:
 ```{r}
 tidy(km_2clst)
@@ -280,7 +282,7 @@ El cluster 1 presenta
 
 Es así que cada cluster constituye una aproximación dicotómica al grado de desarrollo de la división del trabajo y de la asalarización.
 
-### Eligiendo la cantidad de clusters
+#### Eligiendo la cantidad de clusters
 Ahora, ¿qué pasa si queremos probar otra $k$? ¿Estamos seguros de que $k=2$ es un valor razonable? ¿No existen situaciones intermedias entre un polo de alto desarrollo capitalista y otro de bajo?
 
 Vamos, entonces, a probar diferentes $k$ y tratar de evaluarlos.
@@ -342,7 +344,7 @@ assignments
 
 Ambas nos van a servir para evaluar nuestros clustering.
 
-## Evaluando un modelo de clustering... ¿cuántos clusters?
+### Evaluando un modelo de clustering... ¿cuántos clusters?
 A partir de la primera tibble que genearmos podemos generar un gráfico que nos cuantifique la variabilidad intra-cluster para cada $k$. Particularmente, vamos a tomar la columna `tot.withinss` es decir, la suma total de los cuadrados en todos los clusters. La lógica es que a menor `tot.withinss` más homogéneos son los clústeres: 
 
 **Gráfico 6. Suma total de los cuadrados de las distancias para diferentes k**
@@ -366,7 +368,7 @@ Existen otros métodos para evaluar una determinada clusterización:
 
 De hecho, estos métodos podrían usarse también para evaluar clusters con otros métodos como el jerárquico que vamos a trabajar en breve.
 
-## Entendiendo los clusters
+### Entendiendo los clusters
 Intentemos entender qué es lo que pasa en cada clusterización.
 Vamos a generar diferentes boxplots, para los diferentes $k$. Lo mismo que hicimos más arriba.
 
@@ -443,3 +445,156 @@ worldmap %>%
 
 ```
 
+## Clustering jerárquico
+### Algunos fundamentos 
+
+A diferencia el método que vimos la semana pasada, HC es aglomerativo. Va sumando y agregando clusters en cada iteración. Esto proporciona, como mencionamos, un método para seleccionar el parámetro $k$ (cantidad de clústers) de forma directa. 
+
+¿Cómo funciona?
+
+1. Comienza con $n$ observaciones y una medida (como la distancia euclidiana) de todos los ${n \choose 2} = \frac{n(n-1)}{2}$  disimilitudes por pares. Considera a cada uno observación como su propio grupo.
+
+2. Para $i = n, n − 1,..., 2$:
+
+    2.1 Examina todas las diferencias entre grupos por pares entre los $i$ grupos e identificar el par de grupos que son menos diferentes (es decir, lo más parecido). Fusiona estos dos grupos. La disimilitud entre estos dos grupos indica la altura en el dendrograma a la que se debe colocar la fusión.
+
+    2.2 Calcule las nuevas disimilitudes entre conglomerados por pares entre los $i − 1$ grupos restantes. 
+    
+Hay varias formas de medir la distancia entre los conglomerados para decidir las reglas de conglomerado y, a menudo, se denominan Métodos de vinculación. Algunos de los métodos de vinculación comunes son:
+
+- Complete: Máxima disimilitud entre cúmulos. Calcula todas las diferencias por pares entre las observaciones en el conglomerado A y el observaciones en el conglomerado B, y registra el mayor de estos disimilitudes.
+![](./imgs/complete.jpg)
+
+- Single: Disimilitud mínima entre clústeres. Calcule todas las diferencias por pares entre las observaciones en el conglomerado A y el observaciones en el conglomerado B, y registre la más pequeña de estas disimilitudes. El enlace único puede dar como resultado un arrastre extendido grupos en los que las observaciones individuales se fusionan una a la vez.
+![](./imgs/single.jpg)
+
+-Average: Disimilitud media entre grupos. Calcula todas las diferencias por pares entre las observaciones en el conglomerado A y el observaciones en el conglomerado B y registra el promedio de estas disimilitudes.
+![](./imgs/avg.jpg)
+
+- Centroid: Disimilitud entre el centroide del conglomerado A (una media vector de longitud p) y el centroide para el grupo B. Puede resultar en inversiones indeseables.
+![](./imgs/centroid.jpg)
+
+- Ward: Se basa en minimizar la suma total de cuadrados dentro del grupo de la fusión de dos grupos. Este método fusiona dos grupos de manera que la fusión da como resultado la suma de cuadrados más pequeña.
+
+Una cuestión importante es la elección de una métrica de distancia a utilizar. Hasta ahora, los ejemplos de este capítulo han utilizado la distancia euclidiana como medida de disimilitud. Pero a veces otras medidas de disimilitud pueden ser preferido: distancias de Minkowski, Manhattan, etc. [Acá pueden encontrar](https://aiaspirant.com/distance-similarity-measures-in-machine-learning/) un pequeño catálogo.
+
+Por ejemplo, distancias basadas en métricas de correlación consideran que dos observaciones son similares si sus características están altamente correlacionadas, aunque la los valores observados pueden estar muy separados en términos de distancia euclidiana. Esto es un uso inusual de la correlación, que normalmente se calcula entre variables; aquí se calcula entre los perfiles de observación para cada par de observaciones. La distancia basada en la correlación se centra en la formas de los perfiles de observación en lugar de sus magnitudes.
+
+La elección de la medida de disimilitud es muy importante, ya que tiene un fuerte efecto sobre el dendrograma resultante. En general, se debe prestar especial atención pagado al tipo de datos que se agrupan y la pregunta científica en cuestión. Estas consideraciones deberían determinar qué tipo de medida de disimilitud se utiliza para la agrupación jerárquica.
+
+### Entrenando un modelo de clustering jerárquico 
+Vamos a usar 3 variables para construir nuestro clustering:
+- % de población inserta en relaciones salariales
+- % de población ocupada en agricultura
+- % de población ocupada en servicios
+
+Antes de esto, vamos a normalizar las variables usando `recipes`.
+Podemos realizar HC aglomerativo con `hclust`. 
+
+```{r}
+recipe_km <-df %>% 
+            recipe(~.) %>%
+            step_normalize(c(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS)) 
+
+set.seed(123)
+dist <- recipe_km %>%
+            prep() %>%
+            bake(df) %>%
+            select(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS) %>%
+            dist(.x, method="euclidean")
+
+hc_clust <- hclust(dist, method="ward.D2")
+```
+
+¿Qué pasó acá?
+
+Primero, generamos una receta que va a normaalizar las tres variables a utilizar en el clustering.
+
+Luego, calculamos los valores de disimilitud con `dist`.
+
+Finalmente,  ingresamos estos valores en hclust y especificamos el método de aglomeración que se usará (es decir, `"complete"`, `"average"`, `"single"`, `"ward.D"`). 
+
+Ahora podemos dibujar el dendrograma. Podemos usar la función `plot
+
+```{r}
+plot(hc_clust)
+```
+
+Pero podemos trabajarlo con `ggplot`:
+
+```{r}
+dhc <- as.dendrogram(hc_clust)
+
+data <- dendro_data(dhc, type = "rectangle")
+
+ggplot(segment(data)) + 
+  geom_segment(aes(x = x, y = y, xend = xend, yend = yend)) + 
+  geom_hline(yintercept=6, color="red") +
+  coord_flip() + 
+  scale_y_reverse(expand = c(0.2, 0)) +
+  theme_minimal()
+
+```
+
+Como puede verse, parece evidente que hay al menos cuatro/cinco clusters. Podemos, entonces, extraer las etiquetas de cada cluster y agregarlas a la tabla de datos:
+
+```{r}
+df <- df %>%
+  mutate(hc_clust = as.factor(cutree(hc_clust, k = 5)))
+```
+
+
+**Grafico 1. % de población inserta en relación salariales (eje x) según % de población inserta en servicios por pertenencia a cada clúster**
+```{r}
+df %>%
+  ggplot(aes(x=prop_pob_rel_sal, y=SL.AGR.EMPL.ZS, color=hc_clust)) +
+    geom_point() +
+    xlim(0,100) +
+    ylim(0,100) +
+    labs(x="% pob. rel. sal.",
+         y="% pop. agr. ",
+         color="Cluster") + 
+    theme_minimal()
+```
+
+### Caracterizando los clusters
+Como vimos más arriba, pegamos la pertenencia de cada país a cada cluster en la tabla original. Podemos repetir el esquema de análisis de la clase pasada. A partir de allí podemos pasar a tratar de interpretar qué nos dice cada clúster. Generemos un boxplot de la distirbución de cada variable para cada clúster. Para eso vamos a llevar las tres variables con las que generamos el cluster y la variable de pertenencia al cluster a un formato long. 
+
+**Gráfico 8. Boxplot de variables vinculadas a la división del trabajo y a la cateogría ocupacional según cluster (k=5)**
+```{r}
+df %>%
+  select(country, hc_clust, SL.AGR.EMPL.ZS:SL.SRV.EMPL.ZS, prop_pob_rel_sal) %>%
+  pivot_longer(cols = SL.AGR.EMPL.ZS:prop_pob_rel_sal) %>%
+  ggplot(aes(y=value, fill=hc_clust)) + 
+    geom_boxplot() +
+    theme_minimal() +
+        theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+    facet_wrap(~name)
+```
+Vemos que los resultados son similares a los de K-medias:
+
+- un cluster (cluster 3) con mayor desarrollo de relaciones salariales y peso de los servicios y menor peso del campo.
+- otro, (cluster 5) con las características opuestas
+- un gradiente de situaciones intermedias.
+
+Pero mucho más interesante sería generar un mapa:
+
+```{r fig.height=8, fig.width=12}
+worldmap <- map_data("world")
+worldmap$iso3c <- maps::iso.alpha(x=worldmap$region,n=3)
+
+worldmap <- worldmap %>%
+    left_join(df %>% select(country, iso3c, hc_clust))
+
+worldmap %>%
+  drop_na(hc_clust) %>%
+    ggplot() + 
+    geom_polygon(aes(x=long, y=lat, group=group, fill=as.factor(hc_clust)), color='black') +
+  labs(fill='') +
+    theme_minimal() +
+    theme(legend.position='bottom',
+          legend.text = element_text(size=23))
+
+```
