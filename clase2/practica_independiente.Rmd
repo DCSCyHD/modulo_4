@@ -16,7 +16,7 @@ output:
 
 La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un modelo de **bagging** en R con `tidymodels`.
 
-Vamos a trabajar con un [dataset de Kaggle](https://www.kaggle.com/datasets/ahsan81/job-placement-dataset) que toma datos de contratación de personas en empresas y tiene información acerca de , con datos acerca de sus notas en los exámenes de finalización del secundario (SSC y HSC), y especialización. Las variables que contiene son:
+Vamos a trabajar con un [dataset de Kaggle](https://www.kaggle.com/datasets/ahsan81/job-placement-dataset) que toma datos de contratación de personas en empresas y tiene información educativa, con datos acerca de sus notas en los exámenes de finalización del secundario (SSC y HSC), y especialización. Las variables que contiene son:
 
 -   gender: Sexo de le candidate
 
@@ -43,6 +43,8 @@ Vamos a trabajar con un [dataset de Kaggle](https://www.kaggle.com/datasets/ahsa
 -   mba_percent: Promedio en especialización
 
 -   status: Contratado en empresa o no (target)
+
+Vamos a tratar de predecir el status de contratación en la empresa (es decir, la variable `status`).
 
 Primero, importen la base. Se llama `Job_Placement_Data.csv` y está en la carpeta `data`.
 
