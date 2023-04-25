@@ -16,7 +16,7 @@ output:
 
 La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un **árbol de decisión** en R con `tidymodels`.
 
-Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guardada en la carpeta `data` con el nombre `eph15.RDS`.
+Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guardada en la carpeta `data` con el nombre `eph15.RDS`. La idea es predecir la variable `imp_inglab` que identifica si esa persona tuvo imputado el ingreso laboral o no.
 
 ```{r}
 
@@ -35,9 +35,8 @@ Ahora, entramos a la parte de construcción del workflow de modelado. Recordemos
 ```{r}
 ```
 
-¿Cómo funcionó este modelo en el test set? 
+¿Cómo funcionó este modelo en el test set?
 
 ```{r}
 
 ```
-
