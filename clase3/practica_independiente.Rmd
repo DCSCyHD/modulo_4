@@ -9,323 +9,76 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-En esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un modelo de **boosting** en R con `tidymodels`.
+En esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un modelo de **Random Forest** en R con `tidymodels`. Primero:
+
+- ¿Qué diferencia a Random Forest de un árbol de decisión simple? ¿Y de un modelo de Bagging? 
 
 Vamos a trabajar con un [dataset de Kaggle](https://www.kaggle.com/datasets/jpmiller/employee-attrition-for-healthcare) que contiene datos sobre desgaste laboral de trabajadores en un hospital. Se puede encontrar en la carpeta data, en el archivo `desgaste_salud.RDS`. La idea es desarrollar un modelo predictivo que sea capaz de detectar si el o la trabajadorx tiene propensión a dejar el puesto por desgaste laboral.
+
+Las variables de la base son:
 
 -   EmployeeID: ID
 
 -   Age: Edad
 
--   Attrition: Desgaste (Sí/No)
+-   **Desgaste: Sí/No** (Esta va a ser nuestro X)
 
--   BusinessTravel: Frecuencia de viajes laborales
+-   viajes_laborales: Frecuencia de viajes laborales
 
--   DailyRate: Pago diario
+-   tarifa_diaria: Pago diario
 
--   Department: Departamento de trabajo
+-   departamento: Departamento de trabajo
 
--   DistanceFromHome: Distancia del lugar de trabajo al hogar
+-   distancia_hogar: Distancia del lugar de trabajo al hogar
 
--   Education: Nivel educativo (1: Universitario incompleto, 2: College, 3: Bachelor, 4: Maestría, 5: Doctorado)
+-   NED: Nivel educativo (1: Universitario incompleto, 2: College, 3: Bachelor, 4: Maestría, 5: Doctorado)
 
--   EducationField: Area de estudios
+-   area_especialidad: Area de estudios
 
--   EmployeeCount: Cantidad de empleados a los que se refiere la fila (Siempre es 1)
+-   cant_empleados: Cantidad de empleados a los que se refiere la fila (Siempre es 1)
 
--   EnvironmentSatisfaction: Satisfacción con el ambiente laboral (1 al 4, de bajo a muy alto)
+-   satisfaccion_ambiente: Satisfacción con el ambiente laboral (1 al 4, de bajo a muy alto)
 
--   Gender: Género
+-   sexo: M/F
 
--   HourlyRate: Pago por hora
+-   tarifa_hora: Pago por hora
 
--   JobInvolvement: Nivel de involucramiento con el trabajo (1 al 4, de bajo a muy alto)
+-   involucramiento_trabajo: Nivel de involucramiento con el trabajo (1 al 4, de bajo a muy alto)
 
--   JobLevel: Nivel de complejidad del trabajo (1 al 4, de bajo a muy alto)
+-   nivel_trabajo: Nivel de complejidad del trabajo (1 al 4, de bajo a muy alto)
 
--   JobRole: Rol laboral
+-   rol_trabajo: Rol laboral
 
--   JobSatisfaction: Satisfacción con el trabajo (1 al 4, de bajo a muy alto)
+-   satisfaccion_trabajo: Satisfacción con el trabajo (1 al 4, de bajo a muy alto)
 
--   MaritalStatus: Estado civil
+-   estado_civil: Estado civil
 
--   MonthlyIncome: Ingreso mensual
+-   ingreso_mensual: Ingreso mensual
 
--   MonthlyRate
+-   cantidad_trabajos: Cantidad de empresas en las que trabajó
 
--   NumCompaniesWorked: Cantidad de empresas en las que trabajó
+-   mas_18: ¿Tiene más de 18 años?
 
--   Over18: ¿Tiene más de 18 años?
+-   horas_extra: ¿Trabaja horas extra?
 
--   OverTime: ¿Trabaja horas extra?
+-   porcentaje_aumento: Porcentaje de aumento salarial entre %11-%25.
 
--   PercentSalaryHike Porcentaje de aumento salarial entre %11-%25.
+-   horas_estandar: Cantidad de horas estándar (Siempre es 80h)
 
--   RelationshipSatisfaction:
+-   turno: Turno
 
--   StandardHours: Cantidad de horas estándar (Siempre es 80h)
+-   anios_trabajados: Total de años trabajados
 
--   Shift: Turno
+-   tiempo_practicas: Tiempo de trabajo dedicado a prácticas en el último año.
 
--   TotalWorkingYears: Total de años trabajados
+-   balance_vidatrabajo: Balance trabajo vida (1 :Bad, 2 :Good, 3 :Better, 4 :Best)
 
--   TrainingTimesLastYear: Tiempo de trabajo dedicado a prácticas en el último año.
+-   anios_lugar: Años trabajando en el último lugar de trabajo
 
--   WorkLifeBalance: Balance trabajo vida (1 :Bad, 2 :Good, 3 :Better, 4 :Best)
+-   anios_ultpuesto: Años trabajados en el último puesto de trabajo
 
--   YearsAtCompany: Años trabajando en el último lugar de trabajo
+-   anios_promocion: Años desde la última promoción laboral
 
--   YearsInCurrentRole: Años trabajados en el último puesto de trabajo
+-   anios_manager: Años trabajados con últimx jefx
 
--   YearsSinceLastPromotion: Años desde la última promoción laboral
-
--   YearsWithCurrManager: Años trabajados con últimx jefx
-
-```{r}
-data <- read_csv("../data/watson_healthcare_modified.csv")
-
-data <- data %>% select(
-  ID = EmployeeID, 
-  edad = Age,
-  desgaste = Attrition,
-  viajes_laborales = BusinessTravel,
-  tarifa_diaria = DailyRate, 
-  departamento = Department,
-  distancia_hogar = DistanceFromHome,
-  NED = Education,
-  area_especialidad = EducationField,
-  cant_empleados = EmployeeCount,
-  satisfaccion_ambiente = EnvironmentSatisfaction,
-  sexo = Gender,
-  tarifa_hora = HourlyRate,
-  involucramiento_trabajo = JobInvolvement,
-  nivel_trabajo = JobLevel,
-  rol_trabajo = JobRole,
-  satisfaccion_trabajo = JobSatisfaction,
-  estado_civil = MaritalStatus,
-  ingreso_mensual = MonthlyIncome,
-  cantidad_trabajos = NumCompaniesWorked,
-  mas_18 = Over18,
-  horas_extra = OverTime,
-  porcentaje_aumento = PercentSalaryHike,
-  horas_estandar = StandardHours,
-  turno = Shift,
-  anios_trabajados = TotalWorkingYears,
-  tiempo_practicas = TrainingTimesLastYear,
-  balance_vidatrabajo = WorkLifeBalance,
-  anios_lugar = YearsAtCompany,
-  anios_ultpuesto = YearsInCurrentRole,
-  anios_promocion = YearsSinceLastPromotion,
-  anios_manager = YearsWithCurrManager)
-
-data <- data %>% mutate_at(vars(desgaste), 
-                   ~case_when(
-                     . == "Yes" ~ "Sí",
-                     . == "No" ~ "No"
-                   ))
-
-data <- data %>% mutate_at(vars(sexo), 
-                   ~case_when(
-                     . == "Female" ~ "Femenino",
-                     . == "Male" ~ "Masculino"
-                   ))
-
-data <- data %>% mutate_at(vars(viajes_laborales), 
-                   ~case_when(
-                     . == "Travel_Rarely" ~ "Baja frecuencia",
-                     . == "Travel_Frequently" ~ "Alta frecuencia",
-                     . == "Non-Travel" ~ "No viaja"
-                   ))
-
-data <- data %>% mutate_at(vars(estado_civil), 
-                   ~case_when(
-                     . == "Divorced" ~ "Divorciadx",
-                     . == "Married" ~ "Casadx",
-                     . == "Single" ~ "Solterx"
-                   ))
-
-data <- data %>% mutate_at(vars(departamento), 
-                   ~case_when(
-                     . == "Cardiology" ~ "Cardiología",
-                     . == "Maternity" ~ "Maternidades",
-                     . == "Neurology" ~ "Neurología"
-                   ))
-
-data <- data %>% mutate_at(vars(area_especialidad), 
-                   ~case_when(
-                     . == "Life Sciences" ~ "Ciencias Biológicas",
-                     . == "Medical" ~ "Médico",
-                     . == "Marketing" ~ "Marketing",
-                     . == "Technical Degree" ~ "Técnico",
-                     . == "Human Resources" ~ "RRHH",
-                     . == "Other" ~ "Otro"
-                   ))
-
-data <- data %>% mutate_at(vars(rol_trabajo), 
-                   ~case_when(
-                     . == "Nurse" ~ "Enfermerx",
-                     . == "Therapist" ~ "Terapeuta",
-                     . == "Administrative" ~ "Administrativx",
-                     . == "Admin" ~ "Gerencial",
-                     . == "Other" ~ "Otro"
-                   ))
-
-write_rds(data, '../data/desgaste_salud.RDS')
-
-data <- data %>% mutate_if(is.character, as.factor)
-```
-
-```{r}
-library(themis)
-set.seed(123)
-
-split <- initial_split(data)
-train <- training(split)
-test <- testing(split)
-
-recipe <- recipe(Attrition ~ ., data = train)%>%
-  update_role(EmployeeID, new_role = "id") %>%
-  #step_other(BHCH04_SEL, threshold = 0.2)%>%
-  step_upsample(Attrition)
-
-wf <- workflow() %>%
-  add_recipe(recipe)
-```
-
-```{r}
-tree_spec <- decision_tree(  
-  cost_complexity = tune(),
-  tree_depth = tune(),
-  min_n = tune()
-) %>%
-  set_engine("rpart") %>%
-  set_mode("classification")
-
-wf <- wf %>%
-  add_model(tree_spec)
-
-tree_grid <- grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4)
-
-folds <- vfold_cv(train, v = 10)
-
-tree_rs <- wf %>% 
-  tune_grid(
-  resamples = folds,
-  grid = tree_grid,
-  metrics = metric_set(roc_auc, precision, 
-                       recall, f_meas)
-)
-
-autoplot(tree_rs)
-
-```
-
-```{r}
-best_model <- select_best(tree_rs, "roc_auc")
-
-final_tree <- finalize_model(tree_spec, best_model)
-
-dt_fit <- wf %>% update_model(final_tree) %>% fit(train)
-
-dt_fit
-
-```
-
-```{r}
-library(vip)
-
-extract_fit_parsnip(dt_fit) %>%
-  vip(geom = "col")
-```
-
-```{r}
-test <- dt_fit %>%
-  predict(test) %>%
-  bind_cols(test, .)
-
-matriz_confusion <- conf_mat(test,truth = Attrition, estimate = .pred_class)
-
-matriz_confusion
-```
-
-```{r}
-rf_spec <- rand_forest(
-  trees = 1000,
-  mtry = tune(),
-  min_n = tune()
-  ) %>%
-  set_mode("classification") %>%
-  set_engine("ranger")
-```
-
-```{r}
-tune_wf <- wf %>%
-  add_model(rf_spec)
-
-set.seed(1912)
-
-folds <- vfold_cv(train)
-
-tune_params <- tune_grid(tune_wf,
-                         resamples = folds,
-                         grid = 30,
-                         metrics = metric_set(precision, recall,
-                                              roc_auc, f_meas))
-```
-
-```{r}
-autoplot(tune_params)+
-  theme_minimal()
-```
-
-```{r}
-show_best(tune_params, "roc_auc")
-```
-
-```{r}
-best_ROC <- select_best(tune_params, "roc_auc")
-
-final_rf <- finalize_model(
-  rf_spec,
-  best_ROC
-)
-
-final_rf
-
-```
-
-```{r}
-tree_rf <- wf %>%
-  add_model(final_rf) %>% 
-  fit(train)
-
-tree_rf%>%  
-  extract_fit_parsnip() %>% 
-  pluck("fit") %>% 
-  summary()
-
-```
-
-```{r}
-test_val <- tree_rf %>%
-  predict(test) %>%
-  bind_cols(., test)
-
-test_val <- predict(tree_rf, test, type = "prob") %>%
-  bind_cols(test_val, .)
-
-matriz_confusion <- conf_mat(test_val,truth = Attrition, estimate = .pred_class)
-
-matriz_confusion
-
-```
-
-```{r}
-class_metrics <- metric_set(precision, recall,
-                       accuracy, f_meas)
-
-metrics <- roc_auc(test_val, truth = Attrition, estimate = .pred_No) %>%
-  bind_rows(class_metrics(test_val,truth = Attrition, estimate = .pred_class))
-
-metrics
-```
+Construya un modelo de RF para predecir la variable desgaste.

@@ -27,7 +27,7 @@ Primero, leemos la base:
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 
-data <- read_delim("../data/enut2021_base.txt", delim = "|")
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
 
 data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
                         NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
@@ -84,8 +84,8 @@ data<- data %>% select(-TCS_GRUPO_DOMESTICO)
 Primero, retomemos los resultados que obtuvimos haciendo modelos con un árbol simple y con bagging.
 
 ```{r}
-decision_tree <- readRDS('../data/validation_test_dt.RDS')
-bagging <- readRDS('../data/validation_test_bag.RDS')
+decision_tree <- readRDS('./data/validation_test_dt.RDS')
+bagging <- readRDS('./data/validation_test_bag.RDS')
 
 class_metrics <- metric_set(precision, recall,
                        accuracy, f_meas)
