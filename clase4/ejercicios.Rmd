@@ -1,0 +1,50 @@
+---
+title: "Árboles y ensambles"
+subtitle: "Práctica "
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      toc_collapsed: false
+    number_sections: false
+---
+
+La idea de esta práctica independiente es hacer un cierre de los modelos de árboles y ensambles que vimos a lo largo de estas clases. En este caso vamos a trabajar con un problema de regresión. Van a ver que en la carpeta data tenemos dos archivos de la EPH 2015. Uno dice eph_2015.RDS, que contiene todas las respuestas de las personas sobre su ocupación principal. El otro dice eph_NR_2015.RDS, y tiene casi todas las respuestas sobre ocupación menos los ingresos.
+
+```{r}
+data <- read_rds('./data/eph_2015.RDS')
+data_new <- read_rds('./data/eph_NR_2015.RDS')
+```
+
+Imaginemos que nos piden que realicemos un modelo para imputar estos casos de no respuesta en la pregunta de ingreso por la ocupación principal.
+
+Les proponemos que todes armen un árbol de decisión simple, y luego prueben armar algún árbol de ensambles (bagging, RF o boosting) para ver cuál modelo funciona mejor para resolver este ejercicio.
+
+Recordemos que hay que:
+
+-   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
+    -   ¿Qué pasa con las variables de texto?
+    -   ¿Está balanceada la muestra?
+-   Partir el train/test
+-   Instanciar el modelo, definiendo hiperparámetros (recuerden que si hacen un grid muy grande o ponen a entrenar muchos árboles, el código va a tardar más)
+-   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
+-   Fitearlo a la base de entrenamiento
+
+```{r}
+```
+
+¿Cómo funcionó cada modelo en el test set?
+
+```{r}
+
+```
+
+Aplicar las predicciones sobre la base sin respuestas.
+
+```{r}
+
+```

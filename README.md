@@ -45,6 +45,8 @@ El objetivo de este curso es brindar una primera aproximación a algunos concept
 
 # Clase 4
 
+[![](img/Download.png)](clase4.zip)
+
 # Clase 5
 
 # Clase 6

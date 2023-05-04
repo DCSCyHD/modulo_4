@@ -1,5 +1,5 @@
 ---
-title: "Ensambles - Clase 3"
+title: "Clase 4 - Boosting"
 author: 
   - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
   - Martín Schuster y Laia Domenech Burin
@@ -26,7 +26,7 @@ Primero, hacemos el preprocesamiento:
 ```{r}
 library(tidyverse)
 
-data <- read_delim("../data/enut2021_base.txt", delim = "|")
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
 
 data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
                         NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
@@ -84,9 +84,9 @@ data<- data %>% select(-TCS_GRUPO_DOMESTICO)
 Recordemos los modelos previos.
 
 ```{r}
-decision_tree <- readRDS('../data/validation_test_dt.RDS')
-bagging <- readRDS('../data/validation_test_bag.RDS')
-random_forest <- readRDS('../data/validation_rf.RDS')
+decision_tree <- readRDS('./data/validation_test_dt.RDS')
+bagging <- readRDS('./data/validation_test_bag.RDS')
+random_forest <- readRDS('./data/validation_rf.RDS')
 
 datasets <- list(decision_tree, bagging, random_forest)
 
@@ -161,13 +161,13 @@ bt_spec <- boost_tree(trees = tune(),
 bt_spec %>% translate()
 ```
 
-Ahora, vamos a hacer las muestras de cross-validation para tunear los hiperparámetros. Haremos un grid de 50 cruces para distintas combinaciones de la cantidad de árboles y la mínima cantidad de particiones.
+Ahora, vamos a hacer las muestras de cross-validation para tunear los hiperparámetros. Haremos un grid de 10 cruces para distintas combinaciones de la cantidad de árboles y la mínima cantidad de particiones.
 
 ```{r}
 tune_wf <- wf %>%
   add_model(bt_spec)
  
-set.seed(1912)
+set.seed(912)
 
 folds <- vfold_cv(train)
  
@@ -175,7 +175,7 @@ tune_params <- tune_wf %>%
    tune_grid(folds,
              metrics = metric_set(precision, recall,
                                roc_auc, f_meas),
-             grid = 50)
+             grid = 10)
  
 ```
 
@@ -196,6 +196,12 @@ tree_boost <- wf %>%
 fit_tree <- tree_boost %>% fit(train)
 
 fit_tree 
+```
+
+Guardamos el modelo para usarlo a futuro.
+
+```{r echo = FALSE}
+write_rds(fit_tree, "./model/boosting_fit.RDS")
 ```
 
 Ahora, vamos a predecir sobre el test set, obtener las métricas de evaluación y compararlas con los otros modelos.
