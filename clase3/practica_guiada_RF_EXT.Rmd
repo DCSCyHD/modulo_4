@@ -165,11 +165,24 @@ tune_params <- tune_grid(tune_wf,
                                               roc_auc, f_meas))
 ```
 
+```{r}
+autoplot(tune_params)
+```
+```{r}
+tune_params %>%
+  collect_metrics()
+```
+
+
 Grafiquemos los resultados.
 
 ```{r}
-autoplot(tune_params)+
-  theme_minimal()
+tune_params %>% 
+  collect_metrics() %>%
+  filter(.metric == "roc_auc")%>%
+  ggplot(aes(x = mtry, y = mean, color = min_n))+
+  geom_point()+
+  scale_color_viridis_c()
 ```
 
 Podemos ver que los valores más altos están asociados con un número de variables bajo y un número de muestras mínimas por partición más grande. ¿Cuál es el modelo que tiene mejor ROC?

@@ -13,7 +13,7 @@ output:
     number_sections: false
 ---
 
-La idea de esta práctica independiente es hacer un cierre de los modelos de árboles y ensambles que vimos a lo largo de estas clases. En este caso vamos a trabajar con un problema de regresión. Van a ver que en la carpeta data tenemos dos archivos de la EPH 2015. Uno dice eph_2015.RDS, que contiene todas las respuestas de las personas sobre su ocupación principal. El otro dice eph_NR_2015.RDS, y tiene casi todas las respuestas sobre ocupación menos los ingresos.
+La idea de esta práctica independiente es hacer un cierre de los modelos de árboles y ensambles que vimos a lo largo de estas clases. En este caso vamos a trabajar con un problema de regresión. Van a ver que en la carpeta data tenemos dos archivos de la EPH 2015. Uno dice eph_2015.RDS, que contiene todas las respuestas de las personas sobre su ocupación principal. El otro dice eph_NR_2015.RDS, y tiene casi todas las respuestas sobre ocupación menos los ingresos (p21).
 
 ```{r}
 data <- read_rds('./data/eph_2015.RDS')
@@ -35,12 +35,42 @@ Recordemos que hay que:
 -   Fitearlo a la base de entrenamiento
 
 ```{r}
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+
+recipe <- recipe(p21 ~ ., data = train)
+
+summary(test$p21)
+
+ggplot(data, aes(y = p21))+
+  geom_boxplot()
+
+wf <- workflow() %>% add_recipe(recipe)
+
+tree_spec <- decision_tree()  %>%
+  set_engine("rpart") %>%
+  set_mode("regression")
+
+wf <- wf %>% add_model(tree_spec)
+
+wf_fit <- wf %>% fit(train)
+
+wf_fit
 ```
 
 ¿Cómo funcionó cada modelo en el test set?
 
 ```{r}
+test_valid <- wf_fit %>% predict(test) %>% bind_cols(test, .)
 
+test_valid %>% select(p21, .pred)
+
+metrics <- metric_set(rmse, rsq)
+
+metrics(test_valid, truth = p21, .pred)
 ```
 
 Aplicar las predicciones sobre la base sin respuestas.

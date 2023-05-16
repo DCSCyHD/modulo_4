@@ -2,9 +2,7 @@
 title: "Aprendizaje No Supervisado - E2"
 subtitle: "Análisis de Correspondencias Múltiples (MCA)"
 output: 
-  html_document:
-    toc: TRUE
-    toc_float: TRUE
+  rmdformats::readthedown
 author: "Germán Rosati"
 
 date: "`r format(Sys.time(), '%d %B, %Y')`"

@@ -2,9 +2,7 @@
 title: "Aprendizaje No Supervisado - E3"
 subtitle: "Clustering: K-medias y jerárquico"
 output: 
-  html_document:
-    toc: TRUE
-    toc_float: TRUE
+  rmdformats::readthedown
 author: "Germán Rosati"
 
 date: "`r format(Sys.time(), '%d %B, %Y')`"

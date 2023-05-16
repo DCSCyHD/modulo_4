@@ -2,11 +2,8 @@
 title: "Aprendizaje No Supervisado - E1"
 subtitle: "Análisis de componentes principales (PCA)"
 output: 
-  html_document:
-    toc: TRUE
-    toc_float: TRUE
-author: "Germán Rosati"
-
+  rmdformats::readthedown
+author: "Diplomatura en Ciencias Sociales Computacionales y Humanidades Digitales"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
