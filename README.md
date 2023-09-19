@@ -8,8 +8,8 @@
 
 ## Docentes
 
--   [Martín Iván Schuster](https://www.linkedin.com/in/martin-ivan-schuster/)
--   [Laia Domenech Burin](https://twitter.com/layitx)
+-   José Sánchez
+-   Tomás Maguire
 
 # Presentación
 
