@@ -25,7 +25,6 @@ Para la parte práctica de hoy, vamos a hacer el ejercicio de predecir minutos p
 Primero, leemos la base:
 
 ```{r message=FALSE, warning=FALSE}
-library(tidyverse)
 
 data <- read_delim("./data/enut2021_base.txt", delim = "|")
 
@@ -90,11 +89,11 @@ bagging <- readRDS('./data/validation_test_bag.RDS')
 class_metrics <- metric_set(precision, recall,
                        accuracy, f_meas)
 
-metrics_dt <- roc_auc(decision_tree, truth = realiza_domest, estimate = ".pred_No realiza") %>% 
-  bind_rows(., class_metrics(decision_tree, truth = realiza_domest, estimate = .pred_class))%>% 
+metrics_dt <- roc_auc(decision_tree, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(decision_tree, truth = realiza_domest, estimate = .pred_class)) %>% 
   mutate(modelo = "decision_tree")
 
-metrics_bagging <- roc_auc(bagging, truth = realiza_domest, estimate = ".pred_No realiza") %>% 
+metrics_bagging <- roc_auc(bagging, truth = realiza_domest, ".pred_No realiza") %>% 
   bind_rows(., class_metrics(bagging, truth = realiza_domest, estimate = .pred_class))%>% 
   mutate(modelo = "bagged_tree")
 
@@ -105,7 +104,7 @@ rbind(metrics_dt, metrics_bagging) %>%
   theme_minimal()
 ```
 
-# Modelado 
+# Modelado
 
 ## Inicio del workflow
 
@@ -139,7 +138,7 @@ Ahora, hay que generar el modelo de random forest. Esto lo hacemos con la funci�
 
 ```{r}
 rf_spec <- rand_forest(
-  trees = 1000,
+  trees = 100,
   mtry = tune(),
   min_n = tune()
   ) %>%
@@ -151,6 +150,8 @@ rf_spec <- rand_forest(
 Hasta ahora, veníamos tuneando los hiperparámetros en base a combinaciones de grids random. Sin embargo, para este tipo de modelo tenemos un hiperparámetro que no puede adoptar valores random: `mtry`. Este valor depende de la cantidad de variables que tengamos en el modelo. Por lo tanto, vamos a usar la función tune_grid() directamente sobre el modelo y le vamos a pasar grid = 30 en lugar de un dataframe con posibles combinaciones, para indicarle que pruebe 30 parámetros distintos basados en el dataframe.
 
 ```{r, eval = FALSE}
+doParallel::registerDoParallel()
+
 tune_wf <- wf %>%
   add_model(rf_spec)
 
@@ -160,7 +161,7 @@ folds <- vfold_cv(train)
 
 tune_params <- tune_grid(tune_wf,
                          resamples = folds,
-                         grid = 30,
+                         grid = 10,
                          metrics = metric_set(precision, recall,
                                               roc_auc, f_meas))
 ```
@@ -168,11 +169,11 @@ tune_params <- tune_grid(tune_wf,
 ```{r}
 autoplot(tune_params)
 ```
+
 ```{r}
 tune_params %>%
   collect_metrics()
 ```
-
 
 Grafiquemos los resultados.
 
@@ -180,7 +181,7 @@ Grafiquemos los resultados.
 tune_params %>% 
   collect_metrics() %>%
   filter(.metric == "roc_auc")%>%
-  ggplot(aes(x = mtry, y = mean, color = min_n))+
+  ggplot(aes(x = mtry, y = min_n, color = mean))+
   geom_point()+
   scale_color_viridis_c()
 ```

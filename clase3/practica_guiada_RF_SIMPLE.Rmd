@@ -1,0 +1,126 @@
+---
+title: "Ensambles - Clase 2"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  rmdformats::readthedown
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(themis)
+```
+
+# Introducción
+
+Para la parte práctica de hoy, vamos a hacer el ejercicio de predecir minutos por día dedicados al trabajo remunerado en base a los minutos dedicados a otras actividades, en base a la ENUT. Vamos a usar las variables de "TCS_GRUPO", el cual significa el tiempo con simultaneidad dedicado a distintos grupos de actividades. El concepto de "tiempo con simultaneidad" suma la misma cantidad de tiempo a todas las actividades, independientemente de si se realizaron de forma simultánea. Por este motivo, puede sumar más de 24 horas en un día. Desde el punto de vista analítico, el tiempo con simultaneidad nos permite valorizar de igual manera el conjunto de actividades relevadas.
+
+Primero, leemos la base:
+
+```{r message=FALSE, warning=FALSE}
+#library(tidyverse)
+
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varón"
+                    )))
+                   
+ 
+
+data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+
+data<- data %>% select(-TCS_GRUPO_DOMESTICO)
+```
+
+# Modelado
+
+## Inicio del workflow
+
+La primera parte va a ser igual a lo que veníamos haciendo. Train y test, receta e instanciar el workflow.
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+
+recipe <- recipe(realiza_domest ~ ., data = train) %>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2) %>%
+  step_downsample(realiza_domest, under_ratio = 1)
+
+wf <- workflow() %>%
+  add_recipe(recipe)
+
+wf
+```
+
+```{r}
+final_rf <- rand_forest(
+  trees = 200,
+  mtry = .5
+  ) %>%
+  set_mode("classification") %>%
+  set_engine("ranger")
+
+tree_rf <- wf %>%
+  add_model(final_rf) %>% 
+  fit(train)
+```
+
+¿Cómo es la performance?
+
+```{r}
+test_val <- tree_rf %>%
+  predict(test) %>%
+  bind_cols(., test)
+
+test_val <- predict(tree_rf, test, type = "prob") %>%
+  bind_cols(test_val, .)
+
+roc_auc(test_val, truth = realiza_domest, ".pred_No realiza")
+```
