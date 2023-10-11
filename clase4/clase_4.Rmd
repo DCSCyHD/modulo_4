@@ -8,6 +8,11 @@ output:
   rmdformats::readthedown
 ---
 
+```{r}
+# Instalar engine xgboost
+#install.packages("xgboost")
+```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -41,7 +46,6 @@ data <- data %>% mutate_at(
                       . == 1 ~ "Mujer",
                       . == 2 ~ "Varon"
                     )))
-                   
  
 
 data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
@@ -93,29 +97,20 @@ datasets <- list(decision_tree, bagging, random_forest)
 class_metrics <- metric_set(precision, recall,
                        accuracy, f_meas)
 
-#Hago una función para mapear y no repetir lo mismo 3 veces
+metrics_dt <- roc_auc(decision_tree, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(decision_tree, truth = realiza_domest, estimate = .pred_class)) %>% 
+  mutate(modelo = "decision_tree")
 
-metricas <- function(dataset, model_name){
-  
-  metrics <-  roc_auc(dataset, truth = realiza_domest, estimate = ".pred_No realiza") %>%
-    bind_rows(class_metrics(dataset, truth = realiza_domest, estimate = .pred_class))
-  
-  return(metrics)
-}
+metrics_bagging <- roc_auc(bagging, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(bagging, truth = realiza_domest, estimate = .pred_class))%>% 
+  mutate(modelo = "bagged_tree")
 
-metrics_eval <- datasets %>% 
-  map_dfr(metricas, .id = "model")
+metrics_rf <- roc_auc(random_forest, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(bagging, truth = realiza_domest, estimate = .pred_class))%>% 
+  mutate(modelo = "random_forest")
 
-metrics_eval <- metrics_eval %>% 
-  mutate_at(vars(model),
-            ~as.factor(
-              case_when(
-              . %in% "1" ~ "Árbol de decisión",
-              . %in% "2" ~ "Bagging",
-              . %in% "3" ~ "Random Forest")
-            ))
-
-ggplot(metrics_eval, aes(x = .metric, y = .estimate, fill = model))+
+rbind(metrics_dt, metrics_bagging, metrics_rf) %>%
+ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
   geom_col(position = "dodge")+
   scale_fill_viridis_d()+
   theme_minimal()
@@ -144,18 +139,29 @@ test <- testing(split)
 recipe <- recipe(realiza_domest ~ ., data = train)%>%
   update_role(ID, new_role = "id") %>%
   step_other(BHCH04_SEL, threshold = 0.2)%>%
+  # El engine XGBoost necesita que transformemos las variables categoricas a dummy
+  step_dummy(SEXO_SEL) %>%
+  step_dummy(CONDICION_ACTIVIDAD_AGRUPADA) %>%
+  step_dummy(BHCH04_SEL) %>%
+  step_dummy(BHDC_SEL) %>%
   step_downsample(realiza_domest, under_ratio = 1)
 
 wf <- workflow() %>%
   add_recipe(recipe)
 ```
 
-Ahora, viene la parte de especificar la información del modelo. Como estamos trabajando con boosting, empezamos pasando el parámetro `boost_tree()`. Para elegir entre los tipos de modelos de boosting posibles, hay que modificar el parámetro de `set_engine()`. Por default, tidymodels usa el parámetro `xgboost`para modelos de boosting. Lo vamos a cambiar por C5.0, que sigue un procedimiento similar a AdaBoosting: el modelo final es un ensamble de árboles que hacen un voto ponderado para asignar a la clase final.
+Ahora, viene la parte de especificar la información del modelo. Como estamos trabajando con boosting, empezamos pasando el parámetro `boost_tree()`. Para elegir entre los tipos de modelos de boosting posibles, hay que modificar el parámetro de `set_engine()`. Por default, tidymodels usa el parámetro `xgboost`para modelos de boosting. Existen otros engines, como el C5.0 que sigue un procedimiento similar a AdaBoosting, un ensamble de árboles que hacen un voto ponderado para asignar a la clase final.
 
 ```{r}
-bt_spec <- boost_tree(trees = tune(), 
-                    min_n = tune ()) %>% 
-  set_engine("C5.0") %>%
+bt_spec <- boost_tree(
+  # Estos son los hiperparámetros mas utilizados en ensamble,
+  # learn_rate es propio gradiant boosting
+  trees = tune(), 
+  mtry = tune(),
+  tree_depth = tune(),
+  learn_rate = tune()) %>%
+  # Usamos el engine xgboost para poder utilizar el hiperparámetro learn_rate
+  set_engine("xgboost") %>%
   set_mode("classification")
 
 bt_spec %>% translate()
@@ -164,6 +170,8 @@ bt_spec %>% translate()
 Ahora, vamos a hacer las muestras de cross-validation para tunear los hiperparámetros. Haremos un grid de 10 cruces para distintas combinaciones de la cantidad de árboles y la mínima cantidad de particiones.
 
 ```{r}
+doParallel::registerDoParallel()
+
 tune_wf <- wf %>%
   add_model(bt_spec)
  
@@ -175,8 +183,16 @@ tune_params <- tune_wf %>%
    tune_grid(folds,
              metrics = metric_set(precision, recall,
                                roc_auc, f_meas),
-             grid = 10)
- 
+             grid = 20)
+```
+
+```{r}
+autoplot(tune_params)
+```
+
+```{r}
+tune_params %>%
+  collect_metrics()
 ```
 
 Ahora, seleccionamos el mejor modelo en base a f1 y lo finalizamos.
@@ -187,6 +203,10 @@ best_model <- select_best(tune_params, metric = "roc_auc")
 final_model <- finalize_model(bt_spec, best_model)
 ```
 
+```{r}
+final_model
+```
+
 Para finalizar, actualizamos el modelo tuneado en el workflow y lo fiteamos.
 
 ```{r}
@@ -194,8 +214,6 @@ tree_boost <- wf %>%
    update_model(final_model)
 
 fit_tree <- tree_boost %>% fit(train)
-
-fit_tree 
 ```
 
 Guardamos el modelo para usarlo a futuro.
@@ -218,17 +236,20 @@ boost_valid <- predict(fit_tree, test, type = "prob") %>%
 class_metrics <- metric_set(precision, recall,
                        accuracy, f_meas)
 
-boost_metrics <- roc_auc(boost_valid, truth = realiza_domest, estimate = ".pred_No realiza") %>%
+boost_metrics <- roc_auc(boost_valid, truth = realiza_domest, ".pred_No realiza") %>%
   bind_rows(class_metrics(boost_valid, truth = realiza_domest, estimate = .pred_class)) %>%
-  mutate(model = "Boosting")
+  mutate(modelo = "Boosting")
 
-metrics_eval <- bind_rows(metrics_eval, boost_metrics)
-
-ggplot(metrics_eval, aes(x = .metric, y = .estimate, fill = model))+
+rbind(metrics_dt, metrics_bagging, metrics_rf, boost_metrics) %>%
+ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
   geom_col(position = "dodge")+
   scale_fill_viridis_d()+
   theme_minimal()
 
+```
+
+```{r}
+boost_metrics
 ```
 
 Teniendo en cuenta qué significa cada métrica de evaluación, ¿qué pueden decir de los 4 modelos que probaron?
@@ -238,3 +259,10 @@ Teniendo en cuenta qué significa cada métrica de evaluación, ¿qué pueden de
 -   ¿Cuál captura con mayor exactitud los casos positivos?
 
 -   ¿Cuál funciona mejor en base a esos dos criterios? ¿Y peor?
+
+```{r}
+# Para feature imporance usando el engine xgboost tengo que importar la libreria
+# y luego acceder al modelo entrenado con $fit$fit$fit, esto es muy propio de xgboost
+library(xgboost)
+xgb.importance(model=fit_tree$fit$fit$fit)
+```
