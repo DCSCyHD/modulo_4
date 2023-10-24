@@ -40,34 +40,61 @@ Se tomaron los promedios de cada una de las variables para el período considera
 
 ## Cargar las librerías a utilizar
 ```{r}
-###
+library(tidyverse)
+library(tidymodels)
 ```
 
 ## Cargar los datos
 ```{r}
-###
+data <- read_csv("./data/desarrollo_wb.csv")
+
+data
 ```
 
 
 ## Estimar un modelo de PCA con las variables 
 ```{r}
-###
+recipe_pca <- data %>% 
+  select(-starts_with("iso")) %>%
+  recipe(~.) %>%
+  update_role(country,  new_role = "id") %>% 
+  step_normalize(all_numeric()) %>% #normaliza las varaibles especificadas para que tengan la misma escala.  
+  step_pca(all_numeric(), num_comp=2) #decimos cuantos componentes.
+
+pca_estimates <-  prep(recipe_pca, training = data)
+pca_data <- bake(pca_estimates, data)
+
+
 ```
 
 ## ¿Cuántos componentes es conveniente conservar?
 ```{r}
-###
+tidy(pca_estimates, 2, type="coef") %>%
+  filter(component %in% c("PC1", "PC2")) %>%
+  ggplot(aes(value, terms, fill=terms)) +
+  geom_col(show.legend = FALSE) +
+  geom_text(aes(label=round(value,2))) +
+  labs(title="Cargas factoriales (comp. 1 y 2)",
+       x="Valor",
+       y="Variable") +
+  facet_wrap(~component, nrow=1) +
+  theme_minimal()
 ```
 
 # Evaluar el modelo
 ```{r}
-###
-```
-
-## Interpretar los primeros dos componentes
-```{r}
-###
+tidy(pca_estimates, 2, type="variance") %>%
+   filter(terms=="percent variance") %>%
+   mutate(component=paste0("PC", component)) %>%
+   ggplot(aes(x=component,y=value)) +
+       geom_col() +
+       ylim(0,100) +
+       labs(title="% varianza",
+            x="Componente",
+            y="Valor") + 
+       theme_minimal() 
 ```
 
 ## Conclusiones
+
 ¿Es posible pensar en construir un solo índice que resuman de forma confiable las condiciones de vida general? ¿Por qué? Justificar la respuesta en función de los resultados obtenidos. Generar las tablas y gráficos que considere necesario.

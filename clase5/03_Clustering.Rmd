@@ -75,6 +75,7 @@ Necesitamos, entonces, un algoritmo que nos permita ejecutar esta minimización:
 ---
 
 **Algoritmo K-medias**
+
 1. Asignar aleatoriamente un número, del 1 al K, a cada una de las observaciones. Estos sirven como asignaciones de grupos iniciales para las observaciones.
 
 2. Iterar hasta que las asignaciones de clústeres dejen de cambiar:
@@ -102,6 +103,8 @@ Como vemos la tabla está apilada en formato "long". Vamos a pasarla a formato "
 ```{r}
 df <- df %>%
      pivot_wider(id_cols = c(iso3c, iso2c, country), names_from = indicatorID, values_from = value)
+
+df
 ```
 
 Como se puede apreciar de las definiciones anteriores, la fuente no presenta información para los trabajadores por cuenta propia, los cuales deben deducirse como resultado de la sustracción de trabajadores independientes menos empleadores y familiares.
@@ -190,19 +193,25 @@ km_2clst <- recipe_km %>%
 
 ¿Qué pasó acá?
 
-1. `recipe_km <-df %>% 
+```{r eval=FALSE}
+recipe_km <-df %>% 
             recipe(~.) %>%
-            step_normalize(c(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS))` 
+            step_normalize(c(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS))
+```
 
 Generamos una receta que va a normaalizar las tres variables a utilizar en el clustering
 
-2. `km_2clst <- recipe_km %>%
+```{r eval=FALSE}
+km_2clst <- recipe_km %>%
             prep() %>%
             bake(df) %>%
             select(prop_pob_rel_sal, SL.AGR.EMPL.ZS, SL.SRV.EMPL.ZS) %>%
             kmeans(x=.,
-                   centers=2)`
-                   
+                   centers=2)
+
+```
+
+
 Preparamos y cocinamos la receta, seleccionamos las variables y estimamos el k-medias. Usamos la función `kmeans` de r-base. La misma tiene dos argumentos centrales:
 
 - `x`: el dataset a clusterizar
@@ -450,14 +459,16 @@ A diferencia el método que vimos la semana pasada, HC es aglomerativo. Va suman
 
 ¿Cómo funciona?
 
-1. Comienza con $n$ observaciones y una medida (como la distancia euclidiana) de todos los ${n \choose 2} = \frac{n(n-1)}{2}$  disimilitudes por pares. Considera a cada uno observación como su propio grupo.
+1. Inicialización: Se comienza considerando que cada punto de datos es un cluster individual. En el principio, tenemos N clusters, donde N es el número de puntos de datos.
 
-2. Para $i = n, n − 1,..., 2$:
+2. Cálculo de similitud: Se calcula la matriz de similitud o distancia entre todos los pares de clusters. Hay varias formas de medir la similitud, como la distancia euclidiana, la distancia de Manhattan, la similitud de coseno, etc.
 
-    2.1 Examina todas las diferencias entre grupos por pares entre los $i$ grupos e identificar el par de grupos que son menos diferentes (es decir, lo más parecido). Fusiona estos dos grupos. La disimilitud entre estos dos grupos indica la altura en el dendrograma a la que se debe colocar la fusión.
+3. Fusión de clusters: Se fusionan los dos clusters más similares en uno solo. La elección de cuáles clusters fusionar se basa en la matriz de similitud. Esto se repite en cada paso hasta que solo quede un cluster.
 
-    2.2 Calcule las nuevas disimilitudes entre conglomerados por pares entre los $i − 1$ grupos restantes. 
-    
+4. Construcción de la jerarquía: A medida que los clusters se fusionan, se construye una jerarquía en forma de árbol (dendrograma) que muestra cómo se agrupan los datos en diferentes niveles de similitud. En el dendrograma, los clusters se fusionan en función de la distancia en el eje vertical.
+
+5. Selección de clusters: Para determinar el número óptimo de clusters, puede examinar el dendrograma y decidir en qué nivel de similitud desea cortar el árbol. Esto determinará el número de clusters.
+
 Hay varias formas de medir la distancia entre los conglomerados para decidir las reglas de conglomerado y, a menudo, se denominan Métodos de vinculación. Algunos de los métodos de vinculación comunes son:
 
 - Complete: Máxima disimilitud entre cúmulos. Calcula todas las diferencias por pares entre las observaciones en el conglomerado A y el observaciones en el conglomerado B, y registra el mayor de estos disimilitudes.
