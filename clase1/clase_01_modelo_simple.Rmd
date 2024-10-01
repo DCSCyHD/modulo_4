@@ -1,0 +1,182 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## Importación y preprocesamiento de los datos
+
+Primero, vamos vamos a leer la base, recodificar algunas variables y generar nuestra variable dicotómica **Y**.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varón"
+                    )))
+                   
+ 
+ data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+ 
+data <- data %>% select(-TCS_GRUPO_DOMESTICO)
+```
+
+# Modelado
+
+## Partición train/test
+
+Lo próximo a hacer para empezar el modelo es crear una partición de datos en train y test. Recuerden que esto es muy importante, ya que queremos entrenar el modelo con nuestro conjunto de datos pero también queremos ver cómo funcionaría con datos nuevos.
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data) 
+train <- training(split)
+test <- testing(split)
+
+table(train$realiza_domest)
+```
+
+Creamos modelo con el código simplificado realizando tunning de hiperparámetros.
+
+```{r}
+library(themis)
+
+set.seed(123)
+
+doParallel::registerDoParallel()
+
+# Receta
+recipe <- recipe(realiza_domest ~ ., data = train) %>%
+  update_role(ID, new_role = "id") %>% # El role "id" hace que se ignore esa variable para el entrnamiento
+  step_other(BHCH04_SEL, threshold = 0.2) %>%
+  step_downsample(realiza_domest, under_ratio = 1)
+
+# Modelo
+model <- decision_tree(  
+  cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+) %>%
+  set_engine("rpart") %>%
+  set_mode("classification")
+
+# Workflow
+wf <- workflow() %>%
+  add_recipe(recipe) %>%
+  add_model(model)
+
+# Explorar mejores hiperparámetros
+tune_grid_result <- wf %>% tune_grid(
+    resamples = vfold_cv(train, v = 2),
+    grid = grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4),
+    metrics = metric_set(roc_auc, precision, 
+                         recall, f_meas)
+  )
+
+# Crear nuevo modelo basado en el anterior, pero con los mejores hiperparámetros segun la métrica dada
+model2 <- finalize_model(model, select_best(tune_grid_result, "roc_auc"))
+
+# Actualizar el modelo en el workflow y entrnar con todo train
+wf <- wf %>% update_model(model2) %>% fit(train)
+
+wf
+```
+
+Creamos modelo con el código simplificado pero sin realizar tunning de hiperparámetros, vamos a elegir valores arbitrariso. **Nota:** siempre es mejor hacer tunning de hiperparámetros!
+
+```{r}
+set.seed(123)
+
+doParallel::registerDoParallel()
+
+# Receta
+recipe <- recipe(realiza_domest ~ ., data = train) %>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1)
+
+# Modelo
+model <- decision_tree(
+    cost_complexity = 0.01,
+    tree_depth = 30,
+    min_n = 2
+  ) %>%
+  set_engine("rpart") %>%
+  set_mode("classification")
+
+# Workflow
+wf <- workflow() %>%
+  add_recipe(recipe) %>%
+  add_model(model) %>%
+  fit(train)
+
+wf
+```
+
+Explorer la importancia de las variables:
+
+```{r}
+library(vip)
+
+extract_fit_parsnip(wf) %>%
+  vip(geom = "col")
+```
+
+# Evaluación
+
+Ahora bien, el último paso sería probar esto en el set de validación o test set. Usamos `predict()` para predecir con el modelo los valores de el dataset de testeo, y con `bind_cols()` lo agregamos como una columna.
+
+```{r}
+# Predicciones en test
+test2 <- wf %>% predict(test) %>% bind_cols(test, .)
+test2
+```
+
+¿Cómo vemos las metricas de evaluación? Usamos la funcion `metric_set()`, donde podemos pasar las métricas que queremos ver y lo creamos en un objeto. Luego, a ese objeto le pasamos el dataset, los valores reales y los valores predichos.
+
+```{r}
+class_metrics <- metric_set(precision, accuracy, recall, f_meas)
+class_metrics(test2, truth = realiza_domest, estimate = .pred_class)
+```
