@@ -26,10 +26,10 @@ Les proponemos que todes armen un árbol de decisión simple, y luego prueben ar
 
 Recordemos que hay que:
 
+-   Partir el train/test
 -   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
     -   ¿Qué pasa con las variables de texto?
     -   ¿Está balanceada la muestra?
--   Partir el train/test
 -   Instanciar el modelo, definiendo hiperparámetros (recuerden que si hacen un grid muy grande o ponen a entrenar muchos árboles, el código va a tardar más)
 -   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
 -   Fitearlo a la base de entrenamiento

@@ -24,10 +24,10 @@ Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guarda
 
 Ahora, entramos a la parte de construcción del workflow de modelado. Recordemos que hay que:
 
+-   Partir el train/test
 -   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
     -   ¿Qué pasa con las variables de texto?
     -   ¿Está balanceada la muestra?
--   Partir el train/test
 -   Instanciar el modelo, definiendo hiperparámetros
 -   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
 -   Fitearlo a la base de entrenamiento
