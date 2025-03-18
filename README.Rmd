@@ -1,11 +1,14 @@
 ---
 title: "Módulo IV"
 author: "**Diplomatura en Cs. Sociales Computacionales y Humanidades Digitales**"
-output: html_document
+output:
+  md_document:
+    variant: markdown_github
 ---
+# Módulo IV
 ##### Escuela Interdisciplinaria de Altos Estudios Sociales
 ##### Universidad Nacional de San Martín
-![](img/logo-factor-data-solo.jpg)
+![](img/logo-factor-data-solo.jpg){width='200px'}
 
 **Equipo Docente:**  
  - [José Sánchez](https://www.linkedin.com/in/ruloweb/)  
@@ -31,24 +34,22 @@ El objetivo de este módulo es brindar una primera aproximación a algunos conce
 
   + Clustering
 
-+   evaluación de modelos
++   evaluación de modelos  
+
 
 ### Librerías a utilizar
 
-El taller se desarrollará en R y se hará un uso extensivo de las siguientes librerías:
+<u> Durante este módulo se hará un uso extensivo de las librerías tidyverse y tidymodels, pueden instalarse utilizando las instrucciones: </u>
 
--   *tidyverse*
--   *tidymodels*
-
-Pueden instalarse utilizando las instrucciones:
-
-```{r Librarys, eval=FALSE, include=FALSE}
+```{r eval = FALSE, echo = TRUE}
 install.packages('tidyverse')  
 install.packages('tidymodels') 
 ```
 
 
-### Contenidos por clase  
+### Contenidos por clase    
+
+<u> *Los materiales están organizados por clase: Pueden descargarse la totalidad de los materiales de cada una para trabajar en un único archivo .zip* </u>  
 
 __Clase 1__  
 + Temas de clase  
@@ -56,7 +57,6 @@ __Clase 1__
   + Métricas de evaluación  
   + Árboles de decisión (clasificación/regresión)  
   
-<u> *Pueden descargarse la totalidad de los materiales de la clase para trabajar en un único archivo .zip*  </u>   
 [![](img/Download.png)](clase1.zip)  
 
 
@@ -64,7 +64,6 @@ __Clase 2__
 + Temas de clase  
   + Bagging (Partición train/test, feature engineering, hiperparámetros, fit, evaluación)  
 
-<u> *Pueden descargarse la totalidad de los materiales de la clase para trabajar en un único archivo .zip*  </u>   
 [![](img/Download.png)](clase2.zip)  
 
 
@@ -74,7 +73,6 @@ __Clase 3__
   + Random forest  
   + Modelado (Workflow, hiperparámetros, finalización)    
 
-<u> *Pueden descargarse la totalidad de los materiales de la clase para trabajar en un único archivo .zip*  </u>   
 [![](img/Download.png)](clase3.zip)  
   
   
@@ -83,7 +81,6 @@ __Clase 4__
   + Repaso árboles simples y modelos de bagging  
   + Boosting  
 
-<u> *Pueden descargarse la totalidad de los materiales de la clase para trabajar en un único archivo .zip*  </u>   
 [![](img/Download.png)](clase4.zip)  
 
 
@@ -92,14 +89,13 @@ __Clase 5__
   + Análisis de componentes principales (PCA)  
   + Análisis de Correspondencias Múltiples (MCA)  
 
-<u> *Pueden descargarse la totalidad de los materiales de la clase para trabajar en un único archivo .zip*  </u>   
 [![](img/Download.png)](clase5.zip)  
   
 
 __Clase 6__  
 + Temas de clase  
   + Clustering   
-<u> *Pueden descargarse la totalidad de los materiales de la clase para trabajar en un único archivo .zip*  </u>   
+
 [![](img/Download.png)](clase6.zip)  
   
   
@@ -116,5 +112,4 @@ __Clase 6__
 ### Material de años anteriores
 
 Si estás buscando el material del año 2022, se puede descargar desde el siguiente link:
-
-[![](img/Download.png)](2022.zip)
+[<img src="img/Download.png" width="50px">](2022.zip)
