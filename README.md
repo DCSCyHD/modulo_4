@@ -4,7 +4,9 @@
 
 ##### Universidad Nacional de San Martín
 
-<img src="img/logo-factor-data-solo.jpg" width="200" />
+<img src="img/logo-factor-data-solo.jpg" width="200" />  
+**Coordinación:**  
+-[Germán Rosati](https://x.com/FactorData)
 
 **Equipo Docente:**  
 - [José Sánchez](https://www.linkedin.com/in/ruloweb/)  
@@ -12,7 +14,7 @@
 Pires](https://www.linkedin.com/in/magali-rodrigues-pires)  
 - [Santiago Nuñez
 Rimedio](https://ar.linkedin.com/in/santiago-nu%C3%B1ez-rimedio-902ba474)  
-- [Nayla Sol Garcilazo](www.linkedin.com/in/nayla-sol-garcilazo)
+- [Nayla Sol Garcilazo](https://www.linkedin.com/in/nayla-sol-garcilazo)
 
 ## **Fundamentos de Machine Learning**
 
@@ -112,5 +114,9 @@ fit, evaluación)
 
 ### Material de años anteriores
 
-Si estás buscando el material del año 2022, se puede descargar desde el
-siguiente link: [<img src="img/Download.png" width="50px">](2022.zip)
+Si estás buscando el material de años anteriores, se pueden descargar
+desde los siguientes links:  
+-2022  
+[<img src="img/Download.png" width="50px">](2022.zip)  
+-2024  
+[<img src="img/Download.png" width="50px">](2024.zip)

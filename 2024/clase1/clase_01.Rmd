@@ -1,0 +1,306 @@
+---
+title: "Clase 1 - Árboles de decisión"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  rmdformats::readthedown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+tree_rs <- readRDS('./data/tree_resamples.RDS')
+```
+
+# El problema
+
+El eje de estas clases va a ser predecir si la participación de las personas en el trabajo doméstico del hogar, en base a los resultados de la Encuesta de Uso del Tiempo (2021). Vamos a tomar como insumo la variable `TCS_GRUPO_DOMESTICO` para construir una variable dicotómique define si las personas realizan trabajo doméstico en el hogar o no. `TCS_GRUPO_DOMESTICO` son los minutos totales dedicados a las actividades de trabajo doméstico en un día, independientemente de si se realizó otra actividad en simultáneo.
+
+Vamos a tratar de predecir si las personas realizan o no trabajo doméstico en base al sexo, edad, la condición de actividad, la región, el nivel educativo, la relación con el/la jefe/a de hogar, la cantidad de demandantes de cuidado en el hogar, la cantidad de no demandantes de cuidado y si ese miembro del hogar es demandante o no de cuidado.
+
+## Importación y preprocesamiento de los datos
+
+Primero, vamos vamos a leer la base, recodificar algunas variables y generar nuestra variable dicotómica **Y**.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varón"
+                    )))
+                   
+ 
+ data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+ 
+data <- data %>% select(-TCS_GRUPO_DOMESTICO)
+```
+
+Luego, vamos a importar tidymodels, que es el paquete que vamos a estar usando para trabajar con modelos:
+
+```{r message=FALSE, warning=FALSE}
+library(tidymodels)
+```
+
+¿Cuántos valores tenemos de cada caso?
+
+```{r}
+summary(data$realiza_domest)
+```
+
+# Modelado
+
+## Partición train/test
+
+Lo próximo a hacer para empezar el modelo es crear una partición de datos en train y test. Recuerden que esto es muy importante, ya que queremos entrenar el modelo con nuestro conjunto de datos pero también queremos ver cómo funcionaría con datos nuevos.
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data) 
+train <- training(split)
+test <- testing(split)
+
+table(train$realiza_domest)
+```
+
+## Feature engineering
+
+Nuestra muestra está bastante *desbalanceada*, pero nos vamos a encargar de ello ahora en el workflow.
+
+A continuación, procesamos las variable haciendo la "receta" del modelo. Con `recipe()` especificamos un set de transformaciones que queremos hacer sobre el modelo. Su principal argumento es la fórmula del modelo, que en nuestro caso es `realiza_domest ~ .`. También vamos a usar `step_other()` para agrupar las categorías de relación con jefe de hogar minoritarias. Por último, para controlar el desbalanceo de clases vamos a usar la función `step_downsample()` del paquete [themis](https://github.com/tidymodels/themis). Lo que hace step_downsample es eliminar las filas del dataset de la clase que está sobrerepresentada (en este caso, realiza), para que nos quede una proporción similar de casos de cada clase.
+
+```{r}
+library(themis)
+
+recipe <- recipe(realiza_domest ~ ., data = train)%>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1)
+```
+
+A continuación, vamos a construir el `workflow()`de trabajo. Repasemos que en un workflow puedo juntar en preprocesamiento, modelado y funciones de post-modelado. Le agrego la receta que hicimos con `add_recipe`.
+
+```{r}
+wf <- workflow() %>%
+  add_recipe(recipe)
+```
+
+## Tuneando los hiperparámetros
+
+Ahora, vamos a armar nuestro modelo para el workflow. En este punto es importante tener en cuenta que no hay una única manera de hacer un árbol de decisión. Existen distintos hiperparámetros que podemos modificar que van a cambiar la complejidad y performance del árbol. Desde tidymodels puedo modificar tres: el umbral de la métrica de pureza para definir la complejidad del árbol, la profundidad del árbol y el mínimo de variables que tiene que tener cada partición del nodo.
+
+Como a priori no tengo forma de saber qué combinación de hiperparámetros es mejor para mi caso, tengo que hacer una prueba con varios a través de cross-validation y ver cuál funciona mejor. Por eso, en este workflow primero voy a crear un árbol de decisión con parámetros "vacíos". Únicamente les vamos a pasar la función `tune()`, con la cual le damos a entender a tidymodels que vamos a pasar y probar una serie de distintos parámetros para el árbol de decisión.
+
+```{r}
+tree_spec <- decision_tree(  
+  cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+) %>%
+  set_engine("rpart") %>%
+  set_mode("classification")
+
+tree_spec %>% translate()
+```
+
+Una vez instanciado el modelo, lo metemos en el workflow.
+
+```{r}
+tree_wf <- wf %>%
+  add_model(tree_spec)
+```
+
+Con la función `grid_regular()` armamos una serie de combinaciones aleatorias posibles para los parámetros del modelo. Le decimos que nos de 4 niveles de valores posibles para cada uno de los parámetros, y que los combine. Acá es donde introducimos hiperparámetros para la prepoda y post-poda del árbol:
+
+-   `cost_complexity():` es un número que recorta los nodos del árbol, empezando por aquellos que tengan la mayor pureza. Postpoda.
+-   `tree_depth():` es un número que define la máxima cantidad de particiones que puede llegar a tener el modelo. Prepoda.
+-   `min_n():` mínimo número de puntos que debe haber en un nodo para que el árbol se siga partiendo hacia abajo. Prepoda.
+
+```{r}
+set.seed(1912)
+
+tree_grid <- grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4)
+
+tree_grid
+```
+
+Hacemos las muestras de cross-validation...
+
+```{r}
+set.seed(111)
+
+folds <- vfold_cv(train, v = 10)
+
+tidy(folds)
+```
+
+Ahora vamos a probar los posibles valores que puede adoptar el modelo con los distintos parámetros en las muestras con cross-validation.
+
+```{r eval=FALSE, include=TRUE}
+doParallel::registerDoParallel()
+
+set.seed(345)
+
+tree_rs <- tree_wf %>% 
+  tune_grid(
+  resamples = folds,
+  grid = tree_grid,
+  metrics = metric_set(roc_auc, precision, 
+                       recall, f_meas)
+)
+```
+
+Podemos ver los resultados de este objeto con `collect_metrics()`.
+
+```{r}
+collect_metrics(tree_rs)
+```
+
+### Evaluación del training set
+
+Con la función `autoplot()` podemos hacer de manera sencilla un gráfico que nos visualice las métricas de cada una de las variantes del modelo.
+
+```{r}
+autoplot(tree_rs) 
+```
+
+Parecería que este dataset funciona mejor con un árbol no tan complejo. Podemos seguir examinando el mejor set de parámetros según la métrica que queramos.
+
+```{r}
+show_best(tree_rs, "roc_auc")
+```
+
+E incluso podemos elegir el mejor modelo de esas pruebas cross-validation para implementar en el modelo final.
+
+```{r}
+best_model <- select_best(tree_rs, "roc_auc")
+
+final_tree <- finalize_model(tree_spec, best_model)
+
+final_tree
+```
+
+Hasta acá, el modelo está actualizado y finalizado (no lo podemos seguir tuneando con distintos parámetros). Pero nos resta *fitearlo* al dataset de entrenamiento, lo que vamos a hacer con la función `fit()`.
+
+```{r}
+final_fit <- tree_wf %>% update_model(final_tree) %>% fit(train)
+
+final_fit
+```
+
+Este print nos muestra un bloque de texto con los nodos y distintas ramas. Sin embargo, también podemos visualizar las variables más importantes del modelo con el paquete `vip`. Con su función podemos mostrar de forma sencilla la importancia de las variables del modelo en un gráfico de columnas, puntos, boxplot o violin plot. Sin embargo, hay que tener en cuenta una cosa: este paquete funciona con **modelos**, no con workflows. Por eso vamos a usar la función `extract_fit_parsnip` para extraer nuestro modelo del workflow y aplicar vip sobre él.
+
+```{r}
+library(vip)
+
+extract_fit_parsnip(final_fit) %>%
+  vip(geom = "col")
+```
+
+Podemos ver que las variables más importantes para explicar si se realiza trabajo doméstico o no son `SEXO_SEL`, `EDAD_SEL` `BHCH04_SEL`, la relación con el jefe de hogar.
+
+También podemos graficarlo con la librería `rpart.plot`. El código acá se hace un poco más choclo, porque tenemos que llamar la misma función para extraer el modelo pero además llamar al objeto `fit` dentro de eso.
+
+```{r message=FALSE, warning=FALSE}
+library(rpart.plot)
+
+
+rpart.plot(extract_fit_parsnip(final_fit)$fit)
+```
+
+# Evaluación 
+
+Ahora bien, el último paso sería probar esto en el set de validación o test set. Usamos `predict()` para predecir con el modelo los valores de el dataset de testeo, y con `bind_cols()` lo agregamos como una columna.
+
+```{r}
+test <- final_fit %>%
+  predict(test) %>%
+  bind_cols(test, .)
+
+```
+
+¿Cómo vemos las metricas de evaluación? Usamos la funcion `metric_set()`, donde podemos pasar las métricas que queremos ver y lo creamos en un objeto. Luego, a ese objeto le pasamos el dataset, los valores reales y los valores predichos.
+
+```{r}
+class_metrics <- metric_set(precision, accuracy,
+                            recall, f_meas)
+
+class_metrics(test, truth = realiza_domest, estimate = .pred_class)
+```
+
+En base a lo visto durante el contenido teórico, ¿qué nos dice cada una de estas métricas sobre el modelo? ¿Cómo se interpretan?
+
+```{r}
+matriz_confusion <- conf_mat(test,truth = realiza_domest, estimate = .pred_class)
+
+matriz_confusion
+```
+
+También podemos graficar la curva ROC. Primero hay que obtener las probabilidades de predicción para cada clase: 
+
+```{r}
+test <- final_fit %>%
+  predict(test, type = "prob") %>%
+  bind_cols(test, .)
+
+test %>% select(realiza_domest:.pred_Realiza)
+```
+
+Graficamos la curva ROC pasando el valor real y la probabilidad de predicción. 
+
+```{r message=FALSE, warning=FALSE}
+test %>% 
+  roc_curve(truth = realiza_domest, ".pred_No realiza") %>% 
+  autoplot()
+```
+
+Para obtener una métrica normalizada, usamos roc_auc para obtener el valor del área debajo de la curva. 
+
+```{r}
+test %>% 
+  roc_auc(truth = realiza_domest, ".pred_No realiza")
+```
+

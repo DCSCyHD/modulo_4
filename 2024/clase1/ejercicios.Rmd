@@ -1,0 +1,42 @@
+---
+title: "Árboles de decisión"
+subtitle: "Práctica  guiada"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  html_document:
+    toc: TRUE
+    toc_float:
+      toc_collapsed: false
+    number_sections: false
+    theme: readable
+---
+
+La idea de esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un **árbol de decisión** en R con `tidymodels`.
+
+Vamos a trabajar con datos del segundo trimestre de la EPH en 2015. Está guardada en la carpeta `data` con el nombre `eph15.RDS`. La idea es predecir la variable `imp_inglab` que identifica si esa persona tuvo imputado el ingreso laboral o no.
+
+```{r}
+
+```
+
+Ahora, entramos a la parte de construcción del workflow de modelado. Recordemos que hay que:
+
+-   Partir el train/test
+-   Hacer la receta con la fórmula y, si los hay, los pasos de feature engineering que nos parezca que corresponde
+    -   ¿Qué pasa con las variables de texto?
+    -   ¿Está balanceada la muestra?
+-   Instanciar el modelo, definiendo hiperparámetros
+-   Probar con cross-validation cuál es la mejor combinación de hiperparámetros
+-   Fitearlo a la base de entrenamiento
+
+```{r}
+```
+
+¿Cómo funcionó este modelo en el test set?
+
+```{r}
+
+```

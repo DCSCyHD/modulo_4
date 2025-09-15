@@ -1,0 +1,243 @@
+---
+title: "Ensambles - Clase 2"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  rmdformats::readthedown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+tune_params <- readRDS('./models/tuned_params.RDS')
+
+library(tidyverse)
+library(tidymodels)
+library(themis)
+```
+
+# Introducción
+
+Para la parte práctica de hoy, vamos a hacer el ejercicio de predecir minutos por día dedicados al trabajo remunerado en base a los minutos dedicados a otras actividades, en base a la ENUT. Vamos a usar las variables de "TCS_GRUPO", el cual significa el tiempo con simultaneidad dedicado a distintos grupos de actividades. El concepto de "tiempo con simultaneidad" suma la misma cantidad de tiempo a todas las actividades, independientemente de si se realizaron de forma simultánea. Por este motivo, puede sumar más de 24 horas en un día. Desde el punto de vista analítico, el tiempo con simultaneidad nos permite valorizar de igual manera el conjunto de actividades relevadas.
+
+Primero, leemos la base:
+
+```{r message=FALSE, warning=FALSE}
+
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varón"
+                    )))
+                   
+ 
+
+data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+
+data<- data %>% select(-TCS_GRUPO_DOMESTICO)
+```
+
+# Pruebas anteriores
+
+Primero, retomemos los resultados que obtuvimos haciendo modelos con un árbol simple y con bagging.
+
+```{r}
+decision_tree <- readRDS('./data/validation_test_dt.RDS')
+bagging <- readRDS('./data/validation_test_bag.RDS')
+
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+metrics_dt <- roc_auc(decision_tree, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(decision_tree, truth = realiza_domest, estimate = .pred_class)) %>% 
+  mutate(modelo = "decision_tree")
+
+metrics_bagging <- roc_auc(bagging, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(bagging, truth = realiza_domest, estimate = .pred_class))%>% 
+  mutate(modelo = "bagged_tree")
+
+rbind(metrics_dt, metrics_bagging) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+```
+
+# Modelado
+
+## Inicio del workflow
+
+La primera parte va a ser igual a lo que veníamos haciendo. Train y test, receta e instanciar el workflow.
+
+```{r}
+set.seed(123)
+
+split <- initial_split(data)
+train <- training(split)
+test <- testing(split)
+
+recipe <- recipe(realiza_domest ~ ., data = train)%>%
+  update_role(ID, new_role = "id") %>%
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1)
+
+wf <- workflow() %>%
+  add_recipe(recipe)
+
+wf
+```
+
+## Hiperparámetros
+
+Ahora, hay que generar el modelo de random forest. Esto lo hacemos con la función `rand_forest()`. Los hiperparámetros con los que vamos a jugar acá son:
+
+-   `trees`: define el número de árboles que se van a probar,
+-   `mtry`: la cantidad de variables que se van a probar en cada iteración
+-   `min_n`: mínima cantidad de observaciones que tiene que haber en cada nodo
+
+```{r}
+rf_spec <- rand_forest(
+  trees = 100,
+  mtry = tune(),
+  min_n = tune()
+  ) %>%
+  set_mode("classification") %>%
+  set_engine("ranger")
+
+```
+
+Hasta ahora, veníamos tuneando los hiperparámetros en base a combinaciones de grids random. Sin embargo, para este tipo de modelo tenemos un hiperparámetro que no puede adoptar valores random: `mtry`. Este valor depende de la cantidad de variables que tengamos en el modelo. Por lo tanto, vamos a usar la función tune_grid() directamente sobre el modelo y le vamos a pasar grid = 30 en lugar de un dataframe con posibles combinaciones, para indicarle que pruebe 30 parámetros distintos basados en el dataframe.
+
+```{r, eval = FALSE}
+doParallel::registerDoParallel()
+
+tune_wf <- wf %>%
+  add_model(rf_spec)
+
+set.seed(1912)
+
+folds <- vfold_cv(train)
+
+tune_params <- tune_grid(tune_wf,
+                         resamples = folds,
+                         grid = 10,
+                         metrics = metric_set(precision, recall,
+                                              roc_auc, f_meas))
+```
+
+```{r}
+autoplot(tune_params)
+```
+
+```{r}
+tune_params %>%
+  collect_metrics()
+```
+
+Grafiquemos los resultados.
+
+```{r}
+tune_params %>% 
+  collect_metrics() %>%
+  filter(.metric == "roc_auc")%>%
+  ggplot(aes(x = mtry, y = min_n, color = mean))+
+  geom_point()+
+  scale_color_viridis_c()
+```
+
+Podemos ver que los valores más altos están asociados con un número de variables bajo y un número de muestras mínimas por partición más grande. ¿Cuál es el modelo que tiene mejor ROC?
+
+```{r}
+show_best(tune_params, "roc_auc")
+```
+
+Parece que para nuestro caso, el modelo satura con un f1 del 60% en el training set.
+
+## Finalización
+
+Terminemos el modelo. Elegimos la mejor combinación de hiperparámetros, y lo incorporamos a el objeto con el Random Forest para tunear.
+
+```{r}
+best_ROC <- select_best(tune_params, "roc_auc")
+
+final_rf <- finalize_model(
+  rf_spec,
+  best_ROC
+)
+
+final_rf
+```
+
+Lo incorporamos al workflow.
+
+```{r}
+tree_rf <- wf %>%
+  add_model(final_rf) %>% 
+  fit(train)
+```
+
+¿Cómo es la performance?
+
+```{r}
+test_val <- tree_rf %>%
+  predict(test) %>%
+  bind_cols(., test)
+
+test_val <- predict(tree_rf, test, type = "prob") %>%
+  bind_cols(test_val, .)
+
+metrics_random <- roc_auc(test_val, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(class_metrics(test_val, truth = realiza_domest, estimate = .pred_class))%>%
+  mutate(modelo = "random_forest")
+```
+
+¿Cómo son los resultados en comparación con los otros 2 modelos?
+
+```{r}
+rbind(metrics_dt, metrics_bagging, metrics_random) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+```

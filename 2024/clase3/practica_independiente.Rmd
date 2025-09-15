@@ -1,0 +1,84 @@
+---
+title: "Ejercicio"
+author: "Diplomatura en Ciencias Sociales Computacionales"
+date: '2023-04-14'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+En esta práctica independiente es que utilicen las herramientas aprendidas para desarrollar un modelo de **Random Forest** en R con `tidymodels`. Primero:
+
+- ¿Qué diferencia a Random Forest de un árbol de decisión simple? ¿Y de un modelo de Bagging? 
+
+Vamos a trabajar con un [dataset de Kaggle](https://www.kaggle.com/datasets/jpmiller/employee-attrition-for-healthcare) que contiene datos sobre desgaste laboral de trabajadores en un hospital. Se puede encontrar en la carpeta data, en el archivo `desgaste_salud.RDS`. La idea es desarrollar un modelo predictivo que sea capaz de detectar si el o la trabajadorx tiene propensión a dejar el puesto por desgaste laboral.
+
+Las variables de la base son:
+
+-   EmployeeID: ID
+
+-   Age: Edad
+
+-   **Desgaste: Sí/No** (Esta va a ser nuestro X)
+
+-   viajes_laborales: Frecuencia de viajes laborales
+
+-   tarifa_diaria: Pago diario
+
+-   departamento: Departamento de trabajo
+
+-   distancia_hogar: Distancia del lugar de trabajo al hogar
+
+-   NED: Nivel educativo (1: Universitario incompleto, 2: College, 3: Bachelor, 4: Maestría, 5: Doctorado)
+
+-   area_especialidad: Area de estudios
+
+-   cant_empleados: Cantidad de empleados a los que se refiere la fila (Siempre es 1)
+
+-   satisfaccion_ambiente: Satisfacción con el ambiente laboral (1 al 4, de bajo a muy alto)
+
+-   sexo: M/F
+
+-   tarifa_hora: Pago por hora
+
+-   involucramiento_trabajo: Nivel de involucramiento con el trabajo (1 al 4, de bajo a muy alto)
+
+-   nivel_trabajo: Nivel de complejidad del trabajo (1 al 4, de bajo a muy alto)
+
+-   rol_trabajo: Rol laboral
+
+-   satisfaccion_trabajo: Satisfacción con el trabajo (1 al 4, de bajo a muy alto)
+
+-   estado_civil: Estado civil
+
+-   ingreso_mensual: Ingreso mensual
+
+-   cantidad_trabajos: Cantidad de empresas en las que trabajó
+
+-   mas_18: ¿Tiene más de 18 años?
+
+-   horas_extra: ¿Trabaja horas extra?
+
+-   porcentaje_aumento: Porcentaje de aumento salarial entre %11-%25.
+
+-   horas_estandar: Cantidad de horas estándar (Siempre es 80h)
+
+-   turno: Turno
+
+-   anios_trabajados: Total de años trabajados
+
+-   tiempo_practicas: Tiempo de trabajo dedicado a prácticas en el último año.
+
+-   balance_vidatrabajo: Balance trabajo vida (1 :Bad, 2 :Good, 3 :Better, 4 :Best)
+
+-   anios_lugar: Años trabajando en el último lugar de trabajo
+
+-   anios_ultpuesto: Años trabajados en el último puesto de trabajo
+
+-   anios_promocion: Años desde la última promoción laboral
+
+-   anios_manager: Años trabajados con últimx jefx
+
+Construya un modelo de RF para predecir la variable desgaste.
