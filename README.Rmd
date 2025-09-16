@@ -46,6 +46,21 @@ El objetivo de este módulo es brindar una primera aproximación a algunos conce
 ```{r eval = FALSE, echo = TRUE}
 install.packages('tidyverse')  
 install.packages('tidymodels') 
+install.packages('tidyverse')
+install.packages('eph')
+install.packages('tidymodels')
+install.packages('themis')
+install.packages('vip')
+install.packages('baguette')
+install.packages('rpart.plot')
+install.packages('rules')
+install.packages('xgboost')
+install.packages('patchwork')
+install.packages('GDAtools')
+install.packages('FactoMineR')
+install.packages('factoextra')
+install.packages('ggrepel')
+install.packages('ggdendro')
 ```
 
 
