@@ -16,7 +16,7 @@ output:
  - [José Sánchez](https://www.linkedin.com/in/ruloweb/)  
  - [Magalí Rodrígues Pires](https://www.linkedin.com/in/magali-rodrigues-pires)   
  - [Santiago Nuñez Rimedio](https://ar.linkedin.com/in/santiago-nu%C3%B1ez-rimedio-902ba474)  
- - [Nayla Sol Garcilazo](https://www.linkedin.com/in/nayla-sol-garcilazo)
+ - [Nayla Sol Garcilazo](https://www.linkedin.com/in/nayla-sol-garcilazo)  
 
 
 ## **Fundamentos de Machine Learning**
