@@ -210,13 +210,14 @@ autoplot(tree_rs)
 Parecería que este dataset funciona mejor con un árbol no tan complejo. Podemos seguir examinando el mejor set de parámetros según la métrica que queramos.
 
 ```{r}
-show_best(tree_rs, "roc_auc")
+tree_rs %>% 
+  show_best(metric = "roc_auc", n = 5)
 ```
 
 E incluso podemos elegir el mejor modelo de esas pruebas cross-validation para implementar en el modelo final.
 
 ```{r}
-best_model <- select_best(tree_rs, "roc_auc")
+best_model <- select_best(tree_rs, metric= "roc_auc")
 
 final_tree <- finalize_model(tree_spec, best_model)
 
@@ -303,4 +304,3 @@ Para obtener una métrica normalizada, usamos roc_auc para obtener el valor del 
 test %>% 
   roc_auc(truth = realiza_domest, ".pred_No realiza")
 ```
-
