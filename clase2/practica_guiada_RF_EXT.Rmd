@@ -16,6 +16,7 @@ tune_params <- readRDS('./models/tuned_params.RDS')
 library(tidyverse)
 library(tidymodels)
 library(themis)
+library(doParallel)
 ```
 
 # Introducción
@@ -189,7 +190,7 @@ tune_params %>%
 Podemos ver que los valores más altos están asociados con un número de variables bajo y un número de muestras mínimas por partición más grande. ¿Cuál es el modelo que tiene mejor ROC?
 
 ```{r}
-show_best(tune_params, "roc_auc")
+show_best(tune_params, metric = "roc_auc")
 ```
 
 Parece que para nuestro caso, el modelo satura con un f1 del 60% en el training set.
