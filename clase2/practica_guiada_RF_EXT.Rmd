@@ -200,7 +200,7 @@ Parece que para nuestro caso, el modelo satura con un f1 del 60% en el training 
 Terminemos el modelo. Elegimos la mejor combinación de hiperparámetros, y lo incorporamos a el objeto con el Random Forest para tunear.
 
 ```{r}
-best_ROC <- select_best(tune_params, "roc_auc")
+best_ROC <- select_best(tune_params, metric = "roc_auc")
 
 final_rf <- finalize_model(
   rf_spec,
