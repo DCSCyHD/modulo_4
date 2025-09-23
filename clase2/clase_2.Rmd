@@ -199,7 +199,7 @@ autoplot(tree_rs)
 Seleccionamos el mejor modelo en función del área bajo la curva ROC, y finalizamos el pipeline.
 
 ```{r eval=FALSE, include=TRUE}
-best_model <- select_best(tree_rs, "roc_auc")
+best_model <- select_best(tree_rs, metric = "roc_auc")
 
 final_model <- finalize_model(tree_spec, best_model)
 ```
