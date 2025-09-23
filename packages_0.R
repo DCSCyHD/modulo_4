@@ -16,5 +16,7 @@ install.packages('FactoMineR')
 install.packages('factoextra')
 install.packages('ggrepel')
 install.packages('ggdendro')
-install.packages('doParallel')
 install.packages("ranger")
+#el paquete doParallel permite distribuir tareas a varios núcleos de procesamiento (en caso que tu PC tenga varios)
+#sirve para acelerar el proceso de optimización de hiperparámetros
+install.packages('doParallel') 
