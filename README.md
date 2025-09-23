@@ -61,6 +61,8 @@ install.packages('FactoMineR')
 install.packages('factoextra')
 install.packages('ggrepel')
 install.packages('ggdendro')
+install.packages('doParallel')
+install.packages("ranger")
 ```
 
 ### Contenidos por clase
