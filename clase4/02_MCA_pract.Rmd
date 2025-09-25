@@ -1,0 +1,56 @@
+---
+title: "Aprendizaje No Supervisado - E2"
+subtitle: "Análisis de Correspondencias Múltiples (MCA) - Práctica"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+author: "Germán Rosati"
+
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE, highlight=TRUE, paged.print=FALSE, prompt=TRUE, strip.white=FALSE, tidy = TRUE)
+```
+
+
+## Presentación
+Vamos a trabajar con nuestra vieja amiga la ENES. El objetivo de este ejercicio es evaluar la posibilidad de construir un índice (con MCA) que sirva para tener una aproximación a la carga de tareas domésticas y de cuidados de la población relevada por la ENES.
+
+Para ello, deberán elegir las variables adecuadas de la tabla de datos. Los datos se encueentran en `./data/ENES_Personas_M1_EOW.rds`
+
+## Cargar las librerías a utilizar
+```{r}
+###
+```
+
+## Cargar los datos
+```{r}
+###
+```
+
+## Seleccionar las variables relevantes 
+```{r}
+###
+```
+
+## ¿Cuántos componentes es conveniente conservar?
+```{r}
+###
+```
+
+# Evaluar el modelo
+```{r}
+###
+```
+
+## Conclusiones
+¿Es posible pensar en construir un índice que resuma la carga de trabajos de cuidados en las personas encuestadas de la ENES? ¿Por qué? Justificar la respuesta en función de los resultados obtenidos. Generar las tablas y gráficos que considere necesario.
+
+## ¿Qué pueden decir de la carga de trabajo doméstico entre diferentes subpoblaciones?
+Elegir al menos dos varibles relevantes para evaluar esta cuestión.

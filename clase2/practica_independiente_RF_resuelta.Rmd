@@ -221,7 +221,7 @@ autoplot(tree_rs)
 ```
 
 ```{r}
-best_model <- select_best(tree_rs, "roc_auc")
+best_model <- select_best(tree_rs, metric = "roc_auc")
 
 final_tree <- finalize_model(tree_spec, best_model)
 
@@ -279,11 +279,11 @@ autoplot(tune_params)+
 ```
 
 ```{r}
-show_best(tune_params, "roc_auc")
+show_best(tune_params, metric = "roc_auc")
 ```
 
 ```{r}
-best_ROC <- select_best(tune_params, "roc_auc")
+best_ROC <- select_best(tune_params, metric = "roc_auc")
 
 final_rf <- finalize_model(
   rf_spec,

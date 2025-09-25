@@ -221,7 +221,7 @@ autoplot(tree_rs)
 ```
 
 ```{r}
-best_model <- select_best(tree_rs, "roc_auc")
+best_model <- select_best(tree_rs, metric = "roc_auc")
 
 final_tree <- finalize_model(tree_spec, best_model)
 
