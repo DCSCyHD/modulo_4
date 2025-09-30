@@ -63,6 +63,8 @@ install.packages('ggrepel')
 install.packages('ggdendro')
 install.packages('doParallel')
 install.packages("ranger")
+install.packages("rpart.plot")
+install.packages("baguette")
 ```
 
 ### Contenidos por clase

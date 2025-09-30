@@ -17,6 +17,8 @@ install.packages('factoextra')
 install.packages('ggrepel')
 install.packages('ggdendro')
 install.packages("ranger")
+install.packages("rpart.plot")
+install.packages("baguette")
 #el paquete doParallel permite distribuir tareas a varios núcleos de procesamiento (en caso que tu PC tenga varios)
 #sirve para acelerar el proceso de optimización de hiperparámetros
 install.packages('doParallel') 

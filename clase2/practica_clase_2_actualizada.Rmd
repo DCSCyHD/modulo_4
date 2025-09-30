@@ -1,0 +1,553 @@
+---
+title: "Ensambles: Bagging + Random Forest"
+author: 
+  - Diplomatura en Ciencias Sociales Computacionales Digitales (IDAES-UNSAM)
+  - Martín Schuster y Laia Domenech Burin
+date: '2023'
+output: 
+  rmdformats::readthedown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidymodels)
+library(themis)
+library(baguette) # ES POSIBLE QUE NECESITEN INSTALAR EL PAQUETE "baguette" 
+library(rpart.plot)
+```
+
+# El problema
+
+La clase pasada, cerramos viendo que los árboles de decisión presentan algunos pros y varios contras. Si bien son modelos muy interpretables y sencillos de explicar, no tienen mucha potencia en capacidad predictiva. Esto se debe a que:
+
+-   son bastante simples, y pueden tender al overfit.
+
+-   Su enfoque greedy y top to bottom hace que se concentren siempre en buscar óptimos locales, no globales.
+
+Sin embargo, existen formas de **ensamblar** varios árboles para superar estas limitaciones y hacer modelos más potentes. La clase de hoy vamos a ver cómo implementamos un modelo de **bagging** y un **random forest** en `tidymodels`.
+
+Estábamos trabajando con los resultados de la ENUT 2021, y buscamos predecir si las personas encuestadas realizan trabajo doméstico o no. Creamos una variable ad-hoc llamada `realiza_domest`, y definimos que si las personas dedican menos de 60 minutos al día en hacer TD, entran en la categoría de "No realiza". Más de eso, entran en la categoría "Realiza".
+
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+
+data <- read_delim("./data/enut2021_base.txt", delim = "|")
+
+data <- data %>% select(ID, SEXO_SEL, EDAD_SEL, TCS_GRUPO_DOMESTICO, CONDICION_ACTIVIDAD_AGRUPADA,   
+                        NIVEL_EDUCATIVO_AGRUPADO, CANT_DEMANDANTES_TOTAL, CANT_NODEMANDANTES_TOTAL,
+                        BHCH04_SEL, BHDC_SEL) %>% 
+  mutate(realiza_domest = as.factor(case_when(
+    TCS_GRUPO_DOMESTICO > 60 ~ "Realiza",
+    TRUE ~ "No realiza")))
+ 
+data <- data %>% mutate_at(
+                   vars(SEXO_SEL), 
+                    ~as.factor(case_when(
+                      . == 1 ~ "Mujer",
+                      . == 2 ~ "Varón"
+                    )))
+                   
+ 
+
+data <- data %>% mutate_at(vars(CONDICION_ACTIVIDAD_AGRUPADA), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Ocupado",
+                     . == 2 ~ "No ocupado"
+                   )))
+ 
+data <- data %>% mutate_at(vars(BHCH04_SEL), 
+                   ~as.factor(case_when(
+                     . == 1 ~ "Jefe/a",
+                     . == 2 ~ "Cónyuge/pareja",
+                     . == 3 ~ "Hijo/a",
+                     . == 4 ~ "Hijastro/a",
+                     . == 5 ~ "Yerno/nuera",
+                     . == 6 ~ "Nieto/a",
+                     . == 7 ~ "Padre o madre",
+                     . == 8 ~ "Suegro/a",
+                     . == 9 ~ "Hermano/a",
+                     . == 10 ~ "Cuñado/a",
+                     . == 11 ~ "Sobrino/a",
+                     . == 12 ~ "Abuelo/a",
+                     . == 13 ~ "Otro familiar",
+                     . == 14 ~ "Otro no familiar")))
+
+
+ 
+ data <- data %>% mutate_at(vars(BHDC_SEL), 
+                   ~as.factor(case_when(
+                     . == 0 ~ "No es demandante de cuidado",
+                     . == 1 ~ "Es demandante de cuidado"
+                   )))
+
+data<- data %>% select(-TCS_GRUPO_DOMESTICO)
+```
+
+# Árbol simple
+
+Refresquemos el modelo de clase previa. 
+
+## Partición train/test
+
+```{r message=FALSE, warning=FALSE}
+set.seed(123)
+
+split <- initial_split(data) # POR DEFAULT: 75% TRAIN - 25% TEST 
+train <- training(split)
+test <- testing(split)
+```
+
+## Feature engineering
+
+```{r}
+library(themis) # esta librería me permite aplicar step_downsample()
+
+recipe <- recipe(realiza_domest ~ ., data = train)%>%
+  update_role(ID, new_role = "id") %>% ## Aca cambiamos el rol de la variable ID (en lugar de predictor, funciona como id)
+  step_other(BHCH04_SEL, threshold = 0.2)%>%
+  step_downsample(realiza_domest, under_ratio = 1) ## under_ratio = 1 indica que el balance será 1:1 entre las clases
+```
+
+```{r}
+wf <- workflow() %>%
+  add_recipe(recipe)
+``` 
+
+## Tuneando los hiperparámetros
+
+```{r}
+tree_spec <- decision_tree(  
+  cost_complexity = tune(),
+  tree_depth = tune(),
+  min_n = tune()
+) %>%
+  set_engine("rpart") %>%
+  set_mode("classification")
+
+tree_spec %>% translate()
+```
+
+Una vez instanciado el modelo, lo metemos en el workflow.
+
+```{r}
+tree_wf <- wf %>%
+  add_model(tree_spec)
+```
+
+Hacemos las muestras de cross-validation...
+
+```{r}
+set.seed(123)
+
+folds <- vfold_cv(train, v = 5)
+tidy(folds)
+```
+
+```{r}
+set.seed(123)
+
+tree_grid <- grid_regular(cost_complexity(), tree_depth(), min_n(), levels = 4)
+
+tree_grid
+```
+
+Ahora vamos a probar los posibles valores que puede adoptar el modelo con los distintos parámetros en las muestras con cross-validation.
+
+```{r eval=FALSE, include=TRUE}
+doParallel::registerDoParallel()
+
+tree_rs <- tree_wf %>% 
+  tune_grid(
+  resamples = folds,
+  grid = tree_grid,
+  metrics = metric_set(roc_auc, precision, 
+                       recall, f_meas)
+)
+```
+
+Podemos ver los resultados de este objeto con `collect_metrics()`.
+
+```{r}
+collect_metrics(tree_rs)
+```
+
+Elegimos el mejor modelo de esas pruebas cross-validation para implementar en el modelo final.
+
+```{r}
+tree_rs %>% 
+  show_best(metric = "roc_auc", n = 3)
+```
+
+```{r}
+best_tree_model <- select_best(tree_rs, metric= "roc_auc")
+
+final_tree <- finalize_model(tree_spec, best_tree_model)
+
+final_tree
+```
+
+## Fiteamos el modelo
+
+Hasta acá, el modelo está actualizado y finalizado (no lo podemos seguir tuneando con distintos parámetros). Pero nos resta *fitearlo* al dataset de entrenamiento, lo que vamos a hacer con la función `fit()`.
+
+```{r}
+# Por ahora solo elegimos los HP que vamos a usar, ahora vamos a correrlo sobre el set de entrenamiento completo
+
+final_fit_tree <- tree_wf %>% update_model(final_tree) %>% fit(train)
+
+final_fit_tree
+```
+
+# Evaluación
+
+Ahora bien, el último paso sería probar esto en el set de validación o test set. Usamos `predict()` para predecir con el modelo los valores de el dataset de testeo, y con `bind_cols()` lo agregamos como una columna.
+
+```{r}
+test_tree <- test %>%
+  bind_cols(
+    predict(final_fit_tree, new_data = ., type = "class"),
+    predict(final_fit_tree, new_data = ., type = "prob")
+  )
+```
+
+¿Cómo vemos las metricas de evaluación? Usamos la funcion `metric_set()`, donde podemos pasar las métricas que queremos ver y lo creamos en un objeto. Luego, a ese objeto le pasamos el dataset, los valores reales y los valores predichos.
+
+```{r}
+class_metrics <- metric_set(precision, recall,
+                       accuracy, f_meas)
+
+metrics_dt <- roc_auc(test_tree, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(test_tree, truth = realiza_domest, estimate = .pred_class)) %>% 
+  mutate(modelo = "decision_tree")
+```
+
+```{r}
+metrics_dt
+```
+
+-   ROC AUC: 75%
+-   Predice correctamente un 68% de los casos.
+-   De los casos clasificados como positivos (No realiza), captura correctamente el 51%.
+-   Captura un 71% de los casos positivos.
+
+
+Veamos si podemos mejorar nuestro modelo con bagging.
+
+
+# Ensamble: Bagging
+
+Utilizo la misma partición test/ train y también utilizo la misma receta (mismo Feature engineering). 
+¿Qué tengo adentro de wf?
+
+```{r}
+wf
+```
+
+## Hiperparámetros
+
+Recordemos que podemos modificar algunos parámetros del modelo que van a modificar su performance. Vamos a poner la opción de tunear los distintos elementos del árbol. Pero además, vamos a definir un número para la cantidad de remuestreos bootstrap que queremos para nuestro modelo.
+
+```{r}
+spec_bagging <- bag_tree(
+  cost_complexity = NULL,
+  tree_depth = tune(),
+  min_n = tune()
+  ) %>%
+  set_engine("rpart", times = 25) %>% # VAMOS A ENSAMBLAR 25 ARBOLES (=25 MUESTRAS)
+  set_mode("classification")
+
+spec_bagging %>% translate()
+```
+
+Lo agregamos en el workflow.
+
+```{r}
+bag_wf <- wf %>%
+  add_model(spec_bagging)
+
+bag_wf
+```
+
+```{r}
+set.seed(123)
+
+bag_grid <- grid_regular(tree_depth(), 
+                          min_n(), 
+                          levels = 10)
+```
+
+```{r}
+# BLOQUE NUEVO
+
+# OTRA OPCIÓN ES DEFINIR LOS RANGOS DE CADA HP MANUALMENTE, ASÍ: 
+
+# bag_grid <- grid_regular(
+#  tree_depth(range = c(1, 20)),  # Definir un rango para tree_depth 
+#  min_n(range = c(1, 50)),       # Definir un rango para min_n
+# levels = 20                     
+# )
+```
+
+
+```{r}
+tree_depth()$range
+```
+
+```{r eval=FALSE, include=TRUE}
+
+# ACLARACIÓN: ESTE BLOQUE DE CODIGO CON LEVELS=20 TARDA 15MIN APROX. EN CORRER (RECOMENDAMOS CORRERLO DESPUES LA CLASE)
+
+bag_rs <- bag_wf %>% 
+  tune_grid(
+  resamples = folds, #uso los mismos folds que armé al comienzo
+  grid = bag_grid,
+  metrics = metric_set(precision, recall,
+                       roc_auc, f_meas))
+
+```
+
+```{r}
+# saveRDS(bag_rs, file = "./models/bagging_resamples.RDS") # ESTE ES EL CODIGO PARA GUARDAR EL MODELO
+#Les dejamos el detalle para poder replicar
+```
+
+
+```{r}
+# ESTE ARCHIVO ES EL RESULTADO DEL CODIGO ANTERIOR -- LO ABRIMOS!
+
+bag_rs <- readRDS('./models/bagging_resamples.RDS')
+```
+
+
+```{r}
+collect_metrics(bag_rs)
+```
+
+¿Cómo funcionó el modelo?
+
+```{r}
+autoplot(bag_rs)
+```
+
+Seleccionamos el mejor modelo en función del área bajo la curva ROC, y finalizamos el pipeline.
+
+```{r}
+bag_rs %>% 
+  show_best(metric = "roc_auc", n = 3)
+```
+
+```{r eval=FALSE, include=TRUE}
+best_model_bag <- select_best(bag_rs, metric = "roc_auc")
+
+final_model_bag <- finalize_model(spec_bagging, best_model_bag)
+```
+
+## Fit y exploración
+
+Fiteamos el modelo a nuestra muestra de entrenamiento.
+
+```{r eval=FALSE, include=TRUE}
+final_fit_bag <- bag_wf %>%
+  update_model(final_model_bag) %>%
+  fit(train)
+```
+
+¿Qué variables aparecen en este modelo?
+
+```{r}
+final_fit_bag # SINTESIS DE IMPORTANCIA DE VARIABLES (A NIVEL ENSAMBLE)
+```
+
+## Evaluación
+
+
+```{r}
+test_bag <- test %>%
+  bind_cols(
+    predict(final_fit_bag, new_data = ., type = "class"),
+    predict(final_fit_bag, new_data = ., type = "prob")
+  )
+```
+
+```{r}
+metrics_bagging <- roc_auc(test_bag, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(test_bag, truth = realiza_domest, estimate = .pred_class)) %>% 
+  mutate(modelo = "bagging")
+
+metrics_bagging
+```
+
+-   ROC AUC: 77%
+
+
+## Comparo modelos
+
+```{r}
+rbind(metrics_dt, metrics_bagging) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+```
+
+
+# Ensamble: Random Forest
+
+## Hiperparámetros
+
+Ahora, hay que generar el modelo de random forest. Esto lo hacemos con la función `rand_forest()`. Los hiperparámetros con los que vamos a jugar acá son:
+
+-   `trees`: define el número de árboles que se van a probar,
+-   `mtry`: la cantidad de variables que se van a probar en cada iteración
+-   `min_n`: mínima cantidad de observaciones que tiene que haber en cada nodo
+
+```{r}
+rf_spec <- rand_forest(
+  trees = 100,
+  mtry = tune(),
+  min_n = tune()
+  ) %>%
+  set_mode("classification") %>%
+  set_engine("ranger")
+  #set_engine("ranger", max.depth = 10)
+  #set_engine("ranger", max.depth = tune())
+
+```
+
+```{r}
+rf_tune_wf <- wf %>%
+   add_model(rf_spec)
+```
+
+
+```{r, eval = FALSE}
+doParallel::registerDoParallel()
+
+set.seed(123)
+
+tune_params_random <- tune_grid(rf_tune_wf,
+                          resamples = folds,
+                          grid = 20, # HAGO UNA PRIMERA BUSQUEDA DE HP CON VALORES RANDOM
+                          metrics = metric_set(precision, recall,
+                                             roc_auc, f_meas))
+
+```
+
+
+```{r}
+# saveRDS(tune_params_random, file = "./models/tune_params_random.RDS") # ESTE ES EL CODIGO PARA GUARDAR EL MODELO
+```
+
+
+```{r}
+# ESTE ARCHIVO ES EL RESULTADO DEL CODIGO ANTERIOR -- LO ABRIMOS! ;) 
+
+tune_params_random <- readRDS('./models/tune_params_random.RDS')
+```
+
+```{r}
+autoplot(tune_params_random) # ANALIZO LOS RESULTADOS: ¿QUE VALORES DE HP SE ASOCIAN A UNA MEJOR PERFORMANCE?
+```
+
+```{r, eval = FALSE}
+# BLOQUE NUEVO: AJUSTO LA OPTIMIZACIÓN EN LINEA AL PRIMER RESULTADO
+
+doParallel::registerDoParallel()
+
+#  El paquete doParallel permite distribuir tareas a varios núcleos de procesamiento (si tu computadora tiene varios) para # acelerar el proceso de optimización de HP.
+
+# DEFINO LOS VALORES QUE QUIERO PROBAR
+
+grid_vals <- expand_grid(
+   mtry = c(1,2,3,4),  # valores que quiero probar para mtry
+   min_n = c(30,40,50,60,70,80,90,100,150,200)  # valores que quiero probar para min_n
+ )
+
+
+tune_params_grid <- tune_grid(rf_tune_wf,
+                         resamples = folds,
+                         grid = grid_vals,
+                         metrics = metric_set(precision, recall,
+                                              roc_auc, f_meas))
+```
+
+```{r}
+autoplot(tune_params_grid)
+```
+
+```{r}
+tune_params_grid %>%
+  collect_metrics()
+```
+
+Grafiquemos los resultados.
+
+```{r}
+tune_params_grid %>% 
+  collect_metrics() %>%
+  filter(.metric == "roc_auc")%>%
+  ggplot(aes(x = mtry, y = min_n, color = mean))+
+  geom_point()+
+  scale_color_viridis_c()
+```
+
+Podemos ver que los valores más altos están asociados con un número de variables bajo y un número de muestras mínimas por partición más grande. ¿Cuál es el modelo que tiene mejor ROC?
+
+```{r}
+show_best(tune_params_grid, metric= "roc_auc")
+```
+
+
+## Finalización
+
+Terminemos el modelo. Elegimos la mejor combinación de hiperparámetros, y lo incorporamos a el objeto con el Random Forest para tunear.
+
+```{r}
+best_model_rf <- select_best(tune_params_grid, metric= "roc_auc")
+
+final_model_rf <- finalize_model(
+  rf_spec,
+  best_model_rf
+)
+
+final_model_rf
+```
+Lo incorporamos al workflow y fiteamos el modelo. 
+
+```{r}
+tree_rf <- wf %>%
+  add_model(final_model_rf) %>% 
+  fit(train)
+```
+
+
+## Evaluación
+
+```{r}
+test_rf <- test %>%
+  bind_cols(
+    predict(tree_rf, new_data = ., type = "class"),
+    predict(tree_rf, new_data = ., type = "prob")
+  )
+```
+
+```{r}
+metrics_random <- roc_auc(test_rf, truth = realiza_domest, ".pred_No realiza") %>% 
+  bind_rows(., class_metrics(test_rf, truth = realiza_domest, estimate = .pred_class)) %>% 
+  mutate(modelo = "random_forest")
+
+metrics_random
+```
+
+¿Cómo son los resultados en comparación con los otros modelos?
+
+```{r}
+rbind(metrics_dt, metrics_bagging, metrics_random) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = modelo))+
+  geom_col(position = "dodge")+
+  scale_fill_viridis_d()+
+  theme_minimal()
+```
